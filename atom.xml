@@ -61,6 +61,29 @@
   </entry>
   
   <entry>
+    <title>http</title>
+    <link href="http://yoursite.com/2018/03/19/http/"/>
+    <id>http://yoursite.com/2018/03/19/http/</id>
+    <published>2018-03-19T12:22:51.000Z</published>
+    <updated>2018-03-25T18:49:03.061Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="http"><a href="#http" class="headerlink" title="http"></a>http</h3><h4 id="主要特点"><a href="#主要特点" class="headerlink" title="主要特点"></a>主要特点</h4><p>简单快速，灵活，无连接，无状态</p><p>简单快速: 只需传送请求方法和路径。<br>灵活: HTTP允许传输任意类型的数据对象。<br>无连接: 每次连接只处理一个请求。<br>无状态: HTTP协议是无状态协议，无状态是指对于事物处理没有记忆能力。</p><h4 id="请求消息-Request"><a href="#请求消息-Request" class="headerlink" title="请求消息 Request"></a>请求消息 Request</h4><p>请求行 请求头 空行 请求体</p><h4 id="响应消息-Response"><a href="#响应消息-Response" class="headerlink" title="响应消息 Response"></a>响应消息 Response</h4><p>状态行 响应头 空行 响应体</p><h4 id="请求方式"><a href="#请求方式" class="headerlink" title="请求方式"></a>请求方式</h4><p>GET,POST,PUT,DELETE,HEAD</p><p>get与post区别</p><p>get浏览器后退是无害的，POST会再次提交请求<br>get产生的url可以被浏览器收藏，post不可以<br>get参数数据体积小1kb,post数据体积大2M<br>get参数会携带url中，post不会<br>安全性 post请求比get请求安全</p><h4 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h4><p>1xx 请求已被接收，继续处理<br>200 请求成功<br>3xx 重定向<br>301 永久重定向<br>302 临时重定向<br>303 临时重定向，指定GET方法<br>304 服务器数据没变 ，重定向到请求缓存<br>4xx 服务器错误<br>5xx 客户端错误</p><h4 id="HTTP工作原理"><a href="#HTTP工作原理" class="headerlink" title="HTTP工作原理"></a>HTTP工作原理</h4><p>(输入url获取页面的过程)</p><p>浏览器根据DNS服务器获得ip地址<br>向这个IP地址发送HTTP请求<br>服务器收到处理并返回HTTP请求<br>浏览器得到返回内容</p><h4 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h4><pre><code>1. https协议需要到CA申请证书，要交费2. http协议运行在TCP之上，所以传输的内容都是明文   HTTPS运行在ssl/TLS之上，SSL/TLS运行在TCP之上，所传输的内容都是经过加密的3. HTTP 80端口 HTTPS 443端口4. HTTPS可以解决运营商劫持问题</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;http&quot;&gt;&lt;a href=&quot;#http&quot; class=&quot;headerlink&quot; title=&quot;http&quot;&gt;&lt;/a&gt;http&lt;/h3&gt;&lt;h4 id=&quot;主要特点&quot;&gt;&lt;a href=&quot;#主要特点&quot; class=&quot;headerlink&quot; title=&quot;主要特点&quot;&gt;&lt;/a
+      
+    
+    </summary>
+    
+    
+      <category term="http" scheme="http://yoursite.com/tags/http/"/>
+    
+  </entry>
+  
+  <entry>
     <title>automation</title>
     <link href="http://yoursite.com/2018/03/09/automation/"/>
     <id>http://yoursite.com/2018/03/09/automation/</id>
@@ -104,6 +127,26 @@
     
     
       <category term="safe" scheme="http://yoursite.com/tags/safe/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>css_layout</title>
+    <link href="http://yoursite.com/2018/03/08/css-layout/"/>
+    <id>http://yoursite.com/2018/03/08/css-layout/</id>
+    <published>2018-03-07T16:11:08.000Z</published>
+    <updated>2018-03-25T18:51:30.246Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Layout"><a href="#Layout" class="headerlink" title="Layout"></a>Layout</h3><a id="more"></a><h4 id="两列布局"><a href="#两列布局" class="headerlink" title="两列布局"></a>两列布局</h4><h5 id="左侧固定右侧自适应"><a href="#左侧固定右侧自适应" class="headerlink" title="左侧固定右侧自适应"></a>左侧固定右侧自适应</h5><pre><code>1. 左浮动/左absolute，右overflow:hidden;2. 左浮动/左absolute，右margin-left: left_width; // =&gt; 右侧固定左侧自适应，就不行了3. 左浮动/左absolute，右absolute4. display:flex; 左width:width;右flex:1; table</code></pre><h4 id="三列布局"><a href="#三列布局" class="headerlink" title="三列布局"></a>三列布局</h4><pre><code>1. </code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Layout&quot;&gt;&lt;a href=&quot;#Layout&quot; class=&quot;headerlink&quot; title=&quot;Layout&quot;&gt;&lt;/a&gt;Layout&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="layout" scheme="http://yoursite.com/tags/layout/"/>
     
   </entry>
   
@@ -154,6 +197,29 @@
   </entry>
   
   <entry>
+    <title>react-router</title>
+    <link href="http://yoursite.com/2018/02/28/react-router/"/>
+    <id>http://yoursite.com/2018/02/28/react-router/</id>
+    <published>2018-02-27T17:55:30.000Z</published>
+    <updated>2018-03-25T18:47:30.341Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="react-router"><a href="#react-router" class="headerlink" title="react-router"></a>react-router</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">import &#123;  hashHistory  ,Router, Route, IndexRoute,Link &#125; from <span class="string">'react-router'</span></div><div class="line">&lt;Router <span class="built_in">history</span>=&#123;hashHistory&#125;&gt; //<span class="built_in">hash</span></div><div class="line">     &lt;Route path=<span class="string">'/'</span> component=&#123;App&#125;&gt;</div><div class="line">       &lt;IndexRoute component=&#123;Player&#125; /&gt;</div><div class="line">       &lt;Route path=<span class="string">'/list'</span> component=&#123;Musiclist&#125;&gt;&lt;/Route&gt;</div><div class="line">     &lt;/Route&gt;</div><div class="line">   &lt;/Router&gt;</div></pre></td></tr></table></figure><p>参数传递 </p><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;Route path=<span class="string">'/list/:id'</span> component=&#123;Musiclist&#125;&gt;&lt;/Route&gt;</div></pre></td></tr></table></figure><p>   引用： this.props.params.id</p><p>Link链接跳转:</p><pre><code>&lt;Link to=&apos;/list&apos;&gt;我的私人音乐坊 &amp;qt;&lt;/Link&gt;</code></pre><h3 id="react-router-dom"><a href="#react-router-dom" class="headerlink" title="react-router-dom"></a>react-router-dom</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">import &#123;Route,BrowserRouter,Switch,HashRouter&#125; from <span class="string">'react-router-dom'</span>;</div><div class="line">&lt;HashRouter&gt;</div><div class="line">  &lt;Switch&gt;</div><div class="line">    &lt;Route exact path=<span class="string">"/"</span> component=&#123;MobileIndex&#125;&gt;&lt;/Route&gt;</div><div class="line">    &lt;Route path=<span class="string">"/details/:uniquekey"</span> component=&#123;MobileNewsDetails&#125;&gt;&lt;/Route&gt;</div><div class="line">    &lt;Route path=<span class="string">"/usercenter"</span> component=&#123;mobileUserCenter&#125;&gt;&lt;/Route&gt;</div><div class="line">  &lt;/Switch&gt;</div><div class="line">&lt;/HashRouter&gt;</div></pre></td></tr></table></figure><p>react-router与react-router-dom<br>没什么大区别,后者更适合移动端,喜欢哪个都可以。</p><p>React Router for WEB，一般我们前端就用这个包来进行WEB开发了，提供包括上述react-router相关的组件和方法以外还有如下接口：<br>BrowserRouter HashRouter Link NavLink</p><h4 id="BrowserRouter-HashRouter"><a href="#BrowserRouter-HashRouter" class="headerlink" title="BrowserRouter HashRouter"></a>BrowserRouter HashRouter</h4><ol><li>HashRouter 跳转相同路由(不同query/hash)的url,会报错。</li></ol><h4 id="页面刷新"><a href="#页面刷新" class="headerlink" title="页面刷新"></a>页面刷新</h4><pre><code>Update(){  Component.forceUpdate();}onClick={this.Update.bind(this)}</code></pre><h4 id="返回-上一级"><a href="#返回-上一级" class="headerlink" title="返回 上一级"></a>返回 上一级</h4><pre><code>back(){  window.history.back();}</code></pre><h4 id="锚点跳转"><a href="#锚点跳转" class="headerlink" title="锚点跳转"></a>锚点跳转</h4><pre><code>scrollToAnchor = (anchorName) =&gt; {    if (anchorName) {        let anchorElement = document.getElementById(anchorName.Item);        if(anchorElement) { anchorElement.scrollIntoView(); }    }}onClick={()=&gt;this.scrollToAnchor({id})}</code></pre><h4 id="页面跳转-滚动条问题"><a href="#页面跳转-滚动条问题" class="headerlink" title="页面跳转 滚动条问题"></a>页面跳转 滚动条问题</h4><pre><code>window.scrollTo(0,0)</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;react-router&quot;&gt;&lt;a href=&quot;#react-router&quot; class=&quot;headerlink&quot; title=&quot;react-router&quot;&gt;&lt;/a&gt;react-router&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;t
+      
+    
+    </summary>
+    
+    
+      <category term="react" scheme="http://yoursite.com/tags/react/"/>
+    
+  </entry>
+  
+  <entry>
     <title>match</title>
     <link href="http://yoursite.com/2018/02/27/match/"/>
     <id>http://yoursite.com/2018/02/27/match/</id>
@@ -173,6 +239,31 @@
     
     
       <category term="RegExp" scheme="http://yoursite.com/tags/RegExp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>fetch</title>
+    <link href="http://yoursite.com/2018/02/25/fetch/"/>
+    <id>http://yoursite.com/2018/02/25/fetch/</id>
+    <published>2018-02-24T17:50:57.000Z</published>
+    <updated>2018-03-25T18:49:50.478Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="fetch"><a href="#fetch" class="headerlink" title="fetch"></a>fetch</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fetch(<span class="string">'/url/'</span>,&#123;method:<span class="string">'GET'</span>&#125;)</div><div class="line">.<span class="keyword">then</span>(response =&gt; response.json())</div><div class="line">.<span class="keyword">then</span>(json =&gt; this.setState(&#123;data:json&#125;))</div></pre></td></tr></table></figure><h4 id="poiyfill"><a href="#poiyfill" class="headerlink" title="poiyfill"></a>poiyfill</h4><pre><code>fetch是基于Promise设计的，所以不兼容 IE8及以下可以下载 isomorphic-fetch和whatwg-fetch</code></pre><h4 id="jsonp"><a href="#jsonp" class="headerlink" title="jsonp"></a>jsonp</h4><pre><code>fetch不支持jsonp可以用 fetch-jsonp npm install fetch-jsonp --save-devfetchJsonp(&apos;/users.jsonp&apos;, {    timeout: 3000,    jsonpCallback: &apos;custom_callback&apos;  })  .then(function(response) {    return response.json()  }).catch(function(ex) {    console.log(&apos;parsing failed&apos;, ex)  })</code></pre><h4 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h4><pre><code>fetch的mode有3个值same=&gt;该模式是不允许跨域的，它需要遵守同源策略，否则浏览器会返回一个error告知不能跨域；其对应的response type为basic。cors: 该模式支持跨域请求，顾名思义它是以CORS的形式跨域；当然该模式也可以同域请求不需要后端额外的CORS支持；其对应的response type为cors。no-cors: 该模式用于跨域请求但是服务器不带CORS响应头，也就是服务端不支持CORS；这也是fetch的特殊跨域请求方式；其对应的response type为opaque。 // 后台可以看到数据，但是访问不到内容 =&gt; 该模式允许浏览器发送本次跨域请求，但是不能访问响应返回的内容，这也是其response type为opaque透明的原因。</code></pre><h5 id="proxy-重定向"><a href="#proxy-重定向" class="headerlink" title="proxy 重定向"></a>proxy 重定向</h5><pre><code>可以 在package.json里添加&quot;proxy&quot;: {  &quot;/api&quot;: {    &quot;target&quot;: &quot;http://localhost:4000&quot;,    &quot;secure&quot;: false  }}</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;fetch&quot;&gt;&lt;a href=&quot;#fetch&quot; class=&quot;headerlink&quot; title=&quot;fetch&quot;&gt;&lt;/a&gt;fetch&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="ajax" scheme="http://yoursite.com/tags/ajax/"/>
+    
+      <category term="fetch" scheme="http://yoursite.com/tags/fetch/"/>
     
   </entry>
   
@@ -223,6 +314,53 @@
   </entry>
   
   <entry>
+    <title>es6</title>
+    <link href="http://yoursite.com/2018/02/21/es6/"/>
+    <id>http://yoursite.com/2018/02/21/es6/</id>
+    <published>2018-02-20T18:05:51.000Z</published>
+    <updated>2018-03-25T18:50:33.575Z</updated>
+    
+    <content type="html"><![CDATA[<p>搭建环境 // ok<br>写页面   // ok<br>js       // </p><h3 id="es6"><a href="#es6" class="headerlink" title="es6"></a>es6</h3><p>es6 默认就是 严格模式 ‘use strict’</p><h4 id="let-const"><a href="#let-const" class="headerlink" title="let const"></a>let const</h4><h5 id="let"><a href="#let" class="headerlink" title="let"></a>let</h5><p>{} 内的变量只有在{}内部才有效,且不能重复声明</p><h5 id="const"><a href="#const" class="headerlink" title="const"></a>const</h5><p>const 声明值类型 只读,引用类型可变,且必须赋值</p><h4 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h4><p>解构赋值：左边一种结构，右边一种结构，一一对应赋值</p><h5 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h5><p>数组解构赋值 对象解构赋值 字符串解构赋值 布尔值解构赋值 函数参数解构赋值 数组解构赋值</p><h6 id="数组解构赋值"><a href="#数组解构赋值" class="headerlink" title="数组解构赋值"></a>数组解构赋值</h6><ol><li>支持默认值 // [a,b=3];</li><li>…只能用在最后一个参数，表示 其他的元素组成一个数组</li><li>，表示空缺的元素</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"><span class="built_in">let</span> a,b,rest;</div><div class="line">[a,b] = [1,2] //1,2</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#123;</div><div class="line">  <span class="built_in">let</span> a,b,rest;</div><div class="line">  [a,b,...rest]=[1,2,3,4,5,6];</div><div class="line">  console.log(a,b,rest); // 1,2,[3,4,5,6]</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#123;</div><div class="line">  <span class="built_in">let</span> a,b,c,rest;</div><div class="line">  [a,b,c=3]=[1,2];</div><div class="line">  console.log(a,b,c); // 1,2,3</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#123;</div><div class="line">  <span class="built_in">let</span> a=1;</div><div class="line">  <span class="built_in">let</span> b=2;</div><div class="line">  [a,b]=[b,a];</div><div class="line">  console.log(a,b); // 2,1 =&gt;数值交换</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#123;</div><div class="line">  <span class="keyword">function</span> <span class="function"><span class="title">f</span></span>()&#123;</div><div class="line">    <span class="built_in">return</span> [1,2]</div><div class="line">  &#125;</div><div class="line">  <span class="built_in">let</span> a,b;</div><div class="line">  [a,b]=f();</div><div class="line">  console.log(a,b);</div><div class="line">&#125;</div></pre></td></tr></table></figure><h5 id="对象解构赋值"><a href="#对象解构赋值" class="headerlink" title="对象解构赋值"></a>对象解构赋值</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="built_in">let</span> a,b;</div><div class="line">  (&#123;a,b&#125;=&#123;a:1,b:2&#125;)</div><div class="line">  console.log(a,b); //1,2</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#123;</div><div class="line">  <span class="keyword">function</span> <span class="function"><span class="title">f</span></span>()&#123;</div><div class="line">    <span class="built_in">return</span> [1,2]</div><div class="line">  &#125;</div><div class="line">  <span class="built_in">let</span> a,b;</div><div class="line">  [a,b]=f();</div><div class="line">  console.log(a,b); //1,2</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#123;</div><div class="line">  <span class="built_in">let</span> &#123;a=10,b=5&#125;=&#123;a:3&#125;;</div><div class="line">  console.log(a,b); //3,5</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#123;</div><div class="line">  <span class="built_in">let</span> metaData=&#123;</div><div class="line">    title:<span class="string">'abc'</span>,</div><div class="line">    <span class="built_in">test</span>:[&#123;</div><div class="line">      title:<span class="string">'test'</span>,</div><div class="line">      desc:<span class="string">'description'</span></div><div class="line">    &#125;]</div><div class="line">  &#125;</div><div class="line">  <span class="built_in">let</span> &#123;title:esTitle,<span class="built_in">test</span>:[&#123;title:cnTitle&#125;]&#125;=metaData;</div><div class="line">  console.log(esTitle,cnTitle); // <span class="string">'abc'</span>,<span class="built_in">test</span></div></pre></td></tr></table></figure><h4 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h4><h5 id="修饰符-i"><a href="#修饰符-i" class="headerlink" title="修饰符 i"></a>修饰符 i</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> regex3 = new RegExp(/abc/ig, <span class="string">'i'</span>);</div><div class="line">console.log(regex3.flags); // i</div></pre></td></tr></table></figure><h5 id="修饰符-g-y"><a href="#修饰符-g-y" class="headerlink" title="修饰符 g/y"></a>修饰符 g/y</h5><pre><code>g =&gt; 全局查找 从上一次匹配的位置继续寻找直到找到匹配的位置开始，不一定是第一个就匹配上y =&gt; 全局查找 但是 必须是匹配成后紧跟着的第一个字符就要匹配成功才算</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    // y修饰符</div><div class="line">    <span class="built_in">let</span> s = <span class="string">'bbbb_bbb_bb_b'</span>;</div><div class="line">    var a1 = /b+/g;</div><div class="line">    var a2 = /b+/y;</div><div class="line"></div><div class="line">    console.log(a1.exec(s), a2.exec(s)); // [<span class="string">"bbbb"</span>],[<span class="string">"bbbb"</span>]</div><div class="line">    console.log(a1.exec(s), a2.exec(s)); // [<span class="string">"bbb"</span>],null</div><div class="line"></div><div class="line">    console.log(a1.sticky, a2.sticky); //表示是否开启了粘连模式  <span class="literal">false</span> <span class="literal">true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure><h5 id="修饰符-u"><a href="#修饰符-u" class="headerlink" title="修饰符 u"></a>修饰符 u</h5><pre><code>1. Unicode字符 要加上 u 才可以识别2. . 不能识别 大于 0xffff(即两个字符)的Unicode 字符,必须加上 u 修饰3. 量词大于 0xffff 要用 u 修饰</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    console.log(<span class="string">'u修饰符'</span>,/^\uD83D/.<span class="built_in">test</span>(<span class="string">'\uD83D\uDC2A'</span>)); // <span class="literal">true</span></div><div class="line">    console.log(<span class="string">'u修饰符'</span>,/^\uD83D/u.test(<span class="string">'\uD83D\uDC2A'</span>)); // <span class="literal">false</span></div><div class="line">    // 大括号表示Unicode字符，只有加上u才能识别</div><div class="line">    console.log(/\u&#123;61&#125;/.<span class="built_in">test</span>(<span class="string">'a'</span>)); // <span class="literal">false</span></div><div class="line">    console.log(/\u&#123;61&#125;/u.test(<span class="string">'a'</span>)); // <span class="literal">true</span></div><div class="line">    console.log(/\u&#123;20BB7&#125;/u.test(<span class="string">'𠮷'</span>)); // <span class="literal">true</span></div><div class="line">    // 点（.）字符不能识别码点大于0xFFFF(两个字符)的Unicode字符，必须加上u修饰符。</div><div class="line">    <span class="built_in">let</span> s = <span class="string">'𠮷'</span>;</div><div class="line">    console.log(<span class="string">'大于0xFFFF的Unicode字符'</span>,/^.$/.<span class="built_in">test</span>(s)); // <span class="literal">false</span></div><div class="line">    console.log(<span class="string">'使用u字符'</span>,/^.$/u.test(s)); // <span class="literal">true</span></div><div class="line"></div><div class="line">    // 使用u修饰符后，所有量词都会正确识别大于码点大于0xFFFF的Unicode字符。</div><div class="line">    console.log(<span class="string">'量词'</span>,/a&#123;2&#125;/.<span class="built_in">test</span>(<span class="string">'aa'</span>)); // <span class="literal">true</span></div><div class="line">    console.log(<span class="string">'量词'</span>,/a&#123;2&#125;/u.test(<span class="string">'aa'</span>)); // <span class="literal">true</span></div><div class="line">    console.log(<span class="string">'量词'</span>,/𠮷&#123;2&#125;/.<span class="built_in">test</span>(<span class="string">'𠮷𠮷'</span>)); // <span class="literal">false</span></div><div class="line">    console.log(<span class="string">'量词'</span>,/𠮷&#123;2&#125;/u.test(<span class="string">'𠮷𠮷'</span>)); // <span class="literal">true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure><h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><ol><li><p>大于0xffff 要用{}</p><p> {<br>   console.log(‘a’,<code>\u0061</code>);    //a<br>   console.log(‘s’,<code>\u20BB7</code>);   // ₻7<br>   console.log(‘s’,<code>\u{20BB7}</code>); //𠮷<br> }</p></li><li><p>codePointAt</p><p> {<br>   let s=’𠮷’;<br>   console.log(‘length’,s.length);<br>   console.log(‘0’,s.charAt(0));<br>   console.log(‘1’,s.charAt(1));<br>   console.log(‘at0’,s.charCodeAt(0));<br>   console.log(‘at1’,s.charCodeAt(1));</p><p>   let s1=’𠮷a’;<br>   console.log(‘length’,s1.length);                     // 3<br>   console.log(‘code0’,s1.codePointAt(0));              // 134071 =&gt; 全部的Unicode(占4个字符)<br>   console.log(‘code0’,s1.codePointAt(0).toString(16)); //20bb7<br>   console.log(‘code1’,s1.codePointAt(1));<br>   console.log(‘code2’,s1.codePointAt(2));<br> }</p></li><li><p>fromCodePoint 可以超过 0xffff fromCharCode 不能</p><p> {<br>   console.log(String.fromCharCode(“0x20bb7”));   // ஷ<br>   console.log(String.fromCodePoint(“0x20bb7”));  // 𠮷<br> }</p></li><li><p>let of</p><p> {<br>   let str=’\u{20bb7}abc’;<br>   for(let i=0;i&lt;str.length;i++){</p><pre><code>console.log(&apos;es5&apos;,str[i]); // � � a b c</code></pre><p>   }<br>   for(let code of str){</p><pre><code>console.log(&apos;es6&apos;,code); // 𠮷 a b c </code></pre><p>   }<br> }</p></li><li><p>包含 头部 尾部 重复</p></li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="built_in">let</span> str=<span class="string">"string"</span>;</div><div class="line">  console.log(<span class="string">'includes'</span>,str.includes(<span class="string">"c"</span>));  // <span class="literal">false</span></div><div class="line">  console.log(<span class="string">'start'</span>,str.startsWith(<span class="string">'str'</span>)); // <span class="literal">true</span></div><div class="line">  console.log(<span class="string">'end'</span>,str.endsWith(<span class="string">'ng'</span>));      // <span class="literal">true</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">&#123;</div><div class="line">  <span class="built_in">let</span> str=<span class="string">"abc"</span>;</div><div class="line">  console.log(str.repeat(2)); // abcabc</div><div class="line">&#125;</div></pre></td></tr></table></figure><ol><li><p>拼接 </p><p> {<br>   let name=”list”;<br>   let info=”hello world”;<br>   let m=<code>i am ${name},${info}</code>;<br>   console.log(m);  // i am list,hello world<br> }</p></li><li><p>补充</p><p> {<br>   console.log(‘1’.padStart(2,’0’)); // 01<br>   console.log(‘1’.padEnd(2,’0’));   // 10<br> }</p></li><li><p>String.raw 不换行 与 。。。</p><p> {<br>   let user={</p><pre><code>name:&apos;list&apos;,info:&apos;hello world&apos;</code></pre><p>   };<br>   console.log(abc<code>i am ${user.name},${user.info}</code>);<br>   function abc(s,v1,v2){</p><pre><code>console.log(s,v1,v2);return s+v1+v2</code></pre><p>   }<br> }</p><p> {<br>   console.log(String.raw<code>Hi\n${1+2}</code>); // 不换行<br>   console.log(<code>Hi\n${1+2}</code>);<br> }</p></li></ol><h4 id="数值扩展"><a href="#数值扩展" class="headerlink" title="数值扩展"></a>数值扩展</h4><pre><code>ob/oB =&gt; 二进制开头Oo    =&gt; 八进制开头Number.isFinite 判断又穷Number.isNaN 判断是否为数Number.isInteger 判断是否为整数Number.isSafeInteger 判断是否安全Math.trunc 只取整数部分(Math.floor 向下取整,负数时有区别)   Math.sign 判断是否为整数 -1,0,1,NaNMath.cbrt 立方根</code></pre><h4 id="数组扩展"><a href="#数组扩展" class="headerlink" title="数组扩展"></a>数组扩展</h4><pre><code>Array.of() 转成数组Array.from() 将nodeList 转成数组[].fill(content,start,end) 前闭后开[].copyWithin(target,start,end)前闭后开[].find 返回第一个符合条件的value[].findIndex 返回第一个符合条件的Index[].includes(content) 是否包含content   for(let index of [&apos;1&apos;,&apos;c&apos;,&apos;ks&apos;].keys()){    console.log(&apos;keys&apos;,index); // 0,1,2  }  for(let value of [&apos;1&apos;,&apos;c&apos;,&apos;ks&apos;].values()){    console.log(&apos;values&apos;,value); // 1,c,ks  }  for(let [index,value] of [&apos;1&apos;,&apos;c&apos;,&apos;ks&apos;].entries()){    console.log(&apos;values&apos;,index,value); // 0,1 1,c 2 ks  }</code></pre><h4 id="函数扩展"><a href="#函数扩展" class="headerlink" title="函数扩展"></a>函数扩展</h4><pre><code>默认值 设置默认值的参数后面参数不能没有默认值...arg 扩展参数...[1,2,3] 展开数组箭头函数 let arrow = v =&gt; v*2; 伪调用 提升性能 代替递归</code></pre><h4 id="对象扩展"><a href="#对象扩展" class="headerlink" title="对象扩展"></a>对象扩展</h4><pre><code>简洁表示法 let o=1;let es6={o}; es6=&gt; {o:1}属性表达式 let a =&apos;b&apos;;let es6 = {[a]:&apos;c&apos;}; es6=&gt;{b:&apos;c&apos;}Object.is(a,b) a===bObject.assign{({},{....}} 浅拷贝Object.entries 同 Array.entries扩展运算符let {a,b,...c}={a:&apos;test&apos;,b:&apos;kill&apos;,c:&apos;ddd&apos;,d:&apos;ccc&apos;};</code></pre><h4 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h4><pre><code>1.声明唯一变量2.Symbol.for() 不唯一3.Symbol.for()可以与{}中的属性重复  let a1=Symbol.for(&apos;abc&apos;);  let obj={    [a1]:&apos;123&apos;,    &apos;abc&apos;:345,    &apos;c&apos;:456  };  console.log(&apos;obj&apos;,obj);  // {abc: 345, c: 456, Symbol(abc): &quot;123&quot;}4. 怎样查找带有Symbol项的obj      for(let [key,value] of Object.entries(obj)){        console.log(&apos;let of&apos;,key,value);      }      Object.getOwnPropertySymbols(obj).forEach(function(item){        console.log(obj[item]);      })      Reflect.ownKeys(obj).forEach(function(item){        console.log(&apos;ownkeys&apos;,item,obj[item]);      })</code></pre><h4 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h4><pre><code>Set WeakSet Map WeakMap</code></pre><h5 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h5><pre><code>类似数组 但是 成员的值都是唯一的，没有重复。可以用来 去重，但是类型不同不会去重。  // 去除数组的重复成员  [...new Set(array)]长度 .size方法 add delete clear has 获取值 .keys .values .entries .forEachnew Set(content) content 必须为数组或类数组</code></pre><h5 id="weakSet"><a href="#weakSet" class="headerlink" title="weakSet"></a>weakSet</h5><pre><code>weakSet的元素只能是对象,对象是弱引用，引用地址。不会检测这个对象是否在其他地方用过。因此WeakSet是不可遍历的</code></pre><h5 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h5><pre><code>值-值 的对应 各种类型的值(包括对象)都可以当做键Map.set() Map.get()方法 add delete clear has </code></pre><h4 id="set-map-array-obj-增删改查"><a href="#set-map-array-obj-增删改查" class="headerlink" title="set map array obj 增删改查"></a>set map array obj 增删改查</h4><pre><code>let set = new Set();let map = new Map();let arr = [];let obj={};// 增set.add({&apos;t&apos;:1});map.set(&apos;t&apos;,1);arr.push({t:1});obj[&apos;t&apos;]=1;// 删set.forEach(item=&gt;item.t?item.t=2:&apos;&apos;);map.delete(&apos;t&apos;);let index = arr.findIndex(item=&gt;item.t);arr.splice(index,1);delete obj[&apos;t&apos;];// 改map.set(&apos;t&apos;,2);set.forEach(item=&gt;item.t?item.t=2:&apos;&apos;)arr.forEach(item=&gt;item.t?item.t=2:&apos;&apos;);  // .map()也可以obj.t=2;// 查map.has(&apos;t&apos;);set.has(Item);  Item ==&gt; {t:1} 并且一定要 set.add(I)才可以 set.add({t:1})不行arr.find(item=&gt;item.t);&apos;t&apos; in obj</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;搭建环境 // ok&lt;br&gt;写页面   // ok&lt;br&gt;js       // &lt;/p&gt;
+&lt;h3 id=&quot;es6&quot;&gt;&lt;a href=&quot;#es6&quot; class=&quot;headerlink&quot; title=&quot;es6&quot;&gt;&lt;/a&gt;es6&lt;/h3&gt;&lt;p&gt;es6 默认就是 严格模式 ‘us
+      
+    
+    </summary>
+    
+    
+      <category term="es6" scheme="http://yoursite.com/tags/es6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mock</title>
+    <link href="http://yoursite.com/2018/02/13/mock/"/>
+    <id>http://yoursite.com/2018/02/13/mock/</id>
+    <published>2018-02-13T09:18:40.000Z</published>
+    <updated>2018-03-25T18:46:39.706Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="mock总结"><a href="#mock总结" class="headerlink" title="mock总结"></a>mock总结</h3><h4 id="简单的重定向-proxy"><a href="#简单的重定向-proxy" class="headerlink" title="简单的重定向 proxy"></a>简单的重定向 proxy</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="string">"proxy"</span>: &#123;</div><div class="line">  <span class="string">"/api"</span>: &#123;</div><div class="line">    <span class="string">"target"</span>: <span class="string">"https://localhost:3000/"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;mock总结&quot;&gt;&lt;a href=&quot;#mock总结&quot; class=&quot;headerlink&quot; title=&quot;mock总结&quot;&gt;&lt;/a&gt;mock总结&lt;/h3&gt;&lt;h4 id=&quot;简单的重定向-proxy&quot;&gt;&lt;a href=&quot;#简单的重定向-proxy&quot; class=&quot;head
+      
+    
+    </summary>
+    
+    
+      <category term="mock" scheme="http://yoursite.com/tags/mock/"/>
+    
+  </entry>
+  
+  <entry>
     <title>hawk</title>
     <link href="http://yoursite.com/2018/02/06/hawk/"/>
     <id>http://yoursite.com/2018/02/06/hawk/</id>
@@ -241,6 +379,52 @@
     
     </summary>
     
+    
+  </entry>
+  
+  <entry>
+    <title>Dom</title>
+    <link href="http://yoursite.com/2018/02/04/Dom/"/>
+    <id>http://yoursite.com/2018/02/04/Dom/</id>
+    <published>2018-02-04T07:42:47.000Z</published>
+    <updated>2018-03-25T18:46:01.004Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Dom操作"><a href="#Dom操作" class="headerlink" title="Dom操作"></a>Dom操作</h3><h4 id="上下遍历"><a href="#上下遍历" class="headerlink" title="上下遍历"></a>上下遍历</h4><p>Node.parentNode,Node.childNodes,Node.firstChild,Node.lastNode.</p><h4 id="左右遍历"><a href="#左右遍历" class="headerlink" title="左右遍历"></a>左右遍历</h4><p>Node.previousSibling,Node.nextSibling.</p><h4 id="Node操作"><a href="#Node操作" class="headerlink" title="Node操作"></a>Node操作</h4><p>添加 Node.appendChild()<br>删除 Node.removeChild()<br>复制 Node.clone(boolean) =&gt;true 深度克隆 false 只克隆标签<br>创建 document.createElement()<br>选择 =&gt;document.getElementById(),getElementsByClassName(),getElementsByTagName(),querySelector</p><h5 id="getElement-s-By…与querySelector的区别"><a href="#getElement-s-By…与querySelector的区别" class="headerlink" title="getElement(s)By…与querySelector的区别"></a>getElement(s)By…与querySelector的区别</h5><p>1.性能：getElement(s)By…的性能要比querySelector快很多。<br>2.querySelector选择出来的是静态的，getElement选出来的是动态的=&gt;比如动态生成的元素可以用querySelector给每一个该对象生成方法。(新建文件夹)</p><h4 id="class操作"><a href="#class操作" class="headerlink" title="class操作"></a>class操作</h4><p>elem.className<br>elem.classList=&gt;add(class),remove(class),contains(class),item(index),toggle(class,boolean)。</p><h4 id="document-fragments"><a href="#document-fragments" class="headerlink" title="document fragments"></a>document fragments</h4><p>dom批量操作要用createDocumentFragment()</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var docFragment = document.createDocumentFragment();</div><div class="line"></div><div class="line"><span class="keyword">for</span> (var i = counts; i &gt; 0; i--) &#123;</div><div class="line">    var node = document.createElement(<span class="string">'p'</span>);</div><div class="line">    var node_text = document.createTextNode(i + <span class="string">', hehe'</span>);</div><div class="line"></div><div class="line">    node.appendChild(node_text);</div><div class="line"></div><div class="line">    docFragment.appendChild(node);</div><div class="line">&#125;</div><div class="line"></div><div class="line">document.body.appendChild(docFragment);</div></pre></td></tr></table></figure><h4 id="innerHTML"><a href="#innerHTML" class="headerlink" title="innerHTML"></a>innerHTML</h4><p>也可以<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var d= document.createElement(<span class="string">'div'</span>);</div><div class="line">var html=<span class="string">""</span>;</div><div class="line"><span class="keyword">for</span> (var i = counts; i &gt; 0; i--) &#123;</div><div class="line">html += <span class="string">'&lt;p&gt;i+'</span> hehe<span class="string">'&lt;/p&gt;'</span>;</div><div class="line">&#125;</div><div class="line">d.innerHTMl = html;</div><div class="line">document.body.appendChild(d);</div></pre></td></tr></table></figure></p><p>总结：innerHTML与createDocumentFragment 都比createElement和append占优势，少量数据时innerHTml最优，多数据或者改数据createDocumentFragment最优</p><p>但是innerHTML还有两个缺点：</p><p>1.如果你在原来的子元素上绑定了事件的话，重写后事件绑定仍然还在<br>2.js代码和html代码耦合程度高，不利于维护</p><h5 id="innertext-gt-不包括标签"><a href="#innertext-gt-不包括标签" class="headerlink" title="innertext =&gt; 不包括标签"></a>innertext =&gt; 不包括标签</h5>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Dom操作&quot;&gt;&lt;a href=&quot;#Dom操作&quot; class=&quot;headerlink&quot; title=&quot;Dom操作&quot;&gt;&lt;/a&gt;Dom操作&lt;/h3&gt;&lt;h4 id=&quot;上下遍历&quot;&gt;&lt;a href=&quot;#上下遍历&quot; class=&quot;headerlink&quot; title=&quot;上下遍历&quot;
+      
+    
+    </summary>
+    
+    
+      <category term="js" scheme="http://yoursite.com/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>context</title>
+    <link href="http://yoursite.com/2018/02/04/context/"/>
+    <id>http://yoursite.com/2018/02/04/context/</id>
+    <published>2018-02-04T02:21:28.000Z</published>
+    <updated>2018-03-25T18:51:06.105Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="context执行上下文"><a href="#context执行上下文" class="headerlink" title="context执行上下文"></a>context执行上下文</h3><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p>当前代码的运行环境或者作用域</p><p>js中代码的运行环境分为以下三种：</p><pre><code>全局级别的代码-这个是默认的代码运行环境，一旦代码被载入，引擎最先进入的就是这个环境。函数级别的代码-当执行一个函数时，运行函数体中的代码Eval的代码-在Eval函数内运行的代码。</code></pre><h4 id="执行上下文堆栈"><a href="#执行上下文堆栈" class="headerlink" title="执行上下文堆栈"></a>执行上下文堆栈</h4><p>在浏览器中，js引擎的工作方式是单线程的。也就是说，某一时刻只有唯一的一个事件是被激活处理的，其他的事件被放入队列中，等待被处理。</p><p><img src="/images/Curcontext.jpg" alt="img"> </p><p>eg:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">(<span class="keyword">function</span> foo(i) &#123;</div><div class="line">           <span class="keyword">if</span> (i === 3) &#123;</div><div class="line">               <span class="built_in">return</span>;</div><div class="line">           &#125;</div><div class="line">           <span class="keyword">else</span> &#123;</div><div class="line">               foo(++i);</div><div class="line">           &#125;</div><div class="line">       &#125;(0));</div></pre></td></tr></table></figure></p><p><img src="/images/context.gif" alt="img"> </p><p>由此可见 ，对于执行上下文这个抽象的概念，可以归纳为以下几点：</p><p>单线程<br>同步执行<br>唯一的一个全局上下文<br>函数的执行上下文的个数没有限制<br>每次某个函数被调用，就会有个新的执行上下文为其创建，即使是调用的自身函数，也是如此。</p><h4 id="执行上下文的建立过程"><a href="#执行上下文的建立过程" class="headerlink" title="执行上下文的建立过程"></a>执行上下文的建立过程</h4><p>我们现在已经知道，每当调用一个函数时，一个新的执行上下文就会被创建出来。然而，在javascript引擎内部，这个上下文的创建过程具体分为两个阶段:</p><p>建立阶段(发生在当调用一个函数时，但是在执行函数体内的具体代码以前)<br>    建立变量，函数，arguments对象，参数<br>    建立作用域链<br>    确定this的值<br>代码执行阶段:<br>    变量赋值，函数引用，执行其它代码</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> foo(i) &#123;</div><div class="line">            var a = <span class="string">'hello'</span>;</div><div class="line">            var b = <span class="keyword">function</span> <span class="function"><span class="title">privateB</span></span>() &#123;</div><div class="line">        </div><div class="line">            &#125;;</div><div class="line">            <span class="keyword">function</span> <span class="function"><span class="title">c</span></span>() &#123;</div><div class="line">        </div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        foo(22);</div></pre></td></tr></table></figure><p>建立阶段<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">fooExecutionContext = &#123;</div><div class="line">            variableObject: &#123;</div><div class="line">                arguments: &#123;</div><div class="line">                    0: 22,</div><div class="line">                    length: 1</div><div class="line">                &#125;,</div><div class="line">                i: 22,</div><div class="line">                c: pointer to <span class="keyword">function</span> c()</div><div class="line">                a: undefined,</div><div class="line">                b: undefined</div><div class="line">            &#125;,</div><div class="line">            scopeChain: &#123; ... &#125;,</div><div class="line">            this: &#123; ... &#125;</div><div class="line">        &#125;</div></pre></td></tr></table></figure></p><p>执行阶段<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">fooExecutionContext = &#123;</div><div class="line">            variableObject: &#123;</div><div class="line">                arguments: &#123;</div><div class="line">                    0: 22,</div><div class="line">                    length: 1</div><div class="line">                &#125;,</div><div class="line">                i: 22,</div><div class="line">                c: pointer to <span class="keyword">function</span> c()</div><div class="line">                a: <span class="string">'hello'</span>,</div><div class="line">                b: pointer to <span class="keyword">function</span> privateB()</div><div class="line">            &#125;,</div><div class="line">            scopeChain: &#123; ... &#125;,</div><div class="line">            this: &#123; ... &#125;</div><div class="line">        &#125;</div></pre></td></tr></table></figure></p><p>我们看到，只有在代码执行阶段，变量属性才会被赋予具体的值。</p><h4 id="局部变量作用域提升"><a href="#局部变量作用域提升" class="headerlink" title="局部变量作用域提升"></a>局部变量作用域提升</h4><p>在函数中声明的变量以及函数，其作用域提升到函数顶部</p><p>eg:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">           console.log(typeof foo); // <span class="keyword">function</span> pointer</div><div class="line">           console.log(typeof bar); // undefined</div><div class="line">       </div><div class="line">           var foo = <span class="string">'hello'</span>,</div><div class="line">               bar = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">                   <span class="built_in">return</span> <span class="string">'world'</span>;</div><div class="line">               &#125;;</div><div class="line">       </div><div class="line">           <span class="keyword">function</span> <span class="function"><span class="title">foo</span></span>() &#123;</div><div class="line">               <span class="built_in">return</span> <span class="string">'hello'</span>;</div><div class="line">           &#125;</div><div class="line">       </div><div class="line">       &#125;());​</div></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;context执行上下文&quot;&gt;&lt;a href=&quot;#context执行上下文&quot; class=&quot;headerlink&quot; title=&quot;context执行上下文&quot;&gt;&lt;/a&gt;context执行上下文&lt;/h3&gt;&lt;h4 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;
+      
+    
+    </summary>
+    
+    
+      <category term="js" scheme="http://yoursite.com/tags/js/"/>
     
   </entry>
   
@@ -289,207 +473,6 @@
     
     
       <category term="js" scheme="http://yoursite.com/tags/js/"/>
-    
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>css6</title>
-    <link href="http://yoursite.com/2017/11/29/css6/"/>
-    <id>http://yoursite.com/2017/11/29/css6/</id>
-    <published>2017-11-28T16:32:57.000Z</published>
-    <updated>2018-03-20T14:20:21.471Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h3><h4 id="form属性"><a href="#form属性" class="headerlink" title="form属性"></a>form属性</h4><pre><code>method属性：规定用于发送 form-data 的 HTTP 方法。实际上就是请求的方式。 name属性：表单的名称。 action属性：指定表单请求的路径 target属性：指定action的Url在哪里打开</code></pre><a id="more"></a><h5 id="method"><a href="#method" class="headerlink" title="method"></a>method</h5><pre><code>作用：定义表单提交数据时的方式取值：     1、get (默认值)          意义为：得到，获取          场合：向服务器要数据时使用          特点：               1、明文提交,所提交的数据时可以显示在地址栏上的-安全性较低               2、提交数据有大小限制-最大为2KB    2、post        意义：邮寄，邮递        场合：将数据提交给服务器处理时使用(有保密类型数据时)        特点：            1、隐式提交-所提交的内容是不会显示在地址栏上的，安全性较高            2、无大小限制    3、enctype        作用：编码类型，即表单数据进行编码的方式        允许表单将什么样的数据提交给服务器        取值：        1、application/x-www-form-urlencoded        默认值        允许将 普通字符，特殊字符，都提交给服务器，不允许提交 文件        2、multipart/form-data        允许 将文件提交给服务器        3、text/plain        只允许提交普通字符。特殊字符，文件等都无法提交</code></pre><h5 id="action"><a href="#action" class="headerlink" title="action"></a>action</h5><pre><code>定义表单被提交时发生的动作提交给服务器处理程序的地址注意：通过 与服务器端人员交流 得到 action 的地址默认，提交给本页</code></pre><h5 id="target属性-gt-a标签相同"><a href="#target属性-gt-a标签相同" class="headerlink" title="target属性=&gt;a标签相同"></a>target属性=&gt;a标签相同</h5><pre><code>_blank：指定action的Url在新开的浏览器窗口中_parent：指定action的Url在父级浏览器窗口中_self：指定action的Url在当前浏览器窗口中_top：指定action的Url在顶级浏览器窗口中杀毒软件拦截请求一般会在新打开的页面拦截，也就是使用了target属性的“_blank”。默认情况也会是“_blank”，所以会被拦截到。不重新发开新的浏览器窗口，就不会拦截。所有解决办法将”_blank”属性改为“_self”就会解决此问题。</code></pre><h4 id="表单控件"><a href="#表单控件" class="headerlink" title="表单控件"></a>表单控件</h4><h5 id="input"><a href="#input" class="headerlink" title="input"></a>input</h5><pre><code>autocomplete    on/off  规定是否使用输入字段的自动完成功能。autofocus    autofocus    规定输入字段在页面加载时是否获得焦点。（不适用于 type=&quot;hidden&quot;）checked    checked    规定此 input 元素首次加载时应当被选中。disabled    disabled    当 input 元素加载时禁用此元素。multiple    multiple    如果使用该属性，则允许一个以上的值。name    field_name    定义 input 元素的名称。pattern    regexp_pattern    规定输入字段的值的模式或格式。例如 pattern=&quot;[0-9]&quot; 表示输入值必须是 0 与 9 之间的数字。placeholder    text    规定帮助用户填写输入字段的提示。readonly    readonly    规定输入字段为只读。required    required    指示输入字段的值是必需的。type        button=&gt;按钮    checkbox=&gt;多选框    file=&gt;提交文件    hidden    image=&gt;图片    password=&gt;密码    radio=&gt;单选框    reset=&gt;重置    submit=&gt;提交    text=&gt;文本value    value    规定 input 元素的值。文本框与密码框                    文本框：明文显示用户输入的数据                         &lt;input type=&quot;text&quot;&gt;                    密码框：密文显示用户输入的数据                         &lt;input type=&quot;password&quot;&gt;                    属性                         1、name                              缩写：txt                              ex:                                   1、创建一个文本框，表示 接受 用户名称(Username)                                   &lt;input type=&quot;text&quot; name=&quot;txtUsername&quot;&gt;                                   2、创建一个密码框，表示 接受 用户密码(Userpwd)                                   &lt;input type=&quot;password&quot; name=&quot;txtUserpwd&quot;&gt;                         2、value                              1、表示控件的值                              2、表示控件的默认值                         3、maxlength                              限制输入的字符数                         4、readonly                              只读-只能看，不能改                              该属性只要出现在标记中，就是只读的意思，不需要给值               readonly 与 disabled 的区别                              1、readonly 只能看，不能改，但是可以被提交给服务器                              2、disabled 只能看，不能改，但是不能提交给服务器                    注意：对于input来讲，如果不写 type 或者 type值写错的时候，默认都是文本框               2、单选按钮和复选框                    单选按钮：type=&quot;radio&quot;                    复选框：type=&quot;checkbox&quot;                    属性：                         1、name                              定义名称                              radio缩写：rdo                              checkbox缩写：chk                              还可以对控件进行分组,一组单选按钮和复选框，名称必须相同                              对于单选按钮：一组中的单选按钮，最多只能有一个被选中                         2、checked                              设置默认被选中               3、按钮                    1、提交按钮                         功能固定化，负责将表中中的表单控件提交给服务器                         &lt;input type=&quot;submit&quot;&gt;                    2、重置按钮                         功能固定化，负责将所有表单控件的值恢复为初始值                         &lt;input type=&quot;reset&quot;&gt;                    3、普通按钮                         无功能，执行客户端的脚本(JS)                         &lt;input type=&quot;button&quot;&gt;                    属性：                         1、name                              缩写：btn                         2、value                              按钮上的显示文本               4、隐藏域 和 文件选择框                    1、隐藏域                         不希望被用户看见，但是要提交给服务器的信息                         &lt;input type=&quot;hidden&quot;&gt;                         name ：txt+功能名称                         value ：值                    2、文件选择框                         上传文件所用                         &lt;input type=&quot;file&quot;&gt;                         name : txt+功能名称     3、textarea - 多行文本域          作用：允许用户录入多行数据到表单控件中          语法：&lt;textarea&gt;&lt;/textarea&gt;          属性：               1、name                    缩写：txt+功能名称               2、readonly                    只读               3、cols                    指定文本区域的列数, 变相设置当前元素宽度               4、rows                    指定文本区域的行数，变相设置当前元素高度     4、选项框          1、分类               1、下拉选项框               2、滚动列表          2、语法               1 、&lt;select&gt;&lt;/select&gt; 创建选项框                    属性：                         1、name                              缩写：sel+功能名称                         2、size                             取值 大于1的话，则为滚动列表                              否则就是下拉选项框                         3、multiple                             设置多选,该属性出现在 &lt;select&gt;中，那么就允许多选(针对滚动列表)               2、&lt;option&gt;显示文本&lt;/option&gt; 选项                    属性：                         1、value                              选项的值                         2、selected                              预选中                              注意：如果不设置selected属性的话，那么选项框中的第一项会默认被选中。     5、其他元素          1、为控件分组               &lt;fieldset&gt;&lt;/fieldset&gt; : 为控件分组               &lt;legend&gt;&lt;/legend&gt; : 为分组指定一个标题          2、&lt;label&gt; 元素               功能：关联 文本 与表达元素的，点击文本时，如同点击表单元素一样               语法：                    &lt;label&gt;文本&lt;/label&gt;                    属性：                         for ：表示与该label相关联的表单控件元素的ID值&lt;input id=&quot;man&quot;  name=&quot;sex&quot;   value=&quot;男&quot;&gt;&lt;label  for=&quot;man&quot;&gt;男&lt;/label&gt;&lt;/input&gt;</code></pre><h5 id="button"><a href="#button" class="headerlink" title="button"></a>button</h5><pre><code>在 button 元素内部，您可以放置内容，比如文本或图像。这是该元素与使用 input 元素创建的按钮之间的不同之处。</code></pre><h5 id="button与input-type-button与type-submit"><a href="#button与input-type-button与type-submit" class="headerlink" title="button与input type=button与type=submit"></a>button与input type=button与type=submit</h5><pre><code>HTML &lt;button&gt; 和 input type=“button”的区别：1. &lt;button&gt;标签里可以放文本图片等内容，与&lt;input&gt;创建的按钮不同。2. &lt;input&gt;中的button通常与javascript一起使用启动脚本。如：&lt;input type=&quot;button&quot; value=&quot;点我&quot; onclick=&quot;msg()&quot;&gt; 。3. 如果在 HTML 表单中使用 &lt;button&gt; 元素，不同的浏览器可能会提交不同的按钮值。通常用&lt;input&gt;在 HTML 表单中创建按钮。input type=&quot;submit&quot; 和&quot;button&quot;的区别：1. button只是一个按钮，不写javascript什么也不会发生。2. submit点击后会自动提交form，除非写javascript来阻止。总结：在一个页面上画一个按钮，有四种办法：&lt;input type=&quot;button&quot; /&gt; 这就是一个按钮。如果你不写javascript 的话，按下去什么也不会发生。&lt;input type=&quot;submit&quot; /&gt; 这样的按钮用户点击之后会自动提交 form，除非你写了javascript 阻止它。&lt;button&gt; 这个按钮放在 form 中也会点击自动提交，比前两个的优点是按钮的内容不光可以有文字，还可以有图片等多媒体内容。（当然，前两个用图片背景也可以做到）。它的缺点是不同的浏览器得到的 value 值不同；可能还有其他的浏览器兼容问题。其他标签，例如 a, img, span, div，然后用图片把它伪装成一个按钮。</code></pre><h5 id="form表单提交onclick和onsubmit"><a href="#form表单提交onclick和onsubmit" class="headerlink" title="form表单提交onclick和onsubmit"></a>form表单提交onclick和onsubmit</h5><pre><code>  onsubmit只能表单上使用,提交表单前会触发, onclick是按钮等控件使用, 用来触发点击事件。在提交表单前，一般都会进行数据验证，可以选择在submit按钮上的onclick中验证,也可以在onsubmit中验证。但是onclick比onsubmit更早的被触发。    提交过程1、用户点击按钮 ----&gt;2、触发onclick事件  ----&gt; 3、onclick返回true或未处理onclick ----&gt; 4、触发onsubmit事件  ----&gt; 5、onsubmit未处理或返回true  ------&gt; 6、提交表单. onsubmit处理函数返回false，onclick函数返回false，都不会引起表单提交。</code></pre><h4 id="select"><a href="#select" class="headerlink" title="select"></a>select</h4><pre><code>multiple  multiple  规定可选择多个选项。size  number  规定下拉列表中可见选项的数目。注意两种select就好了</code></pre><h4 id="details"><a href="#details" class="headerlink" title="details"></a>details</h4><pre><code>&lt;details&gt;&lt;summary&gt;Copyright 2011.&lt;/summary&gt;&lt;p&gt;All pages and graphics on this web site are the property of W3School.&lt;/p&gt;&lt;/details&gt;</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;表单&quot;&gt;&lt;a href=&quot;#表单&quot; class=&quot;headerlink&quot; title=&quot;表单&quot;&gt;&lt;/a&gt;表单&lt;/h3&gt;&lt;h4 id=&quot;form属性&quot;&gt;&lt;a href=&quot;#form属性&quot; class=&quot;headerlink&quot; title=&quot;form属性&quot;&gt;&lt;/a&gt;form属性&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;method属性：规定用于发送 form-data 的 HTTP 方法。实际上就是请求的方式。 
-name属性：表单的名称。 
-action属性：指定表单请求的路径 
-target属性：指定action的Url在哪里打开
-&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="css" scheme="http://yoursite.com/categories/css/"/>
-    
-    
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>css5</title>
-    <link href="http://yoursite.com/2017/11/28/css5/"/>
-    <id>http://yoursite.com/2017/11/28/css5/</id>
-    <published>2017-11-28T06:49:11.000Z</published>
-    <updated>2017-11-28T16:13:59.558Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="常用标签与属性"><a href="#常用标签与属性" class="headerlink" title="常用标签与属性"></a>常用标签与属性</h3><a id="more"></a><h4 id="a标签"><a href="#a标签" class="headerlink" title="a标签"></a>a标签</h4><pre><code>charset    char_encoding    HTML5 中不支持。规定被链接文档的字符集。coords    coordinates    HTML5 中不支持。规定链接的坐标。download    filename    规定被下载的超链接目标。href    URL    规定链接指向的页面的 URL。hreflang    language_code    规定被链接文档的语言。media    media_query    规定被链接文档是为何种媒介/设备优化的。name    section_name    HTML5 中不支持。规定锚的名称。rel    text    规定当前文档与被链接文档之间的关系。rev    text    HTML5 中不支持。规定被链接文档与当前文档之间的关系。shape    defaultrectcirclepolyHTML5 中不支持。规定链接的形状。target        _blank    _parent    _self    _top    framename规定在何处打开链接文档。type    MIME type    规定被链接文档的的 MIME 类型。</code></pre><h4 id="target-gt-也就是窗口打开方式"><a href="#target-gt-也就是窗口打开方式" class="headerlink" title="target=&gt;也就是窗口打开方式"></a>target=&gt;也就是窗口打开方式</h4><pre><code>_blank    在新窗口中打开被链接文档。_self    默认。在相同的框架中打开被链接文档。_parent    在父框架集中打开被链接文档。_top    在整个窗口中打开被链接文档。framename    在指定的框架中打开被链接文档。理解：  网页page分成frame1、frame2，frame1又分成frame1-1、frame1-2，frame1-1又分成frame1-1-1，frame1-1-2。  然后你在frame1-1-1中放了一个链接。  如果这个链接的target=&quot;_self&quot;，那么链接会在frame1-1-1中打开。  如果target=&quot;_parent&quot;，那么链接会在frame1-1中打开。  如果target=&quot;_top&quot;，那么链接会在page中打开。</code></pre><h4 id="href-gt-链接地址"><a href="#href-gt-链接地址" class="headerlink" title="href=&gt;链接地址"></a>href=&gt;链接地址</h4><h5 id="URL-gt-绝对-URL-相对-URL"><a href="#URL-gt-绝对-URL-相对-URL" class="headerlink" title="URL=&gt;绝对 URL\相对 URL"></a>URL=&gt;绝对 URL\相对 URL</h5><h5 id="锚-gt-指向页面中的锚"><a href="#锚-gt-指向页面中的锚" class="headerlink" title="锚 =&gt; 指向页面中的锚"></a>锚 =&gt; 指向页面中的锚</h5><pre><code>注意点: 配合name或者id使用,就跳转到具体的id/name了=&gt;一般都是锚点不在页面中(overflow了)</code></pre><h5 id="tel-gt-移动端-wtai"><a href="#tel-gt-移动端-wtai" class="headerlink" title="tel=&gt;移动端\wtai"></a>tel=&gt;移动端\wtai</h5><pre><code>&lt;a href=&quot;tel:12345678910&quot;&gt;拨打电话&lt;/a&gt;&lt;a href=&quot;wtai://wp/mc;10086&quot;&gt;10086&lt;/a&gt;</code></pre><h5 id="sms-gt-移动端"><a href="#sms-gt-移动端" class="headerlink" title="sms=&gt;移动端"></a>sms=&gt;移动端</h5><pre><code>&lt;a href=&quot;sms:12345678910?body=发送短信&quot;&gt;发送短信&lt;/a&gt;</code></pre><h5 id="mailto"><a href="#mailto" class="headerlink" title="mailto"></a>mailto</h5><pre><code>&lt;a href=&quot;mailto:jk.2013@qq.com?cc=&quot;sipallan@163.com&amp;bbc=&quot;joe5213@qq.com&amp;subject=这是一封邮件&amp;body=我想你&quot;&gt;发送邮件&lt;/a&gt;</code></pre><h5 id="Android-Market"><a href="#Android-Market" class="headerlink" title="Android Market"></a>Android Market</h5><pre><code>&lt;a href=&quot;market://search?q=MyApp&quot;&gt;MyApp&lt;/a&gt;</code></pre><h5 id="地图GPS定位"><a href="#地图GPS定位" class="headerlink" title="地图GPS定位"></a>地图GPS定位</h5><pre><code>&lt;a href=&quot;geopoint:108.954823,34.275891&quot;&gt;我的位置&lt;/a&gt;</code></pre><h4 id="love-hate"><a href="#love-hate" class="headerlink" title="love hate"></a>love hate</h4><pre><code>执行顺序应该遵循link,visited,hover,active</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;常用标签与属性&quot;&gt;&lt;a href=&quot;#常用标签与属性&quot; class=&quot;headerlink&quot; title=&quot;常用标签与属性&quot;&gt;&lt;/a&gt;常用标签与属性&lt;/h3&gt;
-    
-    </summary>
-    
-      <category term="css" scheme="http://yoursite.com/categories/css/"/>
-    
-    
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>css4</title>
-    <link href="http://yoursite.com/2017/11/27/css4/"/>
-    <id>http://yoursite.com/2017/11/27/css4/</id>
-    <published>2017-11-27T15:53:15.000Z</published>
-    <updated>2018-03-20T14:20:13.386Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="居中属性"><a href="#居中属性" class="headerlink" title="居中属性"></a>居中属性</h3><h4 id="text-align"><a href="#text-align" class="headerlink" title="text-align"></a>text-align</h4><pre><code>text-align 属性规定元素中的文本的水平对齐方式。文本=&gt;用于行内元素和块状元素中的文本left    把文本排列到左边。默认值：由浏览器决定。right    把文本排列到右边。center    把文本排列到中间。justify    实现两端对齐文本效果。inherit    规定应该从父元素继承 text-align 属性的值。</code></pre><a id="more"></a><h4 id="vertical-align"><a href="#vertical-align" class="headerlink" title="vertical-align"></a>vertical-align</h4><pre><code>baseline    默认。元素放置在父元素的基线上。sub    垂直对齐文本的下标。super    垂直对齐文本的上标top    把元素的顶端与行中最高元素的顶端对齐text-top    把元素的顶端与父元素字体的顶端对齐middle    把此元素放置在父元素的中部。bottom    把元素的顶端与行中最低的元素的顶端对齐。text-bottom    把元素的底端与父元素字体的底端对齐。length     %    使用 &quot;line-height&quot; 属性的百分比值来排列此元素。允许使用负值。inherit    规定应该从父元素继承 vertical-align 属性的值。</code></pre><h5 id="vertical-align使用条件"><a href="#vertical-align使用条件" class="headerlink" title="vertical-align使用条件"></a>vertical-align使用条件</h5><pre><code>只有一个元素属于inline或是inline-block（table-cell也可以理解为inline-block水平）水平，其身上的vertical-align属性才会起作用。(块状元素设置为inline-block,也不能使用vertical-align,因为其本质还是block;但是tabel-cell可以)</code></pre><h5 id="父元素设置line-height"><a href="#父元素设置line-height" class="headerlink" title="父元素设置line-height"></a>父元素设置line-height</h5><pre><code>vertical-align相对于父元素作为参照;top=&gt;baseline=&gt;middle=&gt;bottom;越来越低，差不多以四分之一为间隔吧，没有合适的就设置值。</code></pre><h6 id="父元素-gt-行内元素"><a href="#父元素-gt-行内元素" class="headerlink" title="父元素=&gt;行内元素"></a>父元素=&gt;行内元素</h6><pre><code>不必设置line-height，字体会撑起一个适合子元素作用的高度</code></pre><h6 id="父元素-gt-块状元素"><a href="#父元素-gt-块状元素" class="headerlink" title="父元素=&gt;块状元素"></a>父元素=&gt;块状元素</h6><pre><code>必须设置line-height，否则对其设置vertical-align无效</code></pre><h5 id="父元素没有设置line-height-i-gt-nline-inline-block子元素之间对齐"><a href="#父元素没有设置line-height-i-gt-nline-inline-block子元素之间对齐" class="headerlink" title="父元素没有设置line-height=i&gt;nline/inline-block子元素之间对齐"></a>父元素没有设置line-height=i&gt;nline/inline-block子元素之间对齐</h5><pre><code>top=&gt;顶端对齐baseline=&gt;基线对齐middle=&gt;中间对齐bottom=&gt;底部对齐默认应该是两个都为 baseline,一个以另一个为基准(小的相对大的，前提差距较大)。</code></pre><h4 id="line-height"><a href="#line-height" class="headerlink" title="line-height"></a>line-height</h4><pre><code> 用于设置单行文字垂直居中height=line-heightnormal    默认。设置合理的行间距。number    设置数字，此数字会与当前的字体尺寸相乘来设置行间距。length    设置固定的行间距。%    基于当前字体尺寸的百分比行间距。=&gt;这个要特殊记一下inherit    规定应该从父元素继承 line-height 属性的值。number与%区别 (1.2与1.2em)1.2em:计算出父元素的具体数值，被继承下去，相当于120%;父元素font-size:16px;16*1.2=19.2px=&gt;这个具体的数值会被继承。      子元素不会随相关的font-size做出相关的比例缩放。1.2 number:系数被继承。父元素font-size:16px;子元素font-size:12px;12*1.2=14.4px=&gt;这个系数会被继承。      子元素会随相关的font-size做出相关的比例缩放。</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;居中属性&quot;&gt;&lt;a href=&quot;#居中属性&quot; class=&quot;headerlink&quot; title=&quot;居中属性&quot;&gt;&lt;/a&gt;居中属性&lt;/h3&gt;&lt;h4 id=&quot;text-align&quot;&gt;&lt;a href=&quot;#text-align&quot; class=&quot;headerlink&quot; title=&quot;text-align&quot;&gt;&lt;/a&gt;text-align&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;text-align 属性规定元素中的文本的水平对齐方式。
-文本=&amp;gt;用于行内元素和块状元素中的文本
-
-left    把文本排列到左边。默认值：由浏览器决定。
-right    把文本排列到右边。
-center    把文本排列到中间。
-justify    实现两端对齐文本效果。
-inherit    规定应该从父元素继承 text-align 属性的值。
-&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="css" scheme="http://yoursite.com/categories/css/"/>
-    
-    
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>css3</title>
-    <link href="http://yoursite.com/2017/11/27/css3/"/>
-    <id>http://yoursite.com/2017/11/27/css3/</id>
-    <published>2017-11-27T03:07:53.000Z</published>
-    <updated>2018-03-18T12:47:28.340Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="css中各种居中方法总结"><a href="#css中各种居中方法总结" class="headerlink" title="css中各种居中方法总结"></a>css中各种居中方法总结</h3><pre><code>水平居中=&gt;行内元素、块状元素块状元素=&gt;定宽、不定宽</code></pre><h4 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h4><h5 id="行内元素"><a href="#行内元素" class="headerlink" title="行内元素"></a>行内元素</h5><pre><code>text-align:center;=&gt;设置文本居中的方式。用于行内元素水平居中;但是也可以用来使块级元素中的文本水平居中;</code></pre><a id="more"></a><h5 id="块状元素居中"><a href="#块状元素居中" class="headerlink" title="块状元素居中"></a>块状元素居中</h5><h6 id="margin"><a href="#margin" class="headerlink" title="margin"></a>margin</h6><pre><code>margin:0 auto;=&gt;width为固定值时可用;</code></pre><h6 id="position"><a href="#position" class="headerlink" title="position"></a>position</h6><pre><code>设置子元素position为absolute，left:50%;1.(定宽高)=&gt;margin-left:-50%;(后面的-50%是相对子元素的具体数值);2.(定宽高)=&gt;left=right;top=bottom;3.(不定宽高)=&gt;transform:translateX(-50%);4.(不定宽高)=&gt;left:0;right:0;top:0;bottom:0;margin:auto;</code></pre><h6 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h6><pre><code>justify-content: center;(不定宽高)</code></pre><h6 id="table"><a href="#table" class="headerlink" title="table"></a>table</h6><pre><code>margin:0 auto;=&gt;可以使子元素宽度不固定时使用，原理应该就是table\table-cell元素具有包裹性(个人观点)</code></pre><h4 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h4><h5 id="line-height"><a href="#line-height" class="headerlink" title="line-height"></a>line-height</h5><pre><code>height=line-height;只适用于单行文本</code></pre><h5 id="vertical-align"><a href="#vertical-align" class="headerlink" title="vertical-align"></a>vertical-align</h5><pre><code>要设置父元素为display:table\table-cell;才可以使用vertical-align</code></pre><h5 id="button标签"><a href="#button标签" class="headerlink" title="button标签"></a>button标签</h5><pre><code>button标签中的块级元素默认是垂直居中的</code></pre><h5 id="flex-1"><a href="#flex-1" class="headerlink" title="flex"></a>flex</h5><pre><code>align-tiems:center;</code></pre><h5 id="pisition方法同水平居中"><a href="#pisition方法同水平居中" class="headerlink" title="pisition方法同水平居中"></a>pisition方法同水平居中</h5><p>####水平垂直居中</p><pre><code>text-align+line-height;button居中;table-cell居中;margin固定宽高居中;负margin居中;transform居中;绝对定位居中;flex居中;  不确定宽高居中(绝对定位百分数);</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;css中各种居中方法总结&quot;&gt;&lt;a href=&quot;#css中各种居中方法总结&quot; class=&quot;headerlink&quot; title=&quot;css中各种居中方法总结&quot;&gt;&lt;/a&gt;css中各种居中方法总结&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;水平居中=&amp;gt;行内元素、块状元素
-块状元素=&amp;gt;定宽、不定宽
-&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;水平居中&quot;&gt;&lt;a href=&quot;#水平居中&quot; class=&quot;headerlink&quot; title=&quot;水平居中&quot;&gt;&lt;/a&gt;水平居中&lt;/h4&gt;&lt;h5 id=&quot;行内元素&quot;&gt;&lt;a href=&quot;#行内元素&quot; class=&quot;headerlink&quot; title=&quot;行内元素&quot;&gt;&lt;/a&gt;行内元素&lt;/h5&gt;&lt;pre&gt;&lt;code&gt;text-align:center;=&amp;gt;
-设置文本居中的方式。用于行内元素水平居中;
-但是也可以用来使块级元素中的文本水平居中;
-&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="css" scheme="http://yoursite.com/categories/css/"/>
-    
-    
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>css2</title>
-    <link href="http://yoursite.com/2017/11/27/css2/"/>
-    <id>http://yoursite.com/2017/11/27/css2/</id>
-    <published>2017-11-26T19:21:21.000Z</published>
-    <updated>2017-11-27T18:19:04.399Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="CSS中可以和不可以继承的属性"><a href="#CSS中可以和不可以继承的属性" class="headerlink" title="CSS中可以和不可以继承的属性"></a>CSS中可以和不可以继承的属性</h3><h4 id="有继承性属性"><a href="#有继承性属性" class="headerlink" title="有继承性属性"></a>有继承性属性</h4><pre><code>字体、文字、列表、表格  文字列表可生光</code></pre><a id="more"></a><h5 id="文字系列属性"><a href="#文字系列属性" class="headerlink" title="文字系列属性"></a>文字系列属性</h5><pre><code>text-indent：文本缩进text-align：文本水平对齐line-height：行高word-spacing：增加或减少单词间的空白（即字间隔）letter-spacing：增加或减少字符间的空白（字符间距）text-transform：控制文本大小写direction：规定文本的书写方向color：文本颜色</code></pre><h5 id="字体系列属性"><a href="#字体系列属性" class="headerlink" title="字体系列属性"></a>字体系列属性</h5><pre><code>font：组合字体font-family：规定元素的字体系列font-weight：设置字体的粗细font-size：设置字体的尺寸font-style：定义字体的风格font-variant：设置小型大写字母的字体显示文本，这意味着所有的小写字母均会被转换为大写，但是所有使用小型大写字体的字母与其余文本相比，其字体尺寸更小。font-stretch：对当前的 font-family 进行伸缩变形。所有主流浏览器都不支持。font-size-adjust：为某个元素规定一个 aspect 值，这样就可以保持首选字体的 x-height。</code></pre><h5 id="列表布局属性"><a href="#列表布局属性" class="headerlink" title="列表布局属性"></a>列表布局属性</h5><pre><code>list-style-type、list-style-image、list-style-position、list-style</code></pre><h5 id="表格布局属性"><a href="#表格布局属性" class="headerlink" title="表格布局属性"></a>表格布局属性</h5><pre><code>caption-side、border-collapse、border-spacing、empty-cells、table-layout</code></pre><h5 id="元素可见性：visibility"><a href="#元素可见性：visibility" class="headerlink" title="元素可见性：visibility"></a>元素可见性：visibility</h5><h5 id="生成内容属性：quotes"><a href="#生成内容属性：quotes" class="headerlink" title="生成内容属性：quotes"></a>生成内容属性：quotes</h5><h5 id="光标属性：cursor"><a href="#光标属性：cursor" class="headerlink" title="光标属性：cursor"></a>光标属性：cursor</h5><h4 id="无继承性的属性"><a href="#无继承性的属性" class="headerlink" title="无继承性的属性"></a>无继承性的属性</h4><pre><code>d文盒背定生轮</code></pre><h5 id="display：规定元素应该生成的框的类型"><a href="#display：规定元素应该生成的框的类型" class="headerlink" title="display：规定元素应该生成的框的类型"></a>display：规定元素应该生成的框的类型</h5><h5 id="文本属性"><a href="#文本属性" class="headerlink" title="文本属性"></a>文本属性</h5><pre><code>vertical-align：垂直文本对齐text-decoration：规定添加到文本的装饰text-shadow：文本阴影效果white-space：空白符的处理unicode-bidi：设置文本的方向</code></pre><h5 id="盒子模型的属性"><a href="#盒子模型的属性" class="headerlink" title="盒子模型的属性"></a>盒子模型的属性</h5><pre><code>width、height、padding、border、margin</code></pre><h5 id="背景属性"><a href="#背景属性" class="headerlink" title="背景属性"></a>背景属性</h5><pre><code>background、background-color、background-image、background-repeat、background-position、background-attachment</code></pre><h5 id="定位属性"><a href="#定位属性" class="headerlink" title="定位属性"></a>定位属性</h5><pre><code>float、clear、position、top、right、bottom、left、min-width、min-height、max-width、max-height、overflow、clip、z-index</code></pre><h5 id="生成内容属性"><a href="#生成内容属性" class="headerlink" title="生成内容属性"></a>生成内容属性</h5><pre><code>content、counter-reset、counter-increment</code></pre><h5 id="轮廓样式属性"><a href="#轮廓样式属性" class="headerlink" title="轮廓样式属性"></a>轮廓样式属性</h5><pre><code>outline-style、outline-width、outline-color、outline</code></pre><h4 id="内联元素可以继承的属性"><a href="#内联元素可以继承的属性" class="headerlink" title="内联元素可以继承的属性"></a>内联元素可以继承的属性</h4><pre><code>字体系列属性除text-indent、text-align之外的文本系列属性</code></pre><h4 id="块级元素可以继承的属性"><a href="#块级元素可以继承的属性" class="headerlink" title="块级元素可以继承的属性"></a>块级元素可以继承的属性</h4><pre><code>text-indent、text-align</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;CSS中可以和不可以继承的属性&quot;&gt;&lt;a href=&quot;#CSS中可以和不可以继承的属性&quot; class=&quot;headerlink&quot; title=&quot;CSS中可以和不可以继承的属性&quot;&gt;&lt;/a&gt;CSS中可以和不可以继承的属性&lt;/h3&gt;&lt;h4 id=&quot;有继承性属性&quot;&gt;&lt;a href=&quot;#有继承性属性&quot; class=&quot;headerlink&quot; title=&quot;有继承性属性&quot;&gt;&lt;/a&gt;有继承性属性&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;字体、文字、列表、表格  文字列表可生光
-&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="css" scheme="http://yoursite.com/categories/css/"/>
-    
-    
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>css1</title>
-    <link href="http://yoursite.com/2017/11/27/css1/"/>
-    <id>http://yoursite.com/2017/11/27/css1/</id>
-    <published>2017-11-26T17:14:45.000Z</published>
-    <updated>2018-03-20T14:19:54.007Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="css盒子模型"><a href="#css盒子模型" class="headerlink" title="css盒子模型"></a>css盒子模型</h3><pre><code>content，padding，border，margin;盒子模型属性默认不继承。</code></pre><h4 id="ie盒子"><a href="#ie盒子" class="headerlink" title="ie盒子"></a>ie盒子</h4><pre><code>border-box:content包括content，padding，border</code></pre><h4 id="w3c盒子"><a href="#w3c盒子" class="headerlink" title="w3c盒子"></a>w3c盒子</h4><pre><code>content-box: content只包括content</code></pre><a id="more"></a><h4 id="盒子模型5个层次"><a href="#盒子模型5个层次" class="headerlink" title="盒子模型5个层次"></a>盒子模型5个层次</h4><p>border=&gt;content&amp;padding=&gt;background-image=&gt;background-color=&gt;margin</p><h4 id="width"><a href="#width" class="headerlink" title="width"></a>width</h4><pre><code>auto    默认值。浏览器可计算出实际的宽度。length    使用 px、cm 等单位定义宽度。%    定义基于包含块（父元素）宽度的百分比宽度。inherit    规定应该从父元素继承 width 属性的值。</code></pre><h5 id="width-auto"><a href="#width-auto" class="headerlink" title="width: auto"></a>width: auto</h5><pre><code>子元素（包括content+padding+border+margin）撑满整个父元素的content区域。子元素有margin、border、padding时，会减去子元素content区域相对应的width值父元素的content = 子元素（content + padding + border + margin )</code></pre><h5 id="width-100"><a href="#width-100" class="headerlink" title="width: 100%"></a>width: 100%</h5><pre><code>强制将子元素的content区域 撑满 父元素的content区域子元素有margin、border、padding时，不改变子元素content区域的width，而是溢出父盒子，保持原有值父元素的content = 子元素的content(前提是content-box，即默认w3c盒子模型)</code></pre><h4 id="height"><a href="#height" class="headerlink" title="height"></a>height</h4><pre><code>auto    默认。浏览器会计算出实际的高度。length    使用 px、cm 等单位定义高度。%    基于包含它的块级对象的百分比高度。inherit    规定应该从父元素继承 height 属性的值。</code></pre><h4 id="padding"><a href="#padding" class="headerlink" title="padding"></a>padding</h4><pre><code>length    规定以具体单位计的填充值，比如像素、厘米等。默认值是 0px%    规定基于父元素的宽度的百分比的填充inherit    指定应该从父元素继承padding</code></pre><h4 id="margin"><a href="#margin" class="headerlink" title="margin"></a>margin</h4><pre><code>auto    浏览器计算外边距。length    规定以具体单位计的外边距值，比如像素、厘米等。默认值是 0px。%    规定基于父元素的宽度的百分比的外边距。inherit    规定应该从父元素继承外边距。对于行内元素margin-top/margin-bottom无效。</code></pre><h4 id="padding与margin的区别"><a href="#padding与margin的区别" class="headerlink" title="padding与margin的区别"></a>padding与margin的区别</h4><pre><code>padding用来隔开元素与内容的间隔margin用来隔开元素与元素的间隔</code></pre><h4 id="注意padding-top-bottom、margin-top-bottom"><a href="#注意padding-top-bottom、margin-top-bottom" class="headerlink" title="注意padding-top/bottom、margin-top/bottom"></a>注意padding-top/bottom、margin-top/bottom</h4><pre><code>注意padding-top/bottom、margin-top/bottom设置百分比(%),是相对父元素width。eg:设置移动端正方形图片    height：1px;    width:100%;    padding-top:100%; =&gt;相对父元素width,所以就为正方形了。eg:元素的竖向百分比相对于容器的高度吗？    不对。height相对容器高度，padding-top/bottom、margin-top/bottom相对容器宽度。</code></pre><h4 id="border"><a href="#border" class="headerlink" title="border"></a>border</h4><pre><code>border:border-width border-style border-color;</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;css盒子模型&quot;&gt;&lt;a href=&quot;#css盒子模型&quot; class=&quot;headerlink&quot; title=&quot;css盒子模型&quot;&gt;&lt;/a&gt;css盒子模型&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;content，padding，border，margin;
-
-盒子模型属性默认不继承。
-&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;ie盒子&quot;&gt;&lt;a href=&quot;#ie盒子&quot; class=&quot;headerlink&quot; title=&quot;ie盒子&quot;&gt;&lt;/a&gt;ie盒子&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;border-box:content包括content，padding，border
-&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;w3c盒子&quot;&gt;&lt;a href=&quot;#w3c盒子&quot; class=&quot;headerlink&quot; title=&quot;w3c盒子&quot;&gt;&lt;/a&gt;w3c盒子&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;content-box: content只包括content
-&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="css" scheme="http://yoursite.com/categories/css/"/>
-    
-    
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>type</title>
-    <link href="http://yoursite.com/2017/11/22/type/"/>
-    <id>http://yoursite.com/2017/11/22/type/</id>
-    <published>2017-11-21T16:28:17.000Z</published>
-    <updated>2017-11-21T16:56:36.022Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="js数据类型"><a href="#js数据类型" class="headerlink" title="js数据类型"></a>js数据类型</h3><h4 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h4><p>Number，String，Boolean，Null，Undefined</p><h4 id="混合类型"><a href="#混合类型" class="headerlink" title="混合类型"></a>混合类型</h4><p>Object</p><a id="more"></a><p>eg: typeof 可以检测出的数据类型</p><p>number，string，boolean，undefined，object，function</p><p>eg: 如何检测Array</p><p>X instanceof Array;Object.prototype.toString().call(X).slice(8,-1).toLowerCase();isArray(X);</p><h4 id="值类型与引用类型"><a href="#值类型与引用类型" class="headerlink" title="值类型与引用类型"></a>值类型与引用类型</h4><h5 id="值类型"><a href="#值类型" class="headerlink" title="值类型"></a>值类型</h5><p>number，string，boolean，undefined</p><h5 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h5><p>object，array，function, null</p><p>eg: 值类型与引用类型区别</p><p>会不会因为相互赋值而相互影响</p><h4 id="内置对象"><a href="#内置对象" class="headerlink" title="内置对象"></a>内置对象</h4><p>Number，String，Boolean，Object，Array，Function，Error，RegExp，Date</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;js数据类型&quot;&gt;&lt;a href=&quot;#js数据类型&quot; class=&quot;headerlink&quot; title=&quot;js数据类型&quot;&gt;&lt;/a&gt;js数据类型&lt;/h3&gt;&lt;h4 id=&quot;基本类型&quot;&gt;&lt;a href=&quot;#基本类型&quot; class=&quot;headerlink&quot; title=&quot;基本类型&quot;&gt;&lt;/a&gt;基本类型&lt;/h4&gt;&lt;p&gt;Number，String，Boolean，Null，Undefined&lt;/p&gt;
-&lt;h4 id=&quot;混合类型&quot;&gt;&lt;a href=&quot;#混合类型&quot; class=&quot;headerlink&quot; title=&quot;混合类型&quot;&gt;&lt;/a&gt;混合类型&lt;/h4&gt;&lt;p&gt;Object&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="js" scheme="http://yoursite.com/categories/js/"/>
-    
-    
-      <category term="js" scheme="http://yoursite.com/tags/js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>position</title>
-    <link href="http://yoursite.com/2017/11/21/position/"/>
-    <id>http://yoursite.com/2017/11/21/position/</id>
-    <published>2017-11-21T15:04:33.000Z</published>
-    <updated>2017-12-26T09:31:29.738Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="position"><a href="#position" class="headerlink" title="position"></a>position</h3><h4 id="position的值"><a href="#position的值" class="headerlink" title="position的值"></a>position的值</h4><p>static，relative，absolute，fixed</p><h3 id="普通流"><a href="#普通流" class="headerlink" title="普通流"></a>普通流</h3><h4 id="normal-flow"><a href="#normal-flow" class="headerlink" title="normal flow"></a>normal flow</h4><p>指语言文本从左到右，从上到下显示，这是传统HTML文档的文本布局。<br>浮动(float)、绝对定位(absolute)、固定定位(fixed)三种方式定位会脱离文档流。</p><a id="more"></a><h4 id="static"><a href="#static" class="headerlink" title="static"></a>static</h4><p>默认值</p><h4 id="relative"><a href="#relative" class="headerlink" title="relative"></a>relative</h4><p>相对本身定位<br>不脱离文档流<br>具有偏移属性和z-index属性</p><h4 id="absolute"><a href="#absolute" class="headerlink" title="absolute"></a>absolute</h4><p>相对第一个position不为static的祖先元素<br>脱离文档流(完全)<br>具有偏移属性和z-index属性</p><h5 id="破坏性：-高度塌陷"><a href="#破坏性：-高度塌陷" class="headerlink" title="破坏性： 高度塌陷"></a>破坏性： 高度塌陷</h5><h5 id="包裹性：-元素宽度会缩小到内容大小"><a href="#包裹性：-元素宽度会缩小到内容大小" class="headerlink" title="包裹性： 元素宽度会缩小到内容大小"></a>包裹性： 元素宽度会缩小到内容大小</h5><h5 id="跟随性：-不设置偏移，位置不会变"><a href="#跟随性：-不设置偏移，位置不会变" class="headerlink" title="跟随性： 不设置偏移，位置不会变"></a>跟随性： 不设置偏移，位置不会变</h5><h5 id="悬浮性：-会遮挡下方的页面内容"><a href="#悬浮性：-会遮挡下方的页面内容" class="headerlink" title="悬浮性： 会遮挡下方的页面内容"></a>悬浮性： 会遮挡下方的页面内容</h5><h4 id="fixd"><a href="#fixd" class="headerlink" title="fixd"></a>fixd</h4><p>相对窗口进行定位。<br>其余与absolute相同</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;position&quot;&gt;&lt;a href=&quot;#position&quot; class=&quot;headerlink&quot; title=&quot;position&quot;&gt;&lt;/a&gt;position&lt;/h3&gt;&lt;h4 id=&quot;position的值&quot;&gt;&lt;a href=&quot;#position的值&quot; class=&quot;headerlink&quot; title=&quot;position的值&quot;&gt;&lt;/a&gt;position的值&lt;/h4&gt;&lt;p&gt;static，relative，absolute，fixed&lt;/p&gt;
-&lt;h3 id=&quot;普通流&quot;&gt;&lt;a href=&quot;#普通流&quot; class=&quot;headerlink&quot; title=&quot;普通流&quot;&gt;&lt;/a&gt;普通流&lt;/h3&gt;&lt;h4 id=&quot;normal-flow&quot;&gt;&lt;a href=&quot;#normal-flow&quot; class=&quot;headerlink&quot; title=&quot;normal flow&quot;&gt;&lt;/a&gt;normal flow&lt;/h4&gt;&lt;p&gt;指语言文本从左到右，从上到下显示，这是传统HTML文档的文本布局。&lt;br&gt;浮动(float)、绝对定位(absolute)、固定定位(fixed)三种方式定位会脱离文档流。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="css" scheme="http://yoursite.com/categories/css/"/>
-    
     
       <category term="css" scheme="http://yoursite.com/tags/css/"/>
     

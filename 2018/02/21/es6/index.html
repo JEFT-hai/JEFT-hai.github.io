@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="es6," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="JEFT" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon-hai.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="搭建环境 // ok写页面   // okjs       //  es6es6 默认就是 严格模式 ‘use strict’ let constlet{} 内的变量只有在{}内部才有效,且不能重复声明 constconst 声明值类型 只读,引用类型可变,且必须赋值 解构赋值解构赋值：左边一种结构，右边一种结构，一一对应赋值 分类数组解构赋值 对象解构赋值 字符串解构赋值 布尔值解构赋值 函数参">
+<meta name="keywords" content="es6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="es6">
+<meta property="og:url" content="http://yoursite.com/2018/02/21/es6/index.html">
+<meta property="og:site_name" content="JEFT">
+<meta property="og:description" content="搭建环境 // ok写页面   // okjs       //  es6es6 默认就是 严格模式 ‘use strict’ let constlet{} 内的变量只有在{}内部才有效,且不能重复声明 constconst 声明值类型 只读,引用类型可变,且必须赋值 解构赋值解构赋值：左边一种结构，右边一种结构，一一对应赋值 分类数组解构赋值 对象解构赋值 字符串解构赋值 布尔值解构赋值 函数参">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-25T18:50:33.575Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="es6">
+<meta name="twitter:description" content="搭建环境 // ok写页面   // okjs       //  es6es6 默认就是 严格模式 ‘use strict’ let constlet{} 内的变量只有在{}内部才有效,且不能重复声明 constconst 声明值类型 只读,引用类型可变,且必须赋值 解构赋值解构赋值：左边一种结构，右边一种结构，一一对应赋值 分类数组解构赋值 对象解构赋值 字符串解构赋值 布尔值解构赋值 函数参">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/02/21/es6/"/>
+
+
+
+
+
+  <title>es6 | JEFT</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/JEFT-hai"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">JEFT</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">学习是苦根上长出来的甜果</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-主页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            主页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/21/es6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JEFT-hai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JEFT">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">es6</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-21T02:05:51+08:00">
+                2018-02-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>搭建环境 // ok<br>写页面   // ok<br>js       // </p>
+<h3 id="es6"><a href="#es6" class="headerlink" title="es6"></a>es6</h3><p>es6 默认就是 严格模式 ‘use strict’</p>
+<h4 id="let-const"><a href="#let-const" class="headerlink" title="let const"></a>let const</h4><h5 id="let"><a href="#let" class="headerlink" title="let"></a>let</h5><p>{} 内的变量只有在{}内部才有效,且不能重复声明</p>
+<h5 id="const"><a href="#const" class="headerlink" title="const"></a>const</h5><p>const 声明值类型 只读,引用类型可变,且必须赋值</p>
+<h4 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h4><p>解构赋值：左边一种结构，右边一种结构，一一对应赋值</p>
+<h5 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h5><p>数组解构赋值 对象解构赋值 字符串解构赋值 布尔值解构赋值 函数参数解构赋值 数组解构赋值</p>
+<h6 id="数组解构赋值"><a href="#数组解构赋值" class="headerlink" title="数组解构赋值"></a>数组解构赋值</h6><ol>
+<li>支持默认值 // [a,b=3];</li>
+<li>…只能用在最后一个参数，表示 其他的元素组成一个数组</li>
+<li>，表示空缺的元素</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="built_in">let</span> a,b,rest;</div><div class="line">	[a,b] = [1,2] //1,2</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#123;</div><div class="line">  <span class="built_in">let</span> a,b,rest;</div><div class="line">  [a,b,...rest]=[1,2,3,4,5,6];</div><div class="line">  console.log(a,b,rest); // 1,2,[3,4,5,6]</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#123;</div><div class="line">  <span class="built_in">let</span> a,b,c,rest;</div><div class="line">  [a,b,c=3]=[1,2];</div><div class="line">  console.log(a,b,c); // 1,2,3</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#123;</div><div class="line">  <span class="built_in">let</span> a=1;</div><div class="line">  <span class="built_in">let</span> b=2;</div><div class="line">  [a,b]=[b,a];</div><div class="line">  console.log(a,b); // 2,1 =&gt;数值交换</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#123;</div><div class="line">  <span class="keyword">function</span> <span class="function"><span class="title">f</span></span>()&#123;</div><div class="line">    <span class="built_in">return</span> [1,2]</div><div class="line">  &#125;</div><div class="line">  <span class="built_in">let</span> a,b;</div><div class="line">  [a,b]=f();</div><div class="line">  console.log(a,b);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="对象解构赋值"><a href="#对象解构赋值" class="headerlink" title="对象解构赋值"></a>对象解构赋值</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="built_in">let</span> a,b;</div><div class="line">  (&#123;a,b&#125;=&#123;a:1,b:2&#125;)</div><div class="line">  console.log(a,b); //1,2</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#123;</div><div class="line">  <span class="keyword">function</span> <span class="function"><span class="title">f</span></span>()&#123;</div><div class="line">    <span class="built_in">return</span> [1,2]</div><div class="line">  &#125;</div><div class="line">  <span class="built_in">let</span> a,b;</div><div class="line">  [a,b]=f();</div><div class="line">  console.log(a,b); //1,2</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#123;</div><div class="line">  <span class="built_in">let</span> &#123;a=10,b=5&#125;=&#123;a:3&#125;;</div><div class="line">  console.log(a,b); //3,5</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#123;</div><div class="line">  <span class="built_in">let</span> metaData=&#123;</div><div class="line">    title:<span class="string">'abc'</span>,</div><div class="line">    <span class="built_in">test</span>:[&#123;</div><div class="line">      title:<span class="string">'test'</span>,</div><div class="line">      desc:<span class="string">'description'</span></div><div class="line">    &#125;]</div><div class="line">  &#125;</div><div class="line">  <span class="built_in">let</span> &#123;title:esTitle,<span class="built_in">test</span>:[&#123;title:cnTitle&#125;]&#125;=metaData;</div><div class="line">  console.log(esTitle,cnTitle); // <span class="string">'abc'</span>,<span class="built_in">test</span></div></pre></td></tr></table></figure>
+<h4 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h4><h5 id="修饰符-i"><a href="#修饰符-i" class="headerlink" title="修饰符 i"></a>修饰符 i</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> regex3 = new RegExp(/abc/ig, <span class="string">'i'</span>);</div><div class="line">console.log(regex3.flags); // i</div></pre></td></tr></table></figure>
+<h5 id="修饰符-g-y"><a href="#修饰符-g-y" class="headerlink" title="修饰符 g/y"></a>修饰符 g/y</h5><pre><code>g =&gt; 全局查找 从上一次匹配的位置继续寻找直到找到匹配的位置开始，不一定是第一个就匹配上
+y =&gt; 全局查找 但是 必须是匹配成后紧跟着的第一个字符就要匹配成功才算
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    // y修饰符</div><div class="line">    <span class="built_in">let</span> s = <span class="string">'bbbb_bbb_bb_b'</span>;</div><div class="line">    var a1 = /b+/g;</div><div class="line">    var a2 = /b+/y;</div><div class="line"></div><div class="line">    console.log(a1.exec(s), a2.exec(s)); // [<span class="string">"bbbb"</span>],[<span class="string">"bbbb"</span>]</div><div class="line">    console.log(a1.exec(s), a2.exec(s)); // [<span class="string">"bbb"</span>],null</div><div class="line"></div><div class="line">    console.log(a1.sticky, a2.sticky); //表示是否开启了粘连模式  <span class="literal">false</span> <span class="literal">true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="修饰符-u"><a href="#修饰符-u" class="headerlink" title="修饰符 u"></a>修饰符 u</h5><pre><code>1. Unicode字符 要加上 u 才可以识别
+2. . 不能识别 大于 0xffff(即两个字符)的Unicode 字符,必须加上 u 修饰
+3. 量词大于 0xffff 要用 u 修饰
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    console.log(<span class="string">'u修饰符'</span>,/^\uD83D/.<span class="built_in">test</span>(<span class="string">'\uD83D\uDC2A'</span>)); // <span class="literal">true</span></div><div class="line">    console.log(<span class="string">'u修饰符'</span>,/^\uD83D/u.test(<span class="string">'\uD83D\uDC2A'</span>)); // <span class="literal">false</span></div><div class="line">    // 大括号表示Unicode字符，只有加上u才能识别</div><div class="line">    console.log(/\u&#123;61&#125;/.<span class="built_in">test</span>(<span class="string">'a'</span>)); // <span class="literal">false</span></div><div class="line">    console.log(/\u&#123;61&#125;/u.test(<span class="string">'a'</span>)); // <span class="literal">true</span></div><div class="line">    console.log(/\u&#123;20BB7&#125;/u.test(<span class="string">'𠮷'</span>)); // <span class="literal">true</span></div><div class="line">    // 点（.）字符不能识别码点大于0xFFFF(两个字符)的Unicode字符，必须加上u修饰符。</div><div class="line">    <span class="built_in">let</span> s = <span class="string">'𠮷'</span>;</div><div class="line">    console.log(<span class="string">'大于0xFFFF的Unicode字符'</span>,/^.$/.<span class="built_in">test</span>(s)); // <span class="literal">false</span></div><div class="line">    console.log(<span class="string">'使用u字符'</span>,/^.$/u.test(s)); // <span class="literal">true</span></div><div class="line"></div><div class="line">    // 使用u修饰符后，所有量词都会正确识别大于码点大于0xFFFF的Unicode字符。</div><div class="line">    console.log(<span class="string">'量词'</span>,/a&#123;2&#125;/.<span class="built_in">test</span>(<span class="string">'aa'</span>)); // <span class="literal">true</span></div><div class="line">    console.log(<span class="string">'量词'</span>,/a&#123;2&#125;/u.test(<span class="string">'aa'</span>)); // <span class="literal">true</span></div><div class="line">    console.log(<span class="string">'量词'</span>,/𠮷&#123;2&#125;/.<span class="built_in">test</span>(<span class="string">'𠮷𠮷'</span>)); // <span class="literal">false</span></div><div class="line">    console.log(<span class="string">'量词'</span>,/𠮷&#123;2&#125;/u.test(<span class="string">'𠮷𠮷'</span>)); // <span class="literal">true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><ol>
+<li><p>大于0xffff 要用{}</p>
+<p> {<br>   console.log(‘a’,<code>\u0061</code>);    //a<br>   console.log(‘s’,<code>\u20BB7</code>);   // ₻7<br>   console.log(‘s’,<code>\u{20BB7}</code>); //𠮷<br> }</p>
+</li>
+<li><p>codePointAt</p>
+<p> {<br>   let s=’𠮷’;<br>   console.log(‘length’,s.length);<br>   console.log(‘0’,s.charAt(0));<br>   console.log(‘1’,s.charAt(1));<br>   console.log(‘at0’,s.charCodeAt(0));<br>   console.log(‘at1’,s.charCodeAt(1));</p>
+<p>   let s1=’𠮷a’;<br>   console.log(‘length’,s1.length);                     // 3<br>   console.log(‘code0’,s1.codePointAt(0));              // 134071 =&gt; 全部的Unicode(占4个字符)<br>   console.log(‘code0’,s1.codePointAt(0).toString(16)); //20bb7<br>   console.log(‘code1’,s1.codePointAt(1));<br>   console.log(‘code2’,s1.codePointAt(2));<br> }</p>
+</li>
+<li><p>fromCodePoint 可以超过 0xffff fromCharCode 不能</p>
+<p> {<br>   console.log(String.fromCharCode(“0x20bb7”));   // ஷ<br>   console.log(String.fromCodePoint(“0x20bb7”));  // 𠮷<br> }</p>
+</li>
+<li><p>let of</p>
+<p> {<br>   let str=’\u{20bb7}abc’;<br>   for(let i=0;i&lt;str.length;i++){</p>
+<pre><code>console.log(&apos;es5&apos;,str[i]); // � � a b c
+</code></pre><p>   }<br>   for(let code of str){</p>
+<pre><code>console.log(&apos;es6&apos;,code); // 𠮷 a b c 
+</code></pre><p>   }<br> }</p>
+</li>
+<li><p>包含 头部 尾部 重复</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="built_in">let</span> str=<span class="string">"string"</span>;</div><div class="line">  console.log(<span class="string">'includes'</span>,str.includes(<span class="string">"c"</span>));  // <span class="literal">false</span></div><div class="line">  console.log(<span class="string">'start'</span>,str.startsWith(<span class="string">'str'</span>)); // <span class="literal">true</span></div><div class="line">  console.log(<span class="string">'end'</span>,str.endsWith(<span class="string">'ng'</span>));      // <span class="literal">true</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">&#123;</div><div class="line">  <span class="built_in">let</span> str=<span class="string">"abc"</span>;</div><div class="line">  console.log(str.repeat(2)); // abcabc</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li><p>拼接 </p>
+<p> {<br>   let name=”list”;<br>   let info=”hello world”;<br>   let m=<code>i am ${name},${info}</code>;<br>   console.log(m);  // i am list,hello world<br> }</p>
+</li>
+<li><p>补充</p>
+<p> {<br>   console.log(‘1’.padStart(2,’0’)); // 01<br>   console.log(‘1’.padEnd(2,’0’));   // 10<br> }</p>
+</li>
+<li><p>String.raw 不换行 与 。。。</p>
+<p> {<br>   let user={</p>
+<pre><code>name:&apos;list&apos;,
+info:&apos;hello world&apos;
+</code></pre><p>   };<br>   console.log(abc<code>i am ${user.name},${user.info}</code>);<br>   function abc(s,v1,v2){</p>
+<pre><code>console.log(s,v1,v2);
+return s+v1+v2
+</code></pre><p>   }<br> }</p>
+<p> {<br>   console.log(String.raw<code>Hi\n${1+2}</code>); // 不换行<br>   console.log(<code>Hi\n${1+2}</code>);<br> }</p>
+</li>
+</ol>
+<h4 id="数值扩展"><a href="#数值扩展" class="headerlink" title="数值扩展"></a>数值扩展</h4><pre><code>ob/oB =&gt; 二进制开头
+Oo    =&gt; 八进制开头
+Number.isFinite 判断又穷
+Number.isNaN 判断是否为数
+Number.isInteger 判断是否为整数
+Number.isSafeInteger 判断是否安全
+Math.trunc 只取整数部分(Math.floor 向下取整,负数时有区别)   
+Math.sign 判断是否为整数 -1,0,1,NaN
+Math.cbrt 立方根
+</code></pre><h4 id="数组扩展"><a href="#数组扩展" class="headerlink" title="数组扩展"></a>数组扩展</h4><pre><code>Array.of() 转成数组
+Array.from() 将nodeList 转成数组
+[].fill(content,start,end) 前闭后开
+[].copyWithin(target,start,end)前闭后开
+[].find 返回第一个符合条件的value
+[].findIndex 返回第一个符合条件的Index
+[].includes(content) 是否包含content 
+
+  for(let index of [&apos;1&apos;,&apos;c&apos;,&apos;ks&apos;].keys()){
+    console.log(&apos;keys&apos;,index); // 0,1,2
+  }
+  for(let value of [&apos;1&apos;,&apos;c&apos;,&apos;ks&apos;].values()){
+    console.log(&apos;values&apos;,value); // 1,c,ks
+  }
+  for(let [index,value] of [&apos;1&apos;,&apos;c&apos;,&apos;ks&apos;].entries()){
+    console.log(&apos;values&apos;,index,value); // 0,1 1,c 2 ks
+  }
+</code></pre><h4 id="函数扩展"><a href="#函数扩展" class="headerlink" title="函数扩展"></a>函数扩展</h4><pre><code>默认值 设置默认值的参数后面参数不能没有默认值
+...arg 扩展参数
+...[1,2,3] 展开数组
+箭头函数 let arrow = v =&gt; v*2; 
+伪调用 提升性能 代替递归
+</code></pre><h4 id="对象扩展"><a href="#对象扩展" class="headerlink" title="对象扩展"></a>对象扩展</h4><pre><code>简洁表示法 let o=1;let es6={o}; es6=&gt; {o:1}
+属性表达式 let a =&apos;b&apos;;let es6 = {[a]:&apos;c&apos;}; es6=&gt;{b:&apos;c&apos;}
+
+Object.is(a,b) a===b
+Object.assign{({},{....}} 浅拷贝
+Object.entries 同 Array.entries
+
+扩展运算符
+let {a,b,...c}={a:&apos;test&apos;,b:&apos;kill&apos;,c:&apos;ddd&apos;,d:&apos;ccc&apos;};
+</code></pre><h4 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h4><pre><code>1.声明唯一变量
+2.Symbol.for() 不唯一
+3.Symbol.for()可以与{}中的属性重复
+
+  let a1=Symbol.for(&apos;abc&apos;);
+  let obj={
+    [a1]:&apos;123&apos;,
+    &apos;abc&apos;:345,
+    &apos;c&apos;:456
+  };
+  console.log(&apos;obj&apos;,obj);  // {abc: 345, c: 456, Symbol(abc): &quot;123&quot;}
+4. 怎样查找带有Symbol项的obj
+      for(let [key,value] of Object.entries(obj)){
+        console.log(&apos;let of&apos;,key,value);
+      }
+
+      Object.getOwnPropertySymbols(obj).forEach(function(item){
+        console.log(obj[item]);
+      })
+
+      Reflect.ownKeys(obj).forEach(function(item){
+        console.log(&apos;ownkeys&apos;,item,obj[item]);
+      })
+</code></pre><h4 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h4><pre><code>Set WeakSet Map WeakMap
+</code></pre><h5 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h5><pre><code>类似数组 但是 成员的值都是唯一的，没有重复。
+可以用来 去重，但是类型不同不会去重。
+  // 去除数组的重复成员
+  [...new Set(array)]
+
+长度 .size
+方法 add delete clear has 
+获取值 .keys .values .entries .forEach
+new Set(content) content 必须为数组或类数组
+</code></pre><h5 id="weakSet"><a href="#weakSet" class="headerlink" title="weakSet"></a>weakSet</h5><pre><code>weakSet的元素只能是对象,
+对象是弱引用，引用地址。不会检测这个对象是否在其他地方用过。因此WeakSet是不可遍历的
+</code></pre><h5 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h5><pre><code>值-值 的对应 各种类型的值(包括对象)都可以当做键
+Map.set() Map.get()
+方法 add delete clear has 
+</code></pre><h4 id="set-map-array-obj-增删改查"><a href="#set-map-array-obj-增删改查" class="headerlink" title="set map array obj 增删改查"></a>set map array obj 增删改查</h4><pre><code>let set = new Set();
+let map = new Map();
+let arr = [];
+let obj={};
+// 增
+set.add({&apos;t&apos;:1});
+map.set(&apos;t&apos;,1);
+arr.push({t:1});
+obj[&apos;t&apos;]=1;
+// 删
+set.forEach(item=&gt;item.t?item.t=2:&apos;&apos;);
+map.delete(&apos;t&apos;);
+let index = arr.findIndex(item=&gt;item.t);
+arr.splice(index,1);
+delete obj[&apos;t&apos;];
+// 改
+map.set(&apos;t&apos;,2);
+set.forEach(item=&gt;item.t?item.t=2:&apos;&apos;)
+arr.forEach(item=&gt;item.t?item.t=2:&apos;&apos;);  // .map()也可以
+obj.t=2;
+// 查
+map.has(&apos;t&apos;);
+set.has(Item);  Item ==&gt; {t:1} 并且一定要 set.add(I)才可以 set.add({t:1})不行
+arr.find(item=&gt;item.t);
+&apos;t&apos; in obj
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/es6/" rel="tag"># es6</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/13/mock/" rel="next" title="mock">
+                <i class="fa fa-chevron-left"></i> mock
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/21/gulp/" rel="prev" title="gulp">
+                gulp <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/avatar.jpg"
+              alt="JEFT-hai" />
+          
+            <p class="site-author-name" itemprop="name">JEFT-hai</p>
+            <p class="site-description motion-element" itemprop="description">生当做人雄，死一做鬼杰。</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives">
+            
+                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/JEFT-hai" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="3433891733@qq.com" target="_blank" title="QQ">
+                  
+                    <i class="fa fa-fw fa-qq"></i>QQ</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#es6"><span class="nav-number">1.</span> <span class="nav-text">es6</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#let-const"><span class="nav-number">1.1.</span> <span class="nav-text">let const</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#let"><span class="nav-number">1.1.1.</span> <span class="nav-text">let</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#const"><span class="nav-number">1.1.2.</span> <span class="nav-text">const</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解构赋值"><span class="nav-number">1.2.</span> <span class="nav-text">解构赋值</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#分类"><span class="nav-number">1.2.1.</span> <span class="nav-text">分类</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#数组解构赋值"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">数组解构赋值</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#对象解构赋值"><span class="nav-number">1.2.2.</span> <span class="nav-text">对象解构赋值</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正则表达式"><span class="nav-number">1.3.</span> <span class="nav-text">正则表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#修饰符-i"><span class="nav-number">1.3.1.</span> <span class="nav-text">修饰符 i</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#修饰符-g-y"><span class="nav-number">1.3.2.</span> <span class="nav-text">修饰符 g/y</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#修饰符-u"><span class="nav-number">1.3.3.</span> <span class="nav-text">修饰符 u</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串"><span class="nav-number">1.4.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数值扩展"><span class="nav-number">1.5.</span> <span class="nav-text">数值扩展</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组扩展"><span class="nav-number">1.6.</span> <span class="nav-text">数组扩展</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数扩展"><span class="nav-number">1.7.</span> <span class="nav-text">函数扩展</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对象扩展"><span class="nav-number">1.8.</span> <span class="nav-text">对象扩展</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Symbol"><span class="nav-number">1.9.</span> <span class="nav-text">Symbol</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据结构"><span class="nav-number">1.10.</span> <span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Set"><span class="nav-number">1.10.1.</span> <span class="nav-text">Set</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#weakSet"><span class="nav-number">1.10.2.</span> <span class="nav-text">weakSet</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Map"><span class="nav-number">1.10.3.</span> <span class="nav-text">Map</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#set-map-array-obj-增删改查"><span class="nav-number">1.11.</span> <span class="nav-text">set map array obj 增删改查</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JEFT-hai</span>
+
+  
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i>
+<span id="busuanzi_container_site_uv">
+    访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+<span> &nbsp;| &nbsp;</span>
+<div class="powered-by">
+<i class="fa fa-eye"></i>
+<span id="busuanzi_container_site_pv">
+    访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
