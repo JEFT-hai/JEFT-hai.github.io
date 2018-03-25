@@ -71,17 +71,17 @@
 
 
 
-<meta name="description" content="记录一下上线过程pm2 =&amp;gt; 维持命令行关闭但是server不关闭启动 pm2 start …关闭 pm2 stop …查看项目 pm2 list  文件上传放在server下的views下 app.js中 var ejs = require(‘ejs’); //并下载ejs // view engine setup app.set(‘views’, path.join(dirname, ‘">
+<meta name="description" content="记录一下上线过程pm2 =&amp;gt; 维持命令行关闭但是server不关闭启动 pm2 start …关闭 pm2 stop …查看项目 pm2 list">
 <meta property="og:type" content="article">
 <meta property="og:title" content="build">
 <meta property="og:url" content="http://yoursite.com/2018/03/24/build/index.html">
 <meta property="og:site_name" content="JEFT">
-<meta property="og:description" content="记录一下上线过程pm2 =&amp;gt; 维持命令行关闭但是server不关闭启动 pm2 start …关闭 pm2 stop …查看项目 pm2 list  文件上传放在server下的views下 app.js中 var ejs = require(‘ejs’); //并下载ejs // view engine setup app.set(‘views’, path.join(dirname, ‘">
+<meta property="og:description" content="记录一下上线过程pm2 =&amp;gt; 维持命令行关闭但是server不关闭启动 pm2 start …关闭 pm2 stop …查看项目 pm2 list">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-24T20:17:51.695Z">
+<meta property="og:updated_time" content="2018-03-25T19:37:15.916Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="build">
-<meta name="twitter:description" content="记录一下上线过程pm2 =&amp;gt; 维持命令行关闭但是server不关闭启动 pm2 start …关闭 pm2 stop …查看项目 pm2 list  文件上传放在server下的views下 app.js中 var ejs = require(‘ejs’); //并下载ejs // view engine setup app.set(‘views’, path.join(dirname, ‘">
+<meta name="twitter:description" content="记录一下上线过程pm2 =&amp;gt; 维持命令行关闭但是server不关闭启动 pm2 start …关闭 pm2 stop …查看项目 pm2 list">
 
 
 
@@ -323,6 +323,7 @@
 
       
         <h3 id="记录一下上线过程"><a href="#记录一下上线过程" class="headerlink" title="记录一下上线过程"></a>记录一下上线过程</h3><h4 id="pm2-gt-维持命令行关闭但是server不关闭"><a href="#pm2-gt-维持命令行关闭但是server不关闭" class="headerlink" title="pm2 =&gt; 维持命令行关闭但是server不关闭"></a>pm2 =&gt; 维持命令行关闭但是server不关闭</h4><p>启动 pm2 start …<br>关闭 pm2 stop …<br>查看项目 pm2 list </p>
+<a id="more"></a>
 <h4 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h4><h5 id="放在server下的views下"><a href="#放在server下的views下" class="headerlink" title="放在server下的views下"></a>放在server下的views下</h5><p> app.js中<br> var ejs = require(‘ejs’); //并下载ejs<br> // view engine setup<br> app.set(‘views’, path.join(<strong>dirname, ‘views’));<br> app.engine(‘.html’,ejs.</strong>express);<br> app.set(‘view engine’, ‘html’);</p>
 <p>这时就能访问 服务器:server端口号 =&gt; 就是views中html页面</p>
 <h5 id="html不放在server中-eg-nginx的html下"><a href="#html不放在server中-eg-nginx的html下" class="headerlink" title="html不放在server中(eg:nginx的html下)"></a>html不放在server中(eg:nginx的html下)</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">        listen 80;</div><div class="line">        server_name imooc.minghai.shop;</div><div class="line">        <span class="comment"># root /usr/local/nginx/html/imooc;</span></div><div class="line">        <span class="comment"># index login.html index.html;</span></div><div class="line"></div><div class="line">       <span class="comment"># if ($host ~ ^(m|game|admin|imooc)\.minghai\.shop$)</span></div><div class="line">       <span class="comment"># &#123;</span></div><div class="line">        <span class="comment">#     set $erji $1;</span></div><div class="line">         <span class="comment">#    rewrite ^(.*)$ /$erji$1 last;</span></div><div class="line">        <span class="comment">#&#125;</span></div><div class="line">        location / &#123;</div><div class="line">            root /usr/<span class="built_in">local</span>/nginx/html/imooc;  html地址</div><div class="line">            index index.html;</div><div class="line">			或</div><div class="line">            proxy_pass http://127.0.0.1:3000/ html放入server下</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        location /imooc/users/ &#123;</div><div class="line">             proxy_pass http://127.0.0.1:3000/users/;</div><div class="line">        &#125;</div><div class="line">         </div><div class="line">        location /users/ &#123;</div><div class="line">             proxy_pass http://127.0.0.1:3000/users/;</div><div class="line">        &#125;</div><div class="line">        location /cart/ &#123;</div><div class="line">             proxy_pass http://127.0.0.1:3000/cart/;</div><div class="line">        &#125;</div><div class="line">        location /goods/list &#123;</div><div class="line">             proxy_pass http://127.0.0.1:3000/goods/list;</div><div class="line">        &#125;        </div><div class="line">        location /goods/addCart &#123;</div><div class="line">             proxy_pass http://127.0.0.1:3000/goods/addCart;</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>

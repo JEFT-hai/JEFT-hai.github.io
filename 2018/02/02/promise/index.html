@@ -71,18 +71,18 @@
 
 
 
-<meta name="description" content="概念Promise是一个构造函数。 该函数有一个函数参数 函数参数有两个参数 resolve reject ,分别为成功与失败之后的回调函数。 用法123var promise = new Promise(function(resolve,reject)&amp;#123;		...	&amp;#125;) 1.Promise.all()=&amp;gt;用于汇总多个promise的结果。2.Promise.race()">
+<meta name="description" content="概念Promise是一个构造函数。 该函数有一个函数参数 函数参数有两个参数 resolve reject ,分别为成功与失败之后的回调函数。">
 <meta name="keywords" content="js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="promise">
 <meta property="og:url" content="http://yoursite.com/2018/02/02/promise/index.html">
 <meta property="og:site_name" content="JEFT">
-<meta property="og:description" content="概念Promise是一个构造函数。 该函数有一个函数参数 函数参数有两个参数 resolve reject ,分别为成功与失败之后的回调函数。 用法123var promise = new Promise(function(resolve,reject)&amp;#123;		...	&amp;#125;) 1.Promise.all()=&amp;gt;用于汇总多个promise的结果。2.Promise.race()">
+<meta property="og:description" content="概念Promise是一个构造函数。 该函数有一个函数参数 函数参数有两个参数 resolve reject ,分别为成功与失败之后的回调函数。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-17T19:25:37.931Z">
+<meta property="og:updated_time" content="2018-03-25T21:14:43.539Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="promise">
-<meta name="twitter:description" content="概念Promise是一个构造函数。 该函数有一个函数参数 函数参数有两个参数 resolve reject ,分别为成功与失败之后的回调函数。 用法123var promise = new Promise(function(resolve,reject)&amp;#123;		...	&amp;#125;) 1.Promise.all()=&amp;gt;用于汇总多个promise的结果。2.Promise.race()">
+<meta name="twitter:description" content="概念Promise是一个构造函数。 该函数有一个函数参数 函数参数有两个参数 resolve reject ,分别为成功与失败之后的回调函数。">
 
 
 
@@ -326,7 +326,8 @@
         <h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><pre><code>Promise是一个构造函数。
 该函数有一个函数参数
 函数参数有两个参数 resolve reject ,分别为成功与失败之后的回调函数。
-</code></pre><h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var promise = new Promise(<span class="keyword">function</span>(resolve,reject)&#123;</div><div class="line">		...</div><div class="line">	&#125;)</div></pre></td></tr></table></figure>
+</code></pre><a id="more"></a>
+<h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var promise = new Promise(<span class="keyword">function</span>(resolve,reject)&#123;</div><div class="line">		...</div><div class="line">	&#125;)</div></pre></td></tr></table></figure>
 <p>1.Promise.all()=&gt;用于汇总多个promise的结果。<br>2.Promise.race()<br>3.Promise.reject(reason)<br>4.Promise.resolve(value)<br>5.Promise.prototype.catch(onRejected)<br>6.Promise.prototype.then(onFulfilled, onRejected)<br>7.Promise.prototype.finally(onFinally)</p>
 <h4 id="async"><a href="#async" class="headerlink" title="async"></a>async</h4><p>1.一个async函数可以包含一个await表达式，暂停异步函数的执行并等待传入Promise的解析，然后恢复async函数的执行并返回解析后的值。<br>eg:=&gt;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> resolveAfter2Seconds(x) &#123;</div><div class="line">  <span class="built_in">return</span> new Promise(resolve =&gt; &#123;</div><div class="line">    setTimeout(() =&gt; &#123;</div><div class="line">      resolve(x);</div><div class="line">    &#125;, 2000);</div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">async <span class="keyword">function</span> add1(x) &#123;</div><div class="line">  const a = await resolveAfter2Seconds(20);</div><div class="line">  const b = await resolveAfter2Seconds(30);</div><div class="line">  <span class="built_in">return</span> x + a + b;</div><div class="line">&#125;</div><div class="line"></div><div class="line">add1(10).<span class="keyword">then</span>(v =&gt; &#123;</div><div class="line">  console.log(v);  // prints 60 after 4 seconds.</div><div class="line">&#125;);</div><div class="line"></div><div class="line"></div><div class="line">async <span class="keyword">function</span> add2(x) &#123;</div><div class="line">  const p_a = resolveAfter2Seconds(20);</div><div class="line">  const p_b = resolveAfter2Seconds(30);</div><div class="line">  <span class="built_in">return</span> x + await p_a + await p_b;</div><div class="line">&#125;</div><div class="line"></div><div class="line">add2(10).<span class="keyword">then</span>(v =&gt; &#123;</div><div class="line">  console.log(v);  // prints 60 after 2 seconds.</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
 <p>2.函数重写承诺链</p>

@@ -325,39 +325,14 @@
 
       
         
-          
-            <h3 id="fetch"><a href="#fetch" class="headerlink" title="fetch"></a>fetch</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fetch(<span class="string">'/url/'</span>,&#123;method:<span class="string">'GET'</span>&#125;)</div><div class="line">.<span class="keyword">then</span>(response =&gt; response.json())</div><div class="line">.<span class="keyword">then</span>(json =&gt; this.setState(&#123;data:json&#125;))</div></pre></td></tr></table></figure>
-<h4 id="poiyfill"><a href="#poiyfill" class="headerlink" title="poiyfill"></a>poiyfill</h4><pre><code>fetch是基于Promise设计的，所以不兼容 IE8及以下
-可以下载 isomorphic-fetch和whatwg-fetch
-</code></pre><h4 id="jsonp"><a href="#jsonp" class="headerlink" title="jsonp"></a>jsonp</h4><pre><code>fetch不支持jsonp
-可以用 fetch-jsonp 
-
-npm install fetch-jsonp --save-dev
-fetchJsonp(&apos;/users.jsonp&apos;, {
-    timeout: 3000,
-    jsonpCallback: &apos;custom_callback&apos;
-  })
-  .then(function(response) {
-    return response.json()
-  }).catch(function(ex) {
-    console.log(&apos;parsing failed&apos;, ex)
-  })
-</code></pre><h4 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h4><pre><code>fetch的mode有3个值
-same=&gt;该模式是不允许跨域的，它需要遵守同源策略，否则浏览器会返回一个error告知不能跨域；其对应的response type为basic。
-
-cors: 该模式支持跨域请求，顾名思义它是以CORS的形式跨域；当然该模式也可以同域请求不需要后端额外的CORS支持；其对应的response type为cors。
-
-no-cors: 该模式用于跨域请求但是服务器不带CORS响应头，也就是服务端不支持CORS；这也是fetch的特殊跨域请求方式；其对应的response type为opaque。 
-// 后台可以看到数据，但是访问不到内容 =&gt; 该模式允许浏览器发送本次跨域请求，但是不能访问响应返回的内容，这也是其response type为opaque透明的原因。
-</code></pre><h5 id="proxy-重定向"><a href="#proxy-重定向" class="headerlink" title="proxy 重定向"></a>proxy 重定向</h5><pre><code>可以 在package.json里添加
-&quot;proxy&quot;: {
-  &quot;/api&quot;: {
-    &quot;target&quot;: &quot;http://localhost:4000&quot;,
-    &quot;secure&quot;: false
-  }
-}
-</code></pre>
-          
+          <h3 id="fetch"><a href="#fetch" class="headerlink" title="fetch"></a>fetch</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fetch(<span class="string">'/url/'</span>,&#123;method:<span class="string">'GET'</span>&#125;)</div><div class="line">.<span class="keyword">then</span>(response =&gt; response.json())</div><div class="line">.<span class="keyword">then</span>(json =&gt; this.setState(&#123;data:json&#125;))</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/02/25/fetch/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -480,68 +455,21 @@ no-cors: 该模式用于跨域请求但是服务器不带CORS响应头，也就�
 
       
         
-          
-            <h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><h4 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h4><pre><code>g/i/m/y/u
+          <h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><h4 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h4><pre><code>g/i/m/y/u
 
 g =&gt; 全局查找 从上一次匹配的位置继续寻找直到找到匹配的位置开始，不一定是第一个就匹配上
 i =&gt; 大小写不敏感
 m =&gt; 检测字符串中的换行符
 y =&gt; es6 全局查找 但是 必须是匹配成后紧跟着的第一个字符就要匹配成功才算
 u =&gt;  用来处理Unicode字符的 大于两个字符(0xffff) .不匹配/量词(大于0xffff)/u{61}(这种Unicode字符)
-</code></pre><h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><h5 id="RegExp"><a href="#RegExp" class="headerlink" title="RegExp"></a>RegExp</h5><pre><code>compile =&gt; 编译正则表达式
-exec =&gt; 搜索字符串中指定的值。返回找到的值，并确定其位置
-test =&gt; 搜索字符串中指定的值。返回true或false
-</code></pre><h5 id="String"><a href="#String" class="headerlink" title="String"></a>String</h5><pre><code>search =&gt; 搜索与正则表达式相匹配的值，stringObject 中第一个与 regexp 相匹配的子串的起始位置。注释：如果没有找到任何匹配的子串，则返回 -1。
-match =&gt; 找到一个或者多个正则表达式的匹配。 返回的是匹配的值，没有 为 null
-replace =&gt; 替换与正则表达式匹配的子串。
-split =&gt; string ==&gt; []
-</code></pre><h4 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h4><pre><code>w =&gt; 查找字符单词  W =&gt; 查找非单词字符
-d =&gt; 查找数字      D =&gt; 查找非数字字符
-s =&gt; 查找空白字符  S =&gt; 查找非空白字符
-b =&gt; 匹配单词边界  B =&gt; 匹配非单词边界
-[] =&gt; 用于查找某个范围内的字符
-{} =&gt; 量词
-
-^ =&gt; 字符串的开始位置
-$ =&gt; 字符串的结束位置
-
-* =&gt; {0,}
-+ =&gt; {1,}
-
-? =&gt; {0,1}
-</code></pre><h4 id="用到过的正则例子"><a href="#用到过的正则例子" class="headerlink" title="用到过的正则例子"></a>用到过的正则例子</h4><pre><code>1. 邮箱验证 xx@xx.com/cn;
-
-var s = &apos;1205562160@qq.com&apos;;
-var reg = new RegExp(/\d{5,11}@\w{2,3}\.com|cn/);
-reg.test(s);
-
-2. trim
-
-function trim(s){
-    return s.replace(/(^\s*)|(\s*$)/g,&apos;&apos;);
-}
-
-3. 去掉重复的字符串
-
-var str = &apos;aaabccddde&apos;;
-
-str = str.replace(/(.)\1+/g,&apos;$1&apos;);
-
-4. 验证注册名称 字母开头，后面数字、字符串、下划线，长度为9-20；
-
-var s = &apos;a2323_wewwe&apos;;
-var reg = new RegExp(/^[a-zA-Z][\w]{8-19}$/,&apos;g&apos;);
-reg.test(s);
-
-5. 数字每三位数添加逗号
-
-var num = 1233445454.12;
-
-num.toString().replace(/(\d)(?=(\d{3})+\.)/g,function($2){
-    return $2+&apos;,&apos;;
-})
 </code></pre>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/02/22/regExp/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -664,17 +592,16 @@ num.toString().replace(/(\d)(?=(\d{3})+\.)/g,function($2){
 
       
         
-          
-            <h3 id="gulp"><a href="#gulp" class="headerlink" title="gulp"></a>gulp</h3><h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><pre><code>gulp中使用的是node的stream（流），是以stream为媒介
+          <h3 id="gulp"><a href="#gulp" class="headerlink" title="gulp"></a>gulp</h3><h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><pre><code>gulp中使用的是node的stream（流），是以stream为媒介
 先读取需要的stream，通过stream的pipe()方法导入到想要的地方，比如插件等，经过插件处理过的流可以继续导入到其他地方，包括写入到文件中
-</code></pre><h4 id="最简-gulp"><a href="#最简-gulp" class="headerlink" title="最简 gulp"></a>最简 gulp</h4><pre><code>&lt;!-- build:css css/combined.css --&gt;
-&lt;!-- endbuild --&gt;
-
-&lt;!-- build:js js/combined.js --&gt;
-&lt;!-- endbuild --&gt;
-</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">var gulp = require(<span class="string">'gulp'</span>);</div><div class="line">var rev = require(<span class="string">'gulp-rev'</span>);</div><div class="line">var revReplace = require(<span class="string">'gulp-rev-Replace'</span>);</div><div class="line">var useref = require(<span class="string">'gulp-useref'</span>);</div><div class="line">var filter = require(<span class="string">'gulp-filter'</span>);</div><div class="line">var uglify = require(<span class="string">'gulp-uglify'</span>);</div><div class="line">var csso = require(<span class="string">'gulp-csso'</span>);</div><div class="line"></div><div class="line">var imagemin = require(<span class="string">'gulp-imagemin'</span>);</div><div class="line"></div><div class="line">gulp.task(<span class="string">'default'</span>,<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">	var jsFilter = filter(<span class="string">'**/*.js'</span>,&#123;restore: <span class="literal">true</span>&#125;);</div><div class="line">	var cssFilter = filter(<span class="string">'**/*.css'</span>,&#123;restore: <span class="literal">true</span>&#125;);</div><div class="line">	var indexHtmlFilter = filter([<span class="string">'**/*'</span>,<span class="string">'!**/index.html'</span>],&#123;restore: <span class="literal">true</span>&#125;);</div><div class="line"></div><div class="line">	<span class="built_in">return</span> gulp.src(<span class="string">'src/index.html'</span>)</div><div class="line">		.pipe(useref())</div><div class="line">		.pipe(jsFilter)</div><div class="line">		.pipe(uglify())</div><div class="line">		.pipe(jsFilter.restore)</div><div class="line">		.pipe(cssFilter)</div><div class="line">		.pipe(csso())</div><div class="line">		.pipe(cssFilter.restore)</div><div class="line">		.pipe(indexHtmlFilter)</div><div class="line">		.pipe(rev())</div><div class="line">		.pipe(indexHtmlFilter.restore)</div><div class="line">		.pipe(revReplace())</div><div class="line">		.pipe(gulp.dest(<span class="string">'dist'</span>));</div><div class="line"></div><div class="line">&#125;)</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">// 压缩图片任务</div><div class="line">// 在命令行输入 gulp images 启动此任务</div><div class="line">gulp.task(<span class="string">'images'</span>, <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">// 1. 找到图片</div><div class="line">gulp.src(<span class="string">'src/img/*.*'</span>)</div><div class="line">// 2. 压缩图片</div><div class="line">.pipe(imagemin(&#123;</div><div class="line">progressive: <span class="literal">true</span></div><div class="line">&#125;))</div><div class="line">// 3. 另存图片</div><div class="line">.pipe(gulp.dest(<span class="string">'dist/img'</span>))</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-
-          
+</code></pre>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/02/21/gulp/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -797,173 +724,18 @@ num.toString().replace(/(\d)(?=(\d{3})+\.)/g,function($2){
 
       
         
-          
-            <p>搭建环境 // ok<br>写页面   // ok<br>js       // </p>
+          <p>搭建环境 // ok<br>写页面   // ok<br>js       // </p>
 <h3 id="es6"><a href="#es6" class="headerlink" title="es6"></a>es6</h3><p>es6 默认就是 严格模式 ‘use strict’</p>
 <h4 id="let-const"><a href="#let-const" class="headerlink" title="let const"></a>let const</h4><h5 id="let"><a href="#let" class="headerlink" title="let"></a>let</h5><p>{} 内的变量只有在{}内部才有效,且不能重复声明</p>
 <h5 id="const"><a href="#const" class="headerlink" title="const"></a>const</h5><p>const 声明值类型 只读,引用类型可变,且必须赋值</p>
 <h4 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h4><p>解构赋值：左边一种结构，右边一种结构，一一对应赋值</p>
-<h5 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h5><p>数组解构赋值 对象解构赋值 字符串解构赋值 布尔值解构赋值 函数参数解构赋值 数组解构赋值</p>
-<h6 id="数组解构赋值"><a href="#数组解构赋值" class="headerlink" title="数组解构赋值"></a>数组解构赋值</h6><ol>
-<li>支持默认值 // [a,b=3];</li>
-<li>…只能用在最后一个参数，表示 其他的元素组成一个数组</li>
-<li>，表示空缺的元素</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="built_in">let</span> a,b,rest;</div><div class="line">	[a,b] = [1,2] //1,2</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#123;</div><div class="line">  <span class="built_in">let</span> a,b,rest;</div><div class="line">  [a,b,...rest]=[1,2,3,4,5,6];</div><div class="line">  console.log(a,b,rest); // 1,2,[3,4,5,6]</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#123;</div><div class="line">  <span class="built_in">let</span> a,b,c,rest;</div><div class="line">  [a,b,c=3]=[1,2];</div><div class="line">  console.log(a,b,c); // 1,2,3</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#123;</div><div class="line">  <span class="built_in">let</span> a=1;</div><div class="line">  <span class="built_in">let</span> b=2;</div><div class="line">  [a,b]=[b,a];</div><div class="line">  console.log(a,b); // 2,1 =&gt;数值交换</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#123;</div><div class="line">  <span class="keyword">function</span> <span class="function"><span class="title">f</span></span>()&#123;</div><div class="line">    <span class="built_in">return</span> [1,2]</div><div class="line">  &#125;</div><div class="line">  <span class="built_in">let</span> a,b;</div><div class="line">  [a,b]=f();</div><div class="line">  console.log(a,b);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h5 id="对象解构赋值"><a href="#对象解构赋值" class="headerlink" title="对象解构赋值"></a>对象解构赋值</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="built_in">let</span> a,b;</div><div class="line">  (&#123;a,b&#125;=&#123;a:1,b:2&#125;)</div><div class="line">  console.log(a,b); //1,2</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#123;</div><div class="line">  <span class="keyword">function</span> <span class="function"><span class="title">f</span></span>()&#123;</div><div class="line">    <span class="built_in">return</span> [1,2]</div><div class="line">  &#125;</div><div class="line">  <span class="built_in">let</span> a,b;</div><div class="line">  [a,b]=f();</div><div class="line">  console.log(a,b); //1,2</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#123;</div><div class="line">  <span class="built_in">let</span> &#123;a=10,b=5&#125;=&#123;a:3&#125;;</div><div class="line">  console.log(a,b); //3,5</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#123;</div><div class="line">  <span class="built_in">let</span> metaData=&#123;</div><div class="line">    title:<span class="string">'abc'</span>,</div><div class="line">    <span class="built_in">test</span>:[&#123;</div><div class="line">      title:<span class="string">'test'</span>,</div><div class="line">      desc:<span class="string">'description'</span></div><div class="line">    &#125;]</div><div class="line">  &#125;</div><div class="line">  <span class="built_in">let</span> &#123;title:esTitle,<span class="built_in">test</span>:[&#123;title:cnTitle&#125;]&#125;=metaData;</div><div class="line">  console.log(esTitle,cnTitle); // <span class="string">'abc'</span>,<span class="built_in">test</span></div></pre></td></tr></table></figure>
-<h4 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h4><h5 id="修饰符-i"><a href="#修饰符-i" class="headerlink" title="修饰符 i"></a>修饰符 i</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> regex3 = new RegExp(/abc/ig, <span class="string">'i'</span>);</div><div class="line">console.log(regex3.flags); // i</div></pre></td></tr></table></figure>
-<h5 id="修饰符-g-y"><a href="#修饰符-g-y" class="headerlink" title="修饰符 g/y"></a>修饰符 g/y</h5><pre><code>g =&gt; 全局查找 从上一次匹配的位置继续寻找直到找到匹配的位置开始，不一定是第一个就匹配上
-y =&gt; 全局查找 但是 必须是匹配成后紧跟着的第一个字符就要匹配成功才算
-</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    // y修饰符</div><div class="line">    <span class="built_in">let</span> s = <span class="string">'bbbb_bbb_bb_b'</span>;</div><div class="line">    var a1 = /b+/g;</div><div class="line">    var a2 = /b+/y;</div><div class="line"></div><div class="line">    console.log(a1.exec(s), a2.exec(s)); // [<span class="string">"bbbb"</span>],[<span class="string">"bbbb"</span>]</div><div class="line">    console.log(a1.exec(s), a2.exec(s)); // [<span class="string">"bbb"</span>],null</div><div class="line"></div><div class="line">    console.log(a1.sticky, a2.sticky); //表示是否开启了粘连模式  <span class="literal">false</span> <span class="literal">true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h5 id="修饰符-u"><a href="#修饰符-u" class="headerlink" title="修饰符 u"></a>修饰符 u</h5><pre><code>1. Unicode字符 要加上 u 才可以识别
-2. . 不能识别 大于 0xffff(即两个字符)的Unicode 字符,必须加上 u 修饰
-3. 量词大于 0xffff 要用 u 修饰
-</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    console.log(<span class="string">'u修饰符'</span>,/^\uD83D/.<span class="built_in">test</span>(<span class="string">'\uD83D\uDC2A'</span>)); // <span class="literal">true</span></div><div class="line">    console.log(<span class="string">'u修饰符'</span>,/^\uD83D/u.test(<span class="string">'\uD83D\uDC2A'</span>)); // <span class="literal">false</span></div><div class="line">    // 大括号表示Unicode字符，只有加上u才能识别</div><div class="line">    console.log(/\u&#123;61&#125;/.<span class="built_in">test</span>(<span class="string">'a'</span>)); // <span class="literal">false</span></div><div class="line">    console.log(/\u&#123;61&#125;/u.test(<span class="string">'a'</span>)); // <span class="literal">true</span></div><div class="line">    console.log(/\u&#123;20BB7&#125;/u.test(<span class="string">'𠮷'</span>)); // <span class="literal">true</span></div><div class="line">    // 点（.）字符不能识别码点大于0xFFFF(两个字符)的Unicode字符，必须加上u修饰符。</div><div class="line">    <span class="built_in">let</span> s = <span class="string">'𠮷'</span>;</div><div class="line">    console.log(<span class="string">'大于0xFFFF的Unicode字符'</span>,/^.$/.<span class="built_in">test</span>(s)); // <span class="literal">false</span></div><div class="line">    console.log(<span class="string">'使用u字符'</span>,/^.$/u.test(s)); // <span class="literal">true</span></div><div class="line"></div><div class="line">    // 使用u修饰符后，所有量词都会正确识别大于码点大于0xFFFF的Unicode字符。</div><div class="line">    console.log(<span class="string">'量词'</span>,/a&#123;2&#125;/.<span class="built_in">test</span>(<span class="string">'aa'</span>)); // <span class="literal">true</span></div><div class="line">    console.log(<span class="string">'量词'</span>,/a&#123;2&#125;/u.test(<span class="string">'aa'</span>)); // <span class="literal">true</span></div><div class="line">    console.log(<span class="string">'量词'</span>,/𠮷&#123;2&#125;/.<span class="built_in">test</span>(<span class="string">'𠮷𠮷'</span>)); // <span class="literal">false</span></div><div class="line">    console.log(<span class="string">'量词'</span>,/𠮷&#123;2&#125;/u.test(<span class="string">'𠮷𠮷'</span>)); // <span class="literal">true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><ol>
-<li><p>大于0xffff 要用{}</p>
-<p> {<br>   console.log(‘a’,<code>\u0061</code>);    //a<br>   console.log(‘s’,<code>\u20BB7</code>);   // ₻7<br>   console.log(‘s’,<code>\u{20BB7}</code>); //𠮷<br> }</p>
-</li>
-<li><p>codePointAt</p>
-<p> {<br>   let s=’𠮷’;<br>   console.log(‘length’,s.length);<br>   console.log(‘0’,s.charAt(0));<br>   console.log(‘1’,s.charAt(1));<br>   console.log(‘at0’,s.charCodeAt(0));<br>   console.log(‘at1’,s.charCodeAt(1));</p>
-<p>   let s1=’𠮷a’;<br>   console.log(‘length’,s1.length);                     // 3<br>   console.log(‘code0’,s1.codePointAt(0));              // 134071 =&gt; 全部的Unicode(占4个字符)<br>   console.log(‘code0’,s1.codePointAt(0).toString(16)); //20bb7<br>   console.log(‘code1’,s1.codePointAt(1));<br>   console.log(‘code2’,s1.codePointAt(2));<br> }</p>
-</li>
-<li><p>fromCodePoint 可以超过 0xffff fromCharCode 不能</p>
-<p> {<br>   console.log(String.fromCharCode(“0x20bb7”));   // ஷ<br>   console.log(String.fromCodePoint(“0x20bb7”));  // 𠮷<br> }</p>
-</li>
-<li><p>let of</p>
-<p> {<br>   let str=’\u{20bb7}abc’;<br>   for(let i=0;i&lt;str.length;i++){</p>
-<pre><code>console.log(&apos;es5&apos;,str[i]); // � � a b c
-</code></pre><p>   }<br>   for(let code of str){</p>
-<pre><code>console.log(&apos;es6&apos;,code); // 𠮷 a b c 
-</code></pre><p>   }<br> }</p>
-</li>
-<li><p>包含 头部 尾部 重复</p>
-</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="built_in">let</span> str=<span class="string">"string"</span>;</div><div class="line">  console.log(<span class="string">'includes'</span>,str.includes(<span class="string">"c"</span>));  // <span class="literal">false</span></div><div class="line">  console.log(<span class="string">'start'</span>,str.startsWith(<span class="string">'str'</span>)); // <span class="literal">true</span></div><div class="line">  console.log(<span class="string">'end'</span>,str.endsWith(<span class="string">'ng'</span>));      // <span class="literal">true</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">&#123;</div><div class="line">  <span class="built_in">let</span> str=<span class="string">"abc"</span>;</div><div class="line">  console.log(str.repeat(2)); // abcabc</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ol>
-<li><p>拼接 </p>
-<p> {<br>   let name=”list”;<br>   let info=”hello world”;<br>   let m=<code>i am ${name},${info}</code>;<br>   console.log(m);  // i am list,hello world<br> }</p>
-</li>
-<li><p>补充</p>
-<p> {<br>   console.log(‘1’.padStart(2,’0’)); // 01<br>   console.log(‘1’.padEnd(2,’0’));   // 10<br> }</p>
-</li>
-<li><p>String.raw 不换行 与 。。。</p>
-<p> {<br>   let user={</p>
-<pre><code>name:&apos;list&apos;,
-info:&apos;hello world&apos;
-</code></pre><p>   };<br>   console.log(abc<code>i am ${user.name},${user.info}</code>);<br>   function abc(s,v1,v2){</p>
-<pre><code>console.log(s,v1,v2);
-return s+v1+v2
-</code></pre><p>   }<br> }</p>
-<p> {<br>   console.log(String.raw<code>Hi\n${1+2}</code>); // 不换行<br>   console.log(<code>Hi\n${1+2}</code>);<br> }</p>
-</li>
-</ol>
-<h4 id="数值扩展"><a href="#数值扩展" class="headerlink" title="数值扩展"></a>数值扩展</h4><pre><code>ob/oB =&gt; 二进制开头
-Oo    =&gt; 八进制开头
-Number.isFinite 判断又穷
-Number.isNaN 判断是否为数
-Number.isInteger 判断是否为整数
-Number.isSafeInteger 判断是否安全
-Math.trunc 只取整数部分(Math.floor 向下取整,负数时有区别)   
-Math.sign 判断是否为整数 -1,0,1,NaN
-Math.cbrt 立方根
-</code></pre><h4 id="数组扩展"><a href="#数组扩展" class="headerlink" title="数组扩展"></a>数组扩展</h4><pre><code>Array.of() 转成数组
-Array.from() 将nodeList 转成数组
-[].fill(content,start,end) 前闭后开
-[].copyWithin(target,start,end)前闭后开
-[].find 返回第一个符合条件的value
-[].findIndex 返回第一个符合条件的Index
-[].includes(content) 是否包含content 
-
-  for(let index of [&apos;1&apos;,&apos;c&apos;,&apos;ks&apos;].keys()){
-    console.log(&apos;keys&apos;,index); // 0,1,2
-  }
-  for(let value of [&apos;1&apos;,&apos;c&apos;,&apos;ks&apos;].values()){
-    console.log(&apos;values&apos;,value); // 1,c,ks
-  }
-  for(let [index,value] of [&apos;1&apos;,&apos;c&apos;,&apos;ks&apos;].entries()){
-    console.log(&apos;values&apos;,index,value); // 0,1 1,c 2 ks
-  }
-</code></pre><h4 id="函数扩展"><a href="#函数扩展" class="headerlink" title="函数扩展"></a>函数扩展</h4><pre><code>默认值 设置默认值的参数后面参数不能没有默认值
-...arg 扩展参数
-...[1,2,3] 展开数组
-箭头函数 let arrow = v =&gt; v*2; 
-伪调用 提升性能 代替递归
-</code></pre><h4 id="对象扩展"><a href="#对象扩展" class="headerlink" title="对象扩展"></a>对象扩展</h4><pre><code>简洁表示法 let o=1;let es6={o}; es6=&gt; {o:1}
-属性表达式 let a =&apos;b&apos;;let es6 = {[a]:&apos;c&apos;}; es6=&gt;{b:&apos;c&apos;}
-
-Object.is(a,b) a===b
-Object.assign{({},{....}} 浅拷贝
-Object.entries 同 Array.entries
-
-扩展运算符
-let {a,b,...c}={a:&apos;test&apos;,b:&apos;kill&apos;,c:&apos;ddd&apos;,d:&apos;ccc&apos;};
-</code></pre><h4 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h4><pre><code>1.声明唯一变量
-2.Symbol.for() 不唯一
-3.Symbol.for()可以与{}中的属性重复
-
-  let a1=Symbol.for(&apos;abc&apos;);
-  let obj={
-    [a1]:&apos;123&apos;,
-    &apos;abc&apos;:345,
-    &apos;c&apos;:456
-  };
-  console.log(&apos;obj&apos;,obj);  // {abc: 345, c: 456, Symbol(abc): &quot;123&quot;}
-4. 怎样查找带有Symbol项的obj
-      for(let [key,value] of Object.entries(obj)){
-        console.log(&apos;let of&apos;,key,value);
-      }
-
-      Object.getOwnPropertySymbols(obj).forEach(function(item){
-        console.log(obj[item]);
-      })
-
-      Reflect.ownKeys(obj).forEach(function(item){
-        console.log(&apos;ownkeys&apos;,item,obj[item]);
-      })
-</code></pre><h4 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h4><pre><code>Set WeakSet Map WeakMap
-</code></pre><h5 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h5><pre><code>类似数组 但是 成员的值都是唯一的，没有重复。
-可以用来 去重，但是类型不同不会去重。
-  // 去除数组的重复成员
-  [...new Set(array)]
-
-长度 .size
-方法 add delete clear has 
-获取值 .keys .values .entries .forEach
-new Set(content) content 必须为数组或类数组
-</code></pre><h5 id="weakSet"><a href="#weakSet" class="headerlink" title="weakSet"></a>weakSet</h5><pre><code>weakSet的元素只能是对象,
-对象是弱引用，引用地址。不会检测这个对象是否在其他地方用过。因此WeakSet是不可遍历的
-</code></pre><h5 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h5><pre><code>值-值 的对应 各种类型的值(包括对象)都可以当做键
-Map.set() Map.get()
-方法 add delete clear has 
-</code></pre><h4 id="set-map-array-obj-增删改查"><a href="#set-map-array-obj-增删改查" class="headerlink" title="set map array obj 增删改查"></a>set map array obj 增删改查</h4><pre><code>let set = new Set();
-let map = new Map();
-let arr = [];
-let obj={};
-// 增
-set.add({&apos;t&apos;:1});
-map.set(&apos;t&apos;,1);
-arr.push({t:1});
-obj[&apos;t&apos;]=1;
-// 删
-set.forEach(item=&gt;item.t?item.t=2:&apos;&apos;);
-map.delete(&apos;t&apos;);
-let index = arr.findIndex(item=&gt;item.t);
-arr.splice(index,1);
-delete obj[&apos;t&apos;];
-// 改
-map.set(&apos;t&apos;,2);
-set.forEach(item=&gt;item.t?item.t=2:&apos;&apos;)
-arr.forEach(item=&gt;item.t?item.t=2:&apos;&apos;);  // .map()也可以
-obj.t=2;
-// 查
-map.has(&apos;t&apos;);
-set.has(Item);  Item ==&gt; {t:1} 并且一定要 set.add(I)才可以 set.add({t:1})不行
-arr.find(item=&gt;item.t);
-&apos;t&apos; in obj
-</code></pre>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/02/21/es6/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1621,24 +1393,17 @@ Eval的代码-在Eval函数内运行的代码。
 
       
         
-          
-            <h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><pre><code>Promise是一个构造函数。
+          <h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><pre><code>Promise是一个构造函数。
 该函数有一个函数参数
 函数参数有两个参数 resolve reject ,分别为成功与失败之后的回调函数。
-</code></pre><h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var promise = new Promise(<span class="keyword">function</span>(resolve,reject)&#123;</div><div class="line">		...</div><div class="line">	&#125;)</div></pre></td></tr></table></figure>
-<p>1.Promise.all()=&gt;用于汇总多个promise的结果。<br>2.Promise.race()<br>3.Promise.reject(reason)<br>4.Promise.resolve(value)<br>5.Promise.prototype.catch(onRejected)<br>6.Promise.prototype.then(onFulfilled, onRejected)<br>7.Promise.prototype.finally(onFinally)</p>
-<h4 id="async"><a href="#async" class="headerlink" title="async"></a>async</h4><p>1.一个async函数可以包含一个await表达式，暂停异步函数的执行并等待传入Promise的解析，然后恢复async函数的执行并返回解析后的值。<br>eg:=&gt;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> resolveAfter2Seconds(x) &#123;</div><div class="line">  <span class="built_in">return</span> new Promise(resolve =&gt; &#123;</div><div class="line">    setTimeout(() =&gt; &#123;</div><div class="line">      resolve(x);</div><div class="line">    &#125;, 2000);</div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">async <span class="keyword">function</span> add1(x) &#123;</div><div class="line">  const a = await resolveAfter2Seconds(20);</div><div class="line">  const b = await resolveAfter2Seconds(30);</div><div class="line">  <span class="built_in">return</span> x + a + b;</div><div class="line">&#125;</div><div class="line"></div><div class="line">add1(10).<span class="keyword">then</span>(v =&gt; &#123;</div><div class="line">  console.log(v);  // prints 60 after 4 seconds.</div><div class="line">&#125;);</div><div class="line"></div><div class="line"></div><div class="line">async <span class="keyword">function</span> add2(x) &#123;</div><div class="line">  const p_a = resolveAfter2Seconds(20);</div><div class="line">  const p_b = resolveAfter2Seconds(30);</div><div class="line">  <span class="built_in">return</span> x + await p_a + await p_b;</div><div class="line">&#125;</div><div class="line"></div><div class="line">add2(10).<span class="keyword">then</span>(v =&gt; &#123;</div><div class="line">  console.log(v);  // prints 60 after 2 seconds.</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p>2.函数重写承诺链</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> getProcessedData(url) &#123;</div><div class="line">  <span class="built_in">return</span> downloadData(url) // returns a promise</div><div class="line">    .catch(e =&gt; &#123;</div><div class="line">      <span class="built_in">return</span> downloadFallbackData(url)  // returns a promise</div><div class="line">    &#125;)</div><div class="line">    .<span class="keyword">then</span>(v =&gt; &#123;</div><div class="line">      <span class="built_in">return</span> processDataInWorker(v); // returns a promise</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line">它可以用一个async函数重写，如下所示：</div><div class="line"></div><div class="line">async <span class="keyword">function</span> getProcessedData(url) &#123;</div><div class="line">  <span class="built_in">let</span> v;</div><div class="line">  try &#123;</div><div class="line">    v = await downloadData(url); </div><div class="line">  &#125; catch(e) &#123;</div><div class="line">    v = await downloadFallbackData(url);</div><div class="line">  &#125;</div><div class="line">  <span class="built_in">return</span> processDataInWorker(v);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h5 id="Promise-all"><a href="#Promise-all" class="headerlink" title="Promise.all()"></a>Promise.all()</h5><h6 id="用法：Promise-all-迭代"><a href="#用法：Promise-all-迭代" class="headerlink" title="用法：Promise.all(迭代)"></a>用法：Promise.all(迭代)</h6><p>迭代：一个可迭代的对象，如Array或者String.</p>
-<h6 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h6><p>　异步性</p>
-<p>1.同步，当且仅当通过的迭代是空的时，Promise.all同步解析<br>2.异步，不然就要异步处理<br>  快速性<br>3.快速行为，如果任何元素被拒绝，则Promise.all被拒绝。</p>
-<p>eg：1&amp;2=&gt;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var p = Promise.all([]); // will be immediately resolved</div><div class="line">var p2 = Promise.all([1337, <span class="string">"hi"</span>]); // non-promise values will be ignored, but the evaluation will be <span class="keyword">done</span> asynchronously</div><div class="line">console.log(p);</div><div class="line">console.log(p2)</div><div class="line">setTimeout(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    console.log(<span class="string">'the stack is now empty'</span>);</div><div class="line">    console.log(p2);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// logs</div><div class="line">// Promise &#123; &lt;state&gt;: <span class="string">"fulfilled"</span>, &lt;value&gt;: Array[0] &#125;</div><div class="line">// Promise &#123; &lt;state&gt;: <span class="string">"pending"</span> &#125;</div><div class="line">// the stack is now empty</div><div class="line">// Promise &#123; &lt;state&gt;: <span class="string">"fulfilled"</span>, &lt;value&gt;: Array[2] &#125;</div></pre></td></tr></table></figure></p>
-<p>eg:3=&gt;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">var p1 = new Promise((resolve, reject) =&gt; &#123; </div><div class="line">  setTimeout(resolve, 1000, <span class="string">'one'</span>); </div><div class="line">&#125;); </div><div class="line">var p2 = new Promise((resolve, reject) =&gt; &#123; </div><div class="line">  setTimeout(resolve, 2000, <span class="string">'two'</span>); </div><div class="line">&#125;);</div><div class="line">var p3 = new Promise((resolve, reject) =&gt; &#123;</div><div class="line">  setTimeout(resolve, 3000, <span class="string">'three'</span>);</div><div class="line">&#125;);</div><div class="line">var p4 = new Promise((resolve, reject) =&gt; &#123;</div><div class="line">  setTimeout(resolve, 4000, <span class="string">'four'</span>);</div><div class="line">&#125;);</div><div class="line">var p5 = new Promise((resolve, reject) =&gt; &#123;</div><div class="line">  reject(<span class="string">'reject'</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">Promise.all([p1, p2, p3, p4, p5]).<span class="keyword">then</span>(values =&gt; &#123; </div><div class="line">  console.log(values);</div><div class="line">&#125;, reason =&gt; &#123;</div><div class="line">  console.log(reason)</div><div class="line">&#125;);</div><div class="line"></div><div class="line">//From console:</div><div class="line">//<span class="string">"reject"</span></div><div class="line"></div><div class="line">//You can also use .catch</div><div class="line">Promise.all([p1, p2, p3, p4, p5]).<span class="keyword">then</span>(values =&gt; &#123; </div><div class="line">  console.log(values);</div><div class="line">&#125;).catch(reason =&gt; &#123; </div><div class="line">  console.log(reason)</div><div class="line">&#125;);</div><div class="line"></div><div class="line">//From console: </div><div class="line">//<span class="string">"reject"</span></div></pre></td></tr></table></figure></p>
-<h5 id="Promise-race"><a href="#Promise-race" class="headerlink" title="Promise.race()"></a>Promise.race()</h5><h6 id="用法-Promise-race-迭代"><a href="#用法-Promise-race-迭代" class="headerlink" title="用法 Promise.race(迭代)"></a>用法 Promise.race(迭代)</h6><p>1.如果通过的迭代是空的，则返回的promise将永远等待。<br>2.如果迭代包含一个或多个非承诺值和/或已经解决/拒绝的承诺，Promise.race 则将解析为在迭代中找到的这些值中的第一个。<br>3.也有异步性<br>eg:2=&gt;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">var foreverPendingPromise = Promise.race([]);</div><div class="line">var alreadyResolvedProm = Promise.resolve(666);</div><div class="line"></div><div class="line">var arr = [foreverPendingPromise, alreadyResolvedProm, <span class="string">"non-Promise value"</span>];</div><div class="line">var arr2 = [foreverPendingPromise, <span class="string">"non-Promise value"</span>, Promise.resolve(666)];</div><div class="line">var p = Promise.race(arr);</div><div class="line">var p2 = Promise.race(arr2);</div><div class="line"></div><div class="line">console.log(p);</div><div class="line">console.log(p2);</div><div class="line">setTimeout(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    console.log(<span class="string">'the stack is now empty'</span>);</div><div class="line">    console.log(p);</div><div class="line">    console.log(p2);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// logs, <span class="keyword">in</span> order:</div><div class="line">// Promise &#123; &lt;state&gt;: <span class="string">"pending"</span> &#125; </div><div class="line">// Promise &#123; &lt;state&gt;: <span class="string">"pending"</span> &#125; </div><div class="line">// the stack is now empty</div><div class="line">// Promise &#123; &lt;state&gt;: <span class="string">"fulfilled"</span>, &lt;value&gt;: 666 &#125;</div><div class="line">// Promise &#123; &lt;state&gt;: <span class="string">"fulfilled"</span>, &lt;value&gt;: <span class="string">"non-Promise value"</span> &#125;</div></pre></td></tr></table></figure></p>
-<p>eg:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var p1 = new Promise(<span class="keyword">function</span>(resolve, reject) &#123; </div><div class="line">    setTimeout(resolve, 500, <span class="string">'one'</span>); </div><div class="line">&#125;);</div><div class="line">var p2 = new Promise(<span class="keyword">function</span>(resolve, reject) &#123; </div><div class="line">    setTimeout(resolve, 100, <span class="string">'two'</span>); </div><div class="line">&#125;);</div><div class="line"></div><div class="line">Promise.race([p1, p2]).<span class="keyword">then</span>(<span class="keyword">function</span>(value) &#123;</div><div class="line">  console.log(value); // <span class="string">"two"</span></div><div class="line">  // Both resolve, but p2 is faster</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-
-          
+</code></pre>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/02/02/promise/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1761,49 +1526,16 @@ Eval的代码-在Eval函数内运行的代码。
 
       
         
-          
-            <h4 id="mouseover与mouseenter"><a href="#mouseover与mouseenter" class="headerlink" title="mouseover与mouseenter"></a>mouseover与mouseenter</h4><pre><code>mouseover 支持冒泡事件，鼠标移入到子元素也触发mouseover事件。
+          <h4 id="mouseover与mouseenter"><a href="#mouseover与mouseenter" class="headerlink" title="mouseover与mouseenter"></a>mouseover与mouseenter</h4><pre><code>mouseover 支持冒泡事件，鼠标移入到子元素也触发mouseover事件。
 mouseenter 不支持冒泡事件，鼠标移入到子元素不触发mouseenter事件。
-</code></pre><h4 id="b与strong，i与em"><a href="#b与strong，i与em" class="headerlink" title="b与strong，i与em"></a>b与strong，i与em</h4><p>strong表示强调，有语气加强的含义，使用阅读设备阅读时会重度<br>b则是展示强调内容</p>
-<p>i为斜体，em表示强调的文本。 </p>
-<h4 id="target-currentTarget"><a href="#target-currentTarget" class="headerlink" title="target,currentTarget"></a>target,currentTarget</h4><pre><code>e.target 指向触发事件监听的对象。
-e.currentTarget 指向添加监听事件的对象。
-
-ul.addEventListener(&apos;click&apos;,function(e){
-   let oLi1 = e.target  
-   let oLi2 = e.currentTarget
-    console.log(oLi1)   //  被点击的li
-    console.log(oLi2)   // ul
-    console.og(oLi1===oLi2)  // false
-})
-
-在jQuery提供的on方法中，e.currentTarget与该方法接收的第二个参数有关
-
-$(this.play_el).on(&apos;click&apos;, &apos;li&apos;, self.changePlayNav.bind(self));
-changePlayNav(e){
-    let self = this;
-    let $cur = $(e.currentTarget); // li
-    console.log($(e.target));
-    console.log($cur,333);
-}
-</code></pre><h4 id="toLowerCase-toLocaleLowerCase"><a href="#toLowerCase-toLocaleLowerCase" class="headerlink" title="toLowerCase() toLocaleLowerCase()"></a>toLowerCase() toLocaleLowerCase()</h4><pre><code>后者针对 地区,用后者更严谨一些
-</code></pre><h4 id="link与-import-区别"><a href="#link与-import-区别" class="headerlink" title="link与@import 区别"></a>link与@import 区别</h4><pre><code>1. link是html标签，@import是css提供的
-2. link在浏览器加载同时加载，@import 在浏览器加载完成后加载
-3. link无兼容性问题，@import要css2.1以上才兼容
-4. link权重大于@import
-</code></pre><h4 id="ajax中-GET与POST区别"><a href="#ajax中-GET与POST区别" class="headerlink" title="ajax中 GET与POST区别"></a>ajax中 GET与POST区别</h4><pre><code>1. get 参数提交到url中，而post不会提交到url中。
-2. get请求发送的数据小 1kb,而post发送的数据大2M。
-3. get请求需要注意缓存的问题，post不用担心。
-4. get请求数据会被浏览器缓存起来，(有安全问题)，POST可以避免。
-</code></pre><h4 id="split与join区别"><a href="#split与join区别" class="headerlink" title="split与join区别"></a>split与join区别</h4><pre><code>split 将字符串分割成数组
-join  将数组组合成字符串
-</code></pre><h4 id="cookies-sessionStorage和localStorage-区别"><a href="#cookies-sessionStorage和localStorage-区别" class="headerlink" title="cookies,sessionStorage和localStorage 区别"></a>cookies,sessionStorage和localStorage 区别</h4><pre><code>1. cookies内存小4kb,localStorage内存大5M.
-2. cookies有时间限制，localStorage长期存储，sessionStorage关闭窗口清除
-3. cookies的api 封装困难。localStorage的api封装简单。
-</code></pre><h4 id="块级元素与行内元素的区别"><a href="#块级元素与行内元素的区别" class="headerlink" title="块级元素与行内元素的区别"></a>块级元素与行内元素的区别</h4><pre><code>行内元素:不单独成一行，不能设置宽高，padding/margin不能设置top/bottom
-块级元素:单独成一行，可以设置宽高，padding/margin都可用。
 </code></pre>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/12/different/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

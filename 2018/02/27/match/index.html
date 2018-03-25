@@ -79,7 +79,7 @@
 <meta property="og:site_name" content="JEFT">
 <meta property="og:description" content="match获取search中的key值123456function GetQueryString(key)&amp;#123;	var reg = new RegExp(&quot;(/\?|&amp;amp;)&quot;+ key + &quot;=([^&amp;amp;]*)(&amp;amp;|$)&quot;);	&amp;lt;!-- var search  = window.location.search.match(reg); --&amp;gt;	var sear">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-26T18:21:59.695Z">
+<meta property="og:updated_time" content="2018-03-25T21:13:46.745Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="match">
 <meta name="twitter:description" content="match获取search中的key值123456function GetQueryString(key)&amp;#123;	var reg = new RegExp(&quot;(/\?|&amp;amp;)&quot;+ key + &quot;=([^&amp;amp;]*)(&amp;amp;|$)&quot;);	&amp;lt;!-- var search  = window.location.search.match(reg); --&amp;gt;	var sear">
@@ -324,6 +324,7 @@
 
       
         <h3 id="match"><a href="#match" class="headerlink" title="match"></a>match</h3><h4 id="获取search中的key值"><a href="#获取search中的key值" class="headerlink" title="获取search中的key值"></a>获取search中的key值</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> GetQueryString(key)&#123;</div><div class="line">	var reg = new RegExp(<span class="string">"(/\?|&amp;)"</span>+ key + <span class="string">"=([^&amp;]*)(&amp;|$)"</span>);</div><div class="line">	&lt;!-- var search  = window.location.search.match(reg); --&gt;</div><div class="line">	var search  = reg.exec(window.location.search); <span class="built_in">exec</span>与match相反</div><div class="line">	<span class="keyword">if</span>(search != null) <span class="built_in">return</span> unescape(search[2]);<span class="built_in">return</span> null; // unescape 与 .json()相似</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h4 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h4><pre><code>返回值
 返回匹配结果的数组。该数组的内容依赖于 regexp 是否具有全局标志 g。
 

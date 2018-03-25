@@ -79,7 +79,7 @@
 <meta property="og:site_name" content="JEFT">
 <meta property="og:description" content="正则表达式修饰符g/i/m/y/u  g =&amp;gt; 全局查找 从上一次匹配的位置继续寻找直到找到匹配的位置开始，不一定是第一个就匹配上 i =&amp;gt; 大小写不敏感 m =&amp;gt; 检测字符串中的换行符 y =&amp;gt; es6 全局查找 但是 必须是匹配成后紧跟着的第一个字符就要匹配成功才算 u =&amp;gt;  用来处理Unicode字符的 大于两个字符(0xffff) .不匹配/量词(大于0xf">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-19T10:20:41.753Z">
+<meta property="og:updated_time" content="2018-03-25T21:12:52.321Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="regExp">
 <meta name="twitter:description" content="正则表达式修饰符g/i/m/y/u  g =&amp;gt; 全局查找 从上一次匹配的位置继续寻找直到找到匹配的位置开始，不一定是第一个就匹配上 i =&amp;gt; 大小写不敏感 m =&amp;gt; 检测字符串中的换行符 y =&amp;gt; es6 全局查找 但是 必须是匹配成后紧跟着的第一个字符就要匹配成功才算 u =&amp;gt;  用来处理Unicode字符的 大于两个字符(0xffff) .不匹配/量词(大于0xf">
@@ -330,7 +330,8 @@ i =&gt; 大小写不敏感
 m =&gt; 检测字符串中的换行符
 y =&gt; es6 全局查找 但是 必须是匹配成后紧跟着的第一个字符就要匹配成功才算
 u =&gt;  用来处理Unicode字符的 大于两个字符(0xffff) .不匹配/量词(大于0xffff)/u{61}(这种Unicode字符)
-</code></pre><h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><h5 id="RegExp"><a href="#RegExp" class="headerlink" title="RegExp"></a>RegExp</h5><pre><code>compile =&gt; 编译正则表达式
+</code></pre><a id="more"></a>
+<h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><h5 id="RegExp"><a href="#RegExp" class="headerlink" title="RegExp"></a>RegExp</h5><pre><code>compile =&gt; 编译正则表达式
 exec =&gt; 搜索字符串中指定的值。返回找到的值，并确定其位置
 test =&gt; 搜索字符串中指定的值。返回true或false
 </code></pre><h5 id="String"><a href="#String" class="headerlink" title="String"></a>String</h5><pre><code>search =&gt; 搜索与正则表达式相匹配的值，stringObject 中第一个与 regexp 相匹配的子串的起始位置。注释：如果没有找到任何匹配的子串，则返回 -1。

@@ -80,7 +80,7 @@
 <meta property="og:description" content="生成项目webpack-react123npm install yo -g npm install generator-react-webpack -g yo react-webpack my-project webpack-react 缺点：webpack 版本低，升级的话有一些插件要更改，不如不用了。yeoman 容易下载失败，要用cnpm">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/redux.jpg">
-<meta property="og:updated_time" content="2018-03-19T15:39:47.119Z">
+<meta property="og:updated_time" content="2018-03-25T20:17:36.796Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react notes">
 <meta name="twitter:description" content="生成项目webpack-react123npm install yo -g npm install generator-react-webpack -g yo react-webpack my-project webpack-react 缺点：webpack 版本低，升级的话有一些插件要更改，不如不用了。yeoman 容易下载失败，要用cnpm">
@@ -375,6 +375,7 @@
 <li>遇到 HTML 标签（以 &lt; 开头），就用 HTML 规则解析;</li>
 <li>遇到代码块（以 { 开头），就用 JavaScript 规则解析。</li>
 <li>解析state或props里面的html标记(&nbsp;&gt;等),要使用转义字符或者dangerouslySetInnerHTML</li>
+<li>不太支持 if-else，支持三元符/函数</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;h1  dangerouslySetInnerHTML=&#123;&#123;__html:this.state.html&#125;&#125;&gt;&lt;/h1&gt;</div></pre></td></tr></table></figure>
 <h3 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">class Header extends React.Component&#123;</div><div class="line">	constructor(props)&#123;</div><div class="line">		super(props);</div><div class="line">		this.state = &#123;</div><div class="line">			...</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	static get <span class="function"><span class="title">defaultProps</span></span>()&#123;</div><div class="line">        <span class="built_in">return</span> &#123;</div><div class="line">            ...</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="title">render</span></span>()&#123;</div><div class="line">    	<span class="built_in">return</span> (</div><div class="line">    		&lt;div&gt;</div><div class="line">    		   ...</div><div class="line">    		&lt;/div&gt;</div><div class="line">    	)</div><div class="line">    &#125;	</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">export</span> default Header</div></pre></td></tr></table></figure>
