@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="vue," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="JEFT" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon-hai.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="vue-cli12345678npm install vue-cli -gvue init webpack my-projectnpm install 生成package.jsonnpm run dev 本地运行 或 npm run build 上线(生成dist文件夹)经验:现在vue-cli版本是2.9.1 ,运行vue会报错，貌似是因为新版本有es6内容，下载2.8.1版本可以解决。">
+<meta name="keywords" content="vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue notes">
+<meta property="og:url" content="http://yoursite.com/2017/10/11/vue-notes/index.html">
+<meta property="og:site_name" content="JEFT">
+<meta property="og:description" content="vue-cli12345678npm install vue-cli -gvue init webpack my-projectnpm install 生成package.jsonnpm run dev 本地运行 或 npm run build 上线(生成dist文件夹)经验:现在vue-cli版本是2.9.1 ,运行vue会报错，貌似是因为新版本有es6内容，下载2.8.1版本可以解决。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-25T12:24:52.764Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue notes">
+<meta name="twitter:description" content="vue-cli12345678npm install vue-cli -gvue init webpack my-projectnpm install 生成package.jsonnpm run dev 本地运行 或 npm run build 上线(生成dist文件夹)经验:现在vue-cli版本是2.9.1 ,运行vue会报错，貌似是因为新版本有es6内容，下载2.8.1版本可以解决。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/10/11/vue-notes/"/>
+
+
+
+
+
+  <title>vue notes | JEFT</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/JEFT-hai"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">JEFT</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">学习是苦根上长出来的甜果</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-主页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            主页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/11/vue-notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JEFT-hai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JEFT">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">vue notes</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-11T23:50:53+08:00">
+                2017-10-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/" itemprop="url" rel="index">
+                    <span itemprop="name">vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="vue-cli"><a href="#vue-cli" class="headerlink" title="vue-cli"></a>vue-cli</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">npm install vue-cli -g</div><div class="line">vue init webpack my-project</div><div class="line">npm install 生成package.json</div><div class="line">npm run dev 本地运行 或 npm run build 上线(生成dist文件夹)</div><div class="line"></div><div class="line">经验:现在vue-cli版本是2.9.1 ,运行vue会报错，貌似是因为新版本有es6内容，下载2.8.1版本可以解决。</div><div class="line">     并且 运行dev后如果报错，那就是npm与node的问题，要更新npm与node</div><div class="line">windows 下 repeating 插件会报错 要在node_modules中 更改一下</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="vue-三个特点"><a href="#vue-三个特点" class="headerlink" title="vue 三个特点"></a>vue 三个特点</h4><p>  双向绑定<br>  组件化(模块化)<br>  单文件组件 js css html 存在于一个组件中(.vue)</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><h4 id="v-text-v-html"><a href="#v-text-v-html" class="headerlink" title="v-text,v-html"></a>v-text,v-html</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">区别v-html可以过滤掉html标签</div></pre></td></tr></table></figure>
+<h4 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a>v-for</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">数组:v-for=<span class="string">"(item, index) in arrList"</span></div><div class="line">对象:v-for=<span class="string">"(value, key) in objList"</span></div><div class="line">组件:&lt;componentA v-for=<span class="string">"(value, key) in objList"</span> :key=<span class="string">"key"</span>&gt;&lt;/componentA&gt;</div></pre></td></tr></table></figure>
+<h4 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">引入: import componentA from <span class="string">'./components/a'</span></div><div class="line">注册: components: &#123;componentA&#125;</div><div class="line">使用: </div><div class="line">  1. &lt;component<span class="_">-a</span>&gt;&lt;/component<span class="_">-a</span>&gt; (最好改成这种格式)</div><div class="line">  2. 通过 :is渲染 &lt;p :is=<span class="string">"comToRender"</span>&gt;&lt;/p&gt;</div><div class="line"></div><div class="line">动态组件</div><div class="line">   &lt;p :is=<span class="string">"currentView"</span>&gt;&lt;/p&gt;</div><div class="line"></div><div class="line">父子组件通信</div><div class="line">父:静态传递:&lt;component<span class="_">-a</span> number=5&gt;&lt;/component<span class="_">-a</span>&gt;</div><div class="line">   动态传递:&lt;component<span class="_">-a</span> :my-value=<span class="string">"myVal"</span>&gt;&lt;/component<span class="_">-a</span>&gt;</div><div class="line">子:props:&#123;</div><div class="line">	number:[Number],</div><div class="line">	my-value:&#123;</div><div class="line">		<span class="built_in">type</span>:String,</div><div class="line">		default:<span class="string">''</span></div><div class="line">	&#125;</div><div class="line">   &#125;</div><div class="line">   * 注意: 传递属性eg:my-value必须是这样写,不能驼峰命名,子组件接收props时也是这样,html使用时可以驼峰命名</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="slot"><a href="#slot" class="headerlink" title="slot"></a>slot</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">非具名slot:</div><div class="line">父: &lt;component<span class="_">-a</span>&gt;</div><div class="line">      &lt;p&gt;hahaha&lt;/p&gt;</div><div class="line">    &lt;/component<span class="_">-a</span>&gt;</div><div class="line">子: &lt;slot&gt;&lt;/slot&gt; 中就是&lt;component<span class="_">-a</span> /&gt;中的p标签</div><div class="line">具名slot:</div><div class="line">父: &lt;component<span class="_">-a</span>&gt;</div><div class="line">      &lt;p slot=<span class="string">"haha"</span>&gt;hahaha&lt;/p&gt;</div><div class="line">    &lt;/component<span class="_">-a</span>&gt;</div><div class="line">子: &lt;slot name=<span class="string">"haha"</span>&gt;&lt;/slot&gt; 中就是&lt;component<span class="_">-a</span> /&gt;中的p标签</div></pre></td></tr></table></figure>
+<h5 id="class-style绑定"><a href="#class-style绑定" class="headerlink" title="class\style绑定"></a>class\style绑定</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">class:</div><div class="line">    支持三目运算</div><div class="line">      :class=<span class="string">"classA ? 'class-a' : 'class-b' "</span></div><div class="line"></div><div class="line">    对对象的绑定要加&#123;&#125;。</div><div class="line">      :class=<span class="string">"&#123; 'class-a': isA, 'class-b': isB&#125;"</span></div><div class="line"></div><div class="line">      isA:<span class="literal">true</span>,isB:<span class="literal">true</span>为data对象</div><div class="line"></div><div class="line">    对数组数据绑定</div><div class="line">      :class=<span class="string">"[classA, classB]"</span></div><div class="line"></div><div class="line">style:</div><div class="line">    :style=<span class="string">"&#123;color:item.tit_color&#125;"</span></div></pre></td></tr></table></figure>
+<h4 id="双向绑定"><a href="#双向绑定" class="headerlink" title="双向绑定"></a>双向绑定</h4><h5 id="同步更新"><a href="#同步更新" class="headerlink" title="同步更新"></a>同步更新</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">数组的push、pop、<span class="built_in">shift</span>、unshift、splice、sort、reverse会同步更新</div><div class="line">methods:&#123;</div><div class="line">	<span class="function"><span class="title">addItem</span></span>()&#123;</div><div class="line">		this.list.push(&#123;</div><div class="line">			name:<span class="string">'pinaapple'</span>,</div><div class="line">			price: 256</div><div class="line">		&#125;)</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="不触发同步更新"><a href="#不触发同步更新" class="headerlink" title="不触发同步更新"></a>不触发同步更新</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">数组的filter、concat、slice      不会同步更新</div><div class="line">vm.items[indexOfItem] = newValue 不会同步更新</div><div class="line">vm.items.length = newLength      不会同步更新</div><div class="line">eg:</div><div class="line">    methods:&#123;</div><div class="line">    	<span class="function"><span class="title">addItem</span></span>()&#123;</div><div class="line">    		this.list[1] = &#123;</div><div class="line">    			name:<span class="string">'pinaapple'</span>,</div><div class="line">    			price: 256</div><div class="line">    		&#125;</div><div class="line">    	&#125;</div><div class="line">    &#125;</div><div class="line">同步更新方法: Vue.set(this.list,1,&#123;</div><div class="line">	  name:<span class="string">'pinaapple'</span>,</div><div class="line">	  price: 256</div><div class="line">	&#125;)</div></pre></td></tr></table></figure>
+<h4 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind"></a>v-bind</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">简写 :</div><div class="line">用来绑定各种属性</div><div class="line">:class=<span class="string">"&#123;active:(index==nowIndex)&#125;"</span></div></pre></td></tr></table></figure>
+<h4 id="条件渲染"><a href="#条件渲染" class="headerlink" title="条件渲染"></a>条件渲染</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">v-if、v-else、v-show</div><div class="line">v-if</div><div class="line"></div><div class="line">v-if接收bool类型。<span class="literal">true</span>的话则生成html，<span class="literal">false</span>则不生成。或者直接将元素remove掉。</div><div class="line">举例如：</div><div class="line">&lt;div v-if=<span class="string">"true"</span>&gt;你好&lt;/div&gt;</div><div class="line"></div><div class="line">v-else</div><div class="line">v-else紧跟在v-if或者v-show后边，否则将不被识别</div><div class="line">举例如：</div><div class="line"> </div><div class="line">&lt;div v-if=<span class="string">"flase"</span>&gt;错的&lt;/div&gt;</div><div class="line">&lt;div v-else&gt;不是错的&lt;/div&gt;</div><div class="line"></div><div class="line"> v-show</div><div class="line">通过此指令控制元素的显示隐藏，即控制元素的display。</div><div class="line">举例如：</div><div class="line">1 &lt;div v-show=<span class="string">"true"</span> style=<span class="string">"display:none"</span>&gt;我显示&lt;/div&gt;</div><div class="line">2 &lt;div v-show=<span class="string">"false"</span> style=<span class="string">"display:none"</span>&gt;我隐藏&lt;/div&gt;</div><div class="line"></div><div class="line">v-hide</div><div class="line">与v-show相反。</div><div class="line"></div><div class="line"></div><div class="line">v-if与v-show区别:频繁切换 v-show，否则 v-if。 </div><div class="line">    一般来说，v-if 有更高的切换消耗而 v-show 有更高的初始渲染消耗。因此，如果需要频繁切换 v-show 较好，如果在运行时条件不大可能改变 v-if 较好。</div></pre></td></tr></table></figure>
+<h4 id="v-on"><a href="#v-on" class="headerlink" title="v-on"></a>v-on</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">简写@</div><div class="line">@click</div><div class="line">@keydown.enter</div><div class="line">@keydown.13</div><div class="line">@my-event this.<span class="variable">$emit</span>(<span class="string">'my-event'</span>) 注意:自定义事件不支持驼峰命名</div><div class="line">@touchstart,@touchend,@touchmove =&gt;touch事件</div><div class="line"></div><div class="line">router-link 支持@click 、@mouseover特殊：@mouseover.native=<span class="string">"Over()"</span> @mouseout.native=<span class="string">"click()"</span></div></pre></td></tr></table></figure>
+<h4 id="表单事件绑定"><a href="#表单事件绑定" class="headerlink" title="表单事件绑定"></a>表单事件绑定</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">v-model</div><div class="line">v-model.lazy 在enter或blur事件之后触发刷新</div><div class="line">v-model.number 只输入数字时,为number类型</div><div class="line">v-model.trim  自动过滤掉空格</div></pre></td></tr></table></figure>
+<h4 id="过渡"><a href="#过渡" class="headerlink" title="过渡"></a>过渡</h4><h5 id="组件间过渡，可以用mode-分为out-in与in-out-默认是in-out。"><a href="#组件间过渡，可以用mode-分为out-in与in-out-默认是in-out。" class="headerlink" title="组件间过渡，可以用mode  ,分为out-in与in-out,默认是in-out。"></a>组件间过渡，可以用mode  ,分为out-in与in-out,默认是in-out。</h5><h5 id="css过渡"><a href="#css过渡" class="headerlink" title="css过渡"></a>css过渡</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line">      vue2.18以上6个状态，增加了v-enter-to与v-leave-to</div><div class="line">      否则4个状态</div><div class="line">     </div><div class="line">      v-enter -&gt; v-enter-active v-leave -&gt; v-leave-active 中间两个状态是默认状态一般不用设置</div><div class="line">      -active 这个类可以被用来定义过渡的过程时间，延迟和曲线函数。</div><div class="line">      </div><div class="line">      6状态官方案例:</div><div class="line">      .slide-fade-enter-active &#123;</div><div class="line">        transition: all .3s ease;</div><div class="line">      &#125;</div><div class="line">      .slide-fade-leave-active &#123;</div><div class="line">        transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);</div><div class="line">      &#125;</div><div class="line">      .slide-fade-enter, .slide-fade-leave-to  //-leave-to代替-leave-acive</div><div class="line">      /* .slide-fade-leave-active <span class="keyword">for</span> below version 2.1.8 */ &#123;</div><div class="line">        transform: translateX(10px);</div><div class="line">        opacity: 0;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      </div><div class="line">      4状态案例:</div><div class="line">        .fold-enter-active,.fold-leave-active &#123;</div><div class="line">          transition: all .5s  //opacity为1,,位置默认为原来位置(0,0,0)</div><div class="line">        &#125;</div><div class="line">          </div><div class="line">        .fold-enter,.fold-leave-active&#123;</div><div class="line">          opacity: 0</div><div class="line">          transform: translate3d(0,100%,0)</div><div class="line">        &#125;</div><div class="line">```          </div><div class="line"><span class="comment">##### js过渡</span></div><div class="line">```bash</div><div class="line">     各种钩子</div><div class="line">     &lt;transition</div><div class="line">       v-on:before-enter=<span class="string">"beforeEnter"</span></div><div class="line">       v-on:enter=<span class="string">"enter"</span></div><div class="line">       v-on:after-enter=<span class="string">"afterEnter"</span></div><div class="line">       v-on:enter-cancelled=<span class="string">"enterCancelled"</span></div><div class="line">       v-on:before-leave=<span class="string">"beforeLeave"</span></div><div class="line">       v-on:leave=<span class="string">"leave"</span></div><div class="line">       v-on:after-leave=<span class="string">"afterLeave"</span></div><div class="line">       v-on:leave-cancelled=<span class="string">"leaveCancelled"</span></div><div class="line">     &gt;</div><div class="line">       &lt;!-- ... --&gt;</div><div class="line">     &lt;/transition&gt;</div><div class="line">     method:&#123;</div><div class="line">     	beforeEnter: <span class="keyword">function</span> (el) &#123;</div><div class="line">     	    // ...</div><div class="line">     	  &#125;,</div><div class="line">     	  // 此回调函数是可选项的设置</div><div class="line">     	  // 与 CSS 结合时使用</div><div class="line">     	enter: <span class="keyword">function</span> (el, <span class="keyword">done</span>) &#123;</div><div class="line">     	    // ...</div><div class="line">     	    <span class="keyword">done</span>()</div><div class="line">     	&#125;,</div><div class="line">     	afterEnter: <span class="keyword">function</span> (el) &#123;</div><div class="line">     	    // ...</div><div class="line">     	&#125;....</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     注意点 ： <span class="keyword">done</span>是在enter与leave中必须调用的</div></pre></td></tr></table></figure>
+<h5 id="注意多元素过渡要使用key"><a href="#注意多元素过渡要使用key" class="headerlink" title="注意多元素过渡要使用key"></a>注意多元素过渡要使用key</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">eg:</div><div class="line">&lt;p v-if=<span class="string">"show"</span> key=<span class="string">"1"</span>&gt;&lt;/p&gt;</div><div class="line">&lt;p v-else key=<span class="string">"2"</span>&gt;&lt;/p&gt;</div></pre></td></tr></table></figure>
+<h4 id="自定义指令"><a href="#自定义指令" class="headerlink" title="自定义指令"></a>自定义指令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">全局:</div><div class="line">    Vue.directive()</div><div class="line">局部:</div><div class="line">    directives: &#123;</div><div class="line">       focus:&#123;</div><div class="line">       	inserted(el,binding)&#123;</div><div class="line">       		el.focus()</div><div class="line">       	&#125;</div><div class="line">       &#125;</div><div class="line">    &#125;</div><div class="line"> -&gt;实现功能 进入页面就对input实现高亮。</div></pre></td></tr></table></figure>
+<h4 id="vue-router"><a href="#vue-router" class="headerlink" title="vue-router"></a>vue-router</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> router = new VueRouter(&#123;</div><div class="line"> linkActiveClass: <span class="string">'tab_active'</span>, //定义activeClass</div><div class="line">	mode: <span class="string">'history'</span>, //地址后面就没有<span class="string">'#'</span>了</div><div class="line">	routes: [</div><div class="line">	  &#123;path:<span class="string">'/'</span>,component: IndexPage&#125;,</div><div class="line">	  &#123;path:<span class="string">'/orderList'</span>,component: orderListPage&#125;,</div><div class="line">	  &#123;path:<span class="string">'/detail'</span>,component: DetailPage,redirect:<span class="string">'/detail/analysis'</span>,</div><div class="line">	    children: [</div><div class="line">	      &#123;path:<span class="string">'forecast'</span>,component: ForPage&#125;,</div><div class="line">	      &#123;path:<span class="string">'analysis'</span>,component: AnaPage&#125;,</div><div class="line">	      &#123;path:<span class="string">'count'</span>,component: CouPage&#125;,</div><div class="line">	      &#123;path:<span class="string">'publish'</span>,component: PubPage&#125;</div><div class="line">	    ]</div><div class="line">	  &#125;</div><div class="line">	]</div><div class="line">&#125;)</div><div class="line">  </div><div class="line">取参数 this.<span class="variable">$route</span>.params</div><div class="line"></div><div class="line">router-link</div><div class="line">1. &lt;router-link to=<span class="string">"/good"</span>&gt;&lt;/router-link&gt;</div><div class="line">2. &lt;router-link :to=<span class="string">"&#123;name:'banana',params:&#123;color:'yellow'&#125;&#125;"</span>&gt;&lt;/router-link&gt;</div><div class="line">3. &lt;router-link to=<span class="string">"/good"</span> tag=<span class="string">"li"</span>&gt;&lt;/router-link&gt; 就变成li标签了</div></pre></td></tr></table></figure>
+<h4 id="vuex"><a href="#vuex" class="headerlink" title="vuex"></a>vuex</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">核心概念 State Getter Mutation Action Module</div><div class="line">Vuex 并不限制你的代码结构。但是，它规定了一些需要遵守的规则：</div><div class="line">       应用层级的状态应该集中到单个 store 对象中。</div><div class="line">       提交 mutation 是更改状态的唯一方法，并且这个过程是同步的。</div><div class="line">       异步逻辑都应该封装到 action 里面。</div><div class="line">State  作为一个“唯一数据源 (SSOT)”而存在</div><div class="line">       从 store 实例中读取状态最简单的方法就是在计算属性中返回某个状态：</div><div class="line">       computed: &#123;</div><div class="line">           <span class="function"><span class="title">count</span></span> () &#123;</div><div class="line">             <span class="built_in">return</span> store.state.count</div><div class="line">           &#125;</div><div class="line">       &#125; </div><div class="line">       mapState: mapGetters...同理</div><div class="line">         import &#123; mapState &#125; from <span class="string">'vuex'</span></div><div class="line">         ...mapState(...)  </div><div class="line">Getter  有时候我们需要从 store 中的 state 中派生出一些状态，例如对列表进行过滤并计数：</div><div class="line">        const store = new Vuex.Store(&#123;</div><div class="line">          state: &#123;</div><div class="line">            todos: [</div><div class="line">              &#123; id: 1, text: <span class="string">'...'</span>, <span class="keyword">done</span>: <span class="literal">true</span> &#125;,</div><div class="line">              &#123; id: 2, text: <span class="string">'...'</span>, <span class="keyword">done</span>: <span class="literal">false</span> &#125;</div><div class="line">            ]</div><div class="line">          &#125;,</div><div class="line">          getters: &#123;</div><div class="line">            doneTodos: state =&gt; &#123;</div><div class="line">              <span class="built_in">return</span> state.todos.filter(todo =&gt; todo.done)</div><div class="line">            &#125;</div><div class="line">          &#125;</div><div class="line">        &#125;)</div><div class="line">Mutation 更改 Vuex 的 store 中的状态的唯一方法是提交 mutation。</div><div class="line">         触发 store.commit(<span class="string">'increment'</span>)</div><div class="line">         注意事项</div><div class="line">           最好提前在你的 store 中初始化好所有所需属性。</div><div class="line">           当需要在对象上添加新属性时，你应该</div><div class="line">           使用 Vue.set(obj, <span class="string">'newProp'</span>, 123), 或者</div><div class="line">           以新对象替换老对象。例如，利用 stage-3 的对象展开运算符我们可以这样写：</div><div class="line">           state.obj = &#123; ...state.obj, newProp: 123 &#125;</div><div class="line">         </div><div class="line">           一条重要的原则就是要记住 mutation 必须是同步函数</div><div class="line">Action    Action 类似于 mutation，不同在于：</div><div class="line">            Action 提交的是 mutation，而不是直接变更状态。</div><div class="line">            Action 可以包含任意异步操作。</div><div class="line">          Action 通过 store.dispatch 方法触发：</div><div class="line">            store.dispatch(<span class="string">'increment'</span>)</div></pre></td></tr></table></figure>
+<h4 id="eventBus"><a href="#eventBus" class="headerlink" title="eventBus"></a>eventBus</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">功能:实现组件间通信，点击外部关闭select</div><div class="line">建立eventBus.js</div><div class="line">  import Vue from <span class="string">'vue'</span></div><div class="line">  const eventBus = new Vue()</div><div class="line">  <span class="built_in">export</span> &#123; eventBus &#125;</div><div class="line">全局组件中定义click事件 </div><div class="line">  <span class="function"><span class="title">resetComponent</span></span>() &#123; eventBus.<span class="variable">$emit</span>(<span class="string">'reset-component'</span>) &#125;</div><div class="line">具有select的组件中触发eventBus </div><div class="line">  eventBus.<span class="variable">$on</span>(<span class="string">'reset-component'</span>, () =&gt; &#123; this.isDrop = <span class="literal">false</span> &#125;)</div><div class="line">  toggleDrop(e) &#123;</div><div class="line">    e.stopPropagation()  //注意要阻止冒泡</div><div class="line">    eventBus.<span class="variable">$emit</span>(<span class="string">'reset-component'</span>)  //多个select 点击别的select也触发事件</div><div class="line">    this.isDrop = !this.isDrop </div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<h4 id="用过的vue插件"><a href="#用过的vue插件" class="headerlink" title="用过的vue插件"></a>用过的vue插件</h4><h5 id="better-scroll-https-jeft-hai-github-io-2017-10-21-better-scroll"><a href="#better-scroll-https-jeft-hai-github-io-2017-10-21-better-scroll" class="headerlink" title="better-scroll(https://jeft-hai.github.io/2017/10/21/better-scroll/)"></a>better-scroll(<a href="https://jeft-hai.github.io/2017/10/21/better-scroll/" target="_blank" rel="external">https://jeft-hai.github.io/2017/10/21/better-scroll/</a>)</h5><h5 id="vue-lazyload-https-jeft-hai-github-io-2017-10-21-vue-lazyload"><a href="#vue-lazyload-https-jeft-hai-github-io-2017-10-21-vue-lazyload" class="headerlink" title="vue-lazyload(https://jeft-hai.github.io/2017/10/21/vue-lazyload/)"></a>vue-lazyload(<a href="https://jeft-hai.github.io/2017/10/21/vue-lazyload/" target="_blank" rel="external">https://jeft-hai.github.io/2017/10/21/vue-lazyload/</a>)</h5><h5 id="vue-infinite-scroll-https-jeft-hai-github-io-2017-10-21-vue-infinite-scroll"><a href="#vue-infinite-scroll-https-jeft-hai-github-io-2017-10-21-vue-infinite-scroll" class="headerlink" title="vue-infinite-scroll(https://jeft-hai.github.io/2017/10/21/vue-infinite-scroll/)"></a>vue-infinite-scroll(<a href="https://jeft-hai.github.io/2017/10/21/vue-infinite-scroll/" target="_blank" rel="external">https://jeft-hai.github.io/2017/10/21/vue-infinite-scroll/</a>)</h5><h4 id="image路径"><a href="#image路径" class="headerlink" title="image路径"></a>image路径</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">修改build/utils.js 文件中</div><div class="line"><span class="keyword">if</span> (options.extract) &#123;</div><div class="line">      <span class="built_in">return</span> ExtractTextPlugin.extract(&#123;</div><div class="line">        use: loaders,</div><div class="line">        fallback: <span class="string">'vue-style-loader'</span>,</div><div class="line">        publicPath: <span class="string">'../../'</span></div><div class="line">      &#125;)</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="built_in">return</span> [<span class="string">'vue-style-loader'</span>].concat(loaders)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/03/mongodb/" rel="next" title="mongodb">
+                <i class="fa fa-chevron-left"></i> mongodb
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/12/nodejs/" rel="prev" title="nodejs">
+                nodejs <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/avatar.jpg"
+              alt="JEFT-hai" />
+          
+            <p class="site-author-name" itemprop="name">JEFT-hai</p>
+            <p class="site-description motion-element" itemprop="description">生当做人雄，死一做鬼杰。</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives">
+            
+                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/JEFT-hai" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="3433891733@qq.com" target="_blank" title="QQ">
+                  
+                    <i class="fa fa-fw fa-qq"></i>QQ</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-cli"><span class="nav-number">1.</span> <span class="nav-text">vue-cli</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vue-三个特点"><span class="nav-number">1.1.</span> <span class="nav-text">vue 三个特点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语法"><span class="nav-number">2.</span> <span class="nav-text">语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#v-text-v-html"><span class="nav-number">2.1.</span> <span class="nav-text">v-text,v-html</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#v-for"><span class="nav-number">2.2.</span> <span class="nav-text">v-for</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组件"><span class="nav-number">2.3.</span> <span class="nav-text">组件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#slot"><span class="nav-number">2.3.1.</span> <span class="nav-text">slot</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#class-style绑定"><span class="nav-number">2.3.2.</span> <span class="nav-text">class\style绑定</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#双向绑定"><span class="nav-number">2.4.</span> <span class="nav-text">双向绑定</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#同步更新"><span class="nav-number">2.4.1.</span> <span class="nav-text">同步更新</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#不触发同步更新"><span class="nav-number">2.4.2.</span> <span class="nav-text">不触发同步更新</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#v-bind"><span class="nav-number">2.5.</span> <span class="nav-text">v-bind</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#条件渲染"><span class="nav-number">2.6.</span> <span class="nav-text">条件渲染</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#v-on"><span class="nav-number">2.7.</span> <span class="nav-text">v-on</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表单事件绑定"><span class="nav-number">2.8.</span> <span class="nav-text">表单事件绑定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#过渡"><span class="nav-number">2.9.</span> <span class="nav-text">过渡</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#组件间过渡，可以用mode-分为out-in与in-out-默认是in-out。"><span class="nav-number">2.9.1.</span> <span class="nav-text">组件间过渡，可以用mode  ,分为out-in与in-out,默认是in-out。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#css过渡"><span class="nav-number">2.9.2.</span> <span class="nav-text">css过渡</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#注意多元素过渡要使用key"><span class="nav-number">2.9.3.</span> <span class="nav-text">注意多元素过渡要使用key</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义指令"><span class="nav-number">2.10.</span> <span class="nav-text">自定义指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vue-router"><span class="nav-number">2.11.</span> <span class="nav-text">vue-router</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vuex"><span class="nav-number">2.12.</span> <span class="nav-text">vuex</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#eventBus"><span class="nav-number">2.13.</span> <span class="nav-text">eventBus</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用过的vue插件"><span class="nav-number">2.14.</span> <span class="nav-text">用过的vue插件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#better-scroll-https-jeft-hai-github-io-2017-10-21-better-scroll"><span class="nav-number">2.14.1.</span> <span class="nav-text">better-scroll(https://jeft-hai.github.io/2017/10/21/better-scroll/)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#vue-lazyload-https-jeft-hai-github-io-2017-10-21-vue-lazyload"><span class="nav-number">2.14.2.</span> <span class="nav-text">vue-lazyload(https://jeft-hai.github.io/2017/10/21/vue-lazyload/)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#vue-infinite-scroll-https-jeft-hai-github-io-2017-10-21-vue-infinite-scroll"><span class="nav-number">2.14.3.</span> <span class="nav-text">vue-infinite-scroll(https://jeft-hai.github.io/2017/10/21/vue-infinite-scroll/)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#image路径"><span class="nav-number">2.15.</span> <span class="nav-text">image路径</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JEFT-hai</span>
+
+  
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i>
+<span id="busuanzi_container_site_uv">
+    访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+<span> &nbsp;| &nbsp;</span>
+<div class="powered-by">
+<i class="fa fa-eye"></i>
+<span id="busuanzi_container_site_pv">
+    访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

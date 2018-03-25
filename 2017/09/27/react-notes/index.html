@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="react," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="JEFT" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon-hai.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="生成项目webpack-react123npm install yo -g npm install generator-react-webpack -g yo react-webpack my-project webpack-react 缺点：webpack 版本低，升级的话有一些插件要更改，不如不用了。yeoman 容易下载失败，要用cnpm">
+<meta name="keywords" content="react">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react notes">
+<meta property="og:url" content="http://yoursite.com/2017/09/27/react-notes/index.html">
+<meta property="og:site_name" content="JEFT">
+<meta property="og:description" content="生成项目webpack-react123npm install yo -g npm install generator-react-webpack -g yo react-webpack my-project webpack-react 缺点：webpack 版本低，升级的话有一些插件要更改，不如不用了。yeoman 容易下载失败，要用cnpm">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/redux.jpg">
+<meta property="og:updated_time" content="2018-03-19T15:39:47.119Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="react notes">
+<meta name="twitter:description" content="生成项目webpack-react123npm install yo -g npm install generator-react-webpack -g yo react-webpack my-project webpack-react 缺点：webpack 版本低，升级的话有一些插件要更改，不如不用了。yeoman 容易下载失败，要用cnpm">
+<meta name="twitter:image" content="http://yoursite.com/images/redux.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/27/react-notes/"/>
+
+
+
+
+
+  <title>react notes | JEFT</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/JEFT-hai"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">JEFT</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">学习是苦根上长出来的甜果</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-主页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            主页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/27/react-notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JEFT-hai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JEFT">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">react notes</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-27T01:53:15+08:00">
+                2017-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/react/" itemprop="url" rel="index">
+                    <span itemprop="name">react</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="生成项目"><a href="#生成项目" class="headerlink" title="生成项目"></a>生成项目</h2><h3 id="webpack-react"><a href="#webpack-react" class="headerlink" title="webpack-react"></a>webpack-react</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm install yo -g </div><div class="line">npm install generator-react-webpack -g </div><div class="line">yo react-webpack my-project</div></pre></td></tr></table></figure>
+<p>webpack-react 缺点：webpack 版本低，升级的话有一些插件要更改，不如不用了。<br>yeoman 容易下载失败，要用cnpm</p>
+<a id="more"></a>
+<h3 id="自己写框架"><a href="#自己写框架" class="headerlink" title="自己写框架"></a>自己写框架</h3><p>感觉已有的就已经不错了，</p>
+<ul>
+<li>react-music-player(<a href="https://github.com/JEFT-hai/react-music-player" target="_blank" rel="external">https://github.com/JEFT-hai/react-music-player</a>)</li>
+<li>react-news(<a href="https://github.com/JEFT-hai/react-news" target="_blank" rel="external">https://github.com/JEFT-hai/react-news</a>)</li>
+<li>webpack官网样例(<a href="https://doc.webpack-china.org/configuration/" target="_blank" rel="external">https://doc.webpack-china.org/configuration/</a>)</li>
+</ul>
+<ol>
+<li>安装react react react-dom</li>
+<li>启用es6和JSX,配置.babelrc babel-preset-react babel-preset-env<br>=&gt; npm install react react-dom babel-preset-react babel-preset-env</li>
+<li>webpack<br>=&gt; 最简单的配置 npm install webpack webpack-dev-server –save // 全局要有<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">module.exports = &#123;</div><div class="line">  context:__dirname + <span class="string">'/src'</span>,</div><div class="line">  entry:<span class="string">'./index.js'</span>,</div><div class="line">  module:&#123;</div><div class="line">    loaders:[&#123;</div><div class="line">      <span class="built_in">test</span>:/\.js?$/,</div><div class="line">      exclude:/(node_modules)/,</div><div class="line">      loader:<span class="string">'babel-loader'</span>,</div><div class="line">      query:&#123;</div><div class="line">        presets:[<span class="string">'react'</span>,<span class="string">'es2015'</span>]</div><div class="line">      &#125;</div><div class="line">    &#125;]</div><div class="line">  &#125;,</div><div class="line">  output:&#123;</div><div class="line">    path:__dirname + <span class="string">'/src'</span>,</div><div class="line">    filename:<span class="string">'bundle.js'</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h3><ol>
+<li>css与image要在js中引用，才会打包</li>
+<li>并且react中图片不自动打包，要用require引用图片路径：<br><code>&lt;img src={require(&#39;../../images/logo.png&#39;)} /&gt;</code>才可以并且应该是直接打包到了js中</li>
+<li>热更新问题 server中设置hot为true无效,而webpack-dev-server就可以直接热更新</li>
+</ol>
+<h2 id="react"><a href="#react" class="headerlink" title="react"></a>react</h2><h3 id="ReactDOM-render"><a href="#ReactDOM-render" class="headerlink" title="ReactDOM.render()"></a>ReactDOM.render()</h3><ul>
+<li>ReactDOM.render 是 React 的最基本方法，用于将模板转为 HTML 语言，并插入指定的 DOM 节点。<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ReactDOM.render(</div><div class="line"> &lt;Root/&gt;,</div><div class="line"> document.getElementById(<span class="string">'root'</span>)</div><div class="line">)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="JSX-的基本语法规则："><a href="#JSX-的基本语法规则：" class="headerlink" title="JSX 的基本语法规则："></a>JSX 的基本语法规则：</h3><ul>
+<li>遇到 HTML 标签（以 &lt; 开头），就用 HTML 规则解析;</li>
+<li>遇到代码块（以 { 开头），就用 JavaScript 规则解析。</li>
+<li>解析state或props里面的html标记(&nbsp;&gt;等),要使用转义字符或者dangerouslySetInnerHTML</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;h1  dangerouslySetInnerHTML=&#123;&#123;__html:this.state.html&#125;&#125;&gt;&lt;/h1&gt;</div></pre></td></tr></table></figure>
+<h3 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">class Header extends React.Component&#123;</div><div class="line">	constructor(props)&#123;</div><div class="line">		super(props);</div><div class="line">		this.state = &#123;</div><div class="line">			...</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	static get <span class="function"><span class="title">defaultProps</span></span>()&#123;</div><div class="line">        <span class="built_in">return</span> &#123;</div><div class="line">            ...</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="title">render</span></span>()&#123;</div><div class="line">    	<span class="built_in">return</span> (</div><div class="line">    		&lt;div&gt;</div><div class="line">    		   ...</div><div class="line">    		&lt;/div&gt;</div><div class="line">    	)</div><div class="line">    &#125;	</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">export</span> default Header</div></pre></td></tr></table></figure>
+<p>注意点:</p>
+<ul>
+<li>用class定义组件,初始化state要用constructor(es6)，(es5)用getinitialState;初始化props要用static get defaultProps;</li>
+<li>或者在class外定义 react.defaultProps,propTypes。</li>
+<li>组件类的第一个字母必须大写，否则会报错，比如Header不能写成header。</li>
+<li>组件类只能包含一个顶层标签，否则也会报错。</li>
+<li>class 属性需要写成 className ，for 属性需要写成 htmlFor ，这是因为 class 和 for 是 JavaScript 的保留字。</li>
+<li>传递props <header name="John"> name 属性就可以通过 this.props.name 读取</header></li>
+<li>组件也可以用参数的形式传递</li>
+<li>组件内的state是自身属性。props是外来属性。</li>
+</ul>
+<h3 id="this-props-children"><a href="#this-props-children" class="headerlink" title="this.props.children"></a>this.props.children</h3><ul>
+<li>它表示组件的所有子节点</li>
+<li>this.props.children 的值有三种可能：<ul>
+<li>没有子节点，它就是 undefined ;</li>
+<li>一个子节点，数据类型是 object;</li>
+<li>多个子节点，数据类型就是 array 。</li>
+</ul>
+</li>
+<li>React.Children.map 来遍历子节点，而不用担心this.props.children的数据类型。<br>*　将父组件状态传递个下面的所有子组件：{ React.cloneElement(this.props.children , this.state) }</li>
+</ul>
+<h3 id="PropTypes"><a href="#PropTypes" class="headerlink" title="PropTypes"></a>PropTypes</h3><p>*　组件类的PropTypes属性，就是用来验证组件实例的属性是否符合要求</p>
+<ul>
+<li>propTypes: { title: React.PropTypes.string.isRequired }</li>
+</ul>
+<h3 id="获取真实的DOM节点"><a href="#获取真实的DOM节点" class="headerlink" title="获取真实的DOM节点"></a>获取真实的DOM节点</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;div ref=<span class="string">"progressBar"</span>&gt;&lt;/div&gt;</div><div class="line"><span class="built_in">let</span> progressBar = this.refs.progressBar</div><div class="line"></div><div class="line">或者ReactDOM.findDOMNode(<span class="string">'id'</span>)</div></pre></td></tr></table></figure>
+<ul>
+<li>Refs是访问组件内部DOM节点唯一可靠的方法</li>
+<li>Refs会自动销毁对子组件的引用</li>
+<li>不要在render或render之前对Refs进行调用 =》DidMount中调用</li>
+<li>不要滥用Refs</li>
+</ul>
+<h3 id="state与props"><a href="#state与props" class="headerlink" title="state与props"></a>state与props</h3><ul>
+<li>this.props 表示那些一旦定义，就不再改变的特性，而 this.state 是会随着用户互动而产生变化的特性。</li>
+<li>表单的填入就要用state，不能用props.</li>
+</ul>
+<h3 id="setState"><a href="#setState" class="headerlink" title="setState"></a>setState</h3><h4 id="setState不会立即改变React组件中state的值。"><a href="#setState不会立即改变React组件中state的值。" class="headerlink" title="setState不会立即改变React组件中state的值。"></a>setState不会立即改变React组件中state的值。</h4><pre><code>function incrementMultiple() {
+  this.setState({count: this.state.count + 1});
+  this.setState({count: this.state.count + 1});
+  this.setState({count: this.state.count + 1});
+}
+</code></pre><p>==&gt;&gt;</p>
+<pre><code>function incrementMultiple() {
+  const currentCount = this.state.count;
+  this.setState({count: currentCount + 1});
+  this.setState({count: currentCount + 1});
+  this.setState({count: currentCount + 1});
+}
+</code></pre><p>在React中，一个组件中要读取当前状态用是访问this.state，但是更新状态却是用this.setState，不是直接在this.state上修改，为什么呢？</p>
+<p>因为this.state说到底只是一个对象，单纯去修改一个对象的值是没有意义的，去驱动UI的更新才是有意义的</p>
+<h4 id="setState通过引发一次组件的更新过程来引发重新绘制"><a href="#setState通过引发一次组件的更新过程来引发重新绘制" class="headerlink" title="setState通过引发一次组件的更新过程来引发重新绘制"></a>setState通过引发一次组件的更新过程来引发重新绘制</h4><p>setState调用引起的React的更新生命周期函数4个函数（比修改prop引发的生命周期少一个componentWillReceiveProps函数），这4个函数依次被调用。</p>
+<p>shouldComponentUpdate<br>componentWillUpdate<br>render<br>componentDidUpdate</p>
+<p>当shouldComponentUpdate函数被调用的时候，this.state没有得到更新。<br>当componentWillUpdate函数被调用的时候，this.state依然没有得到更新。</p>
+<p>直到render函数被调用的时候，this.state才得到更新。</p>
+<h4 id="多次setState函数调用产生的效果会合并"><a href="#多次setState函数调用产生的效果会合并" class="headerlink" title="多次setState函数调用产生的效果会合并"></a>多次setState函数调用产生的效果会合并</h4><h3 id="react生命周期"><a href="#react生命周期" class="headerlink" title="react生命周期"></a>react生命周期</h3><ul>
+<li>组件的生命周期分成三个状态：<ul>
+<li>装载过程 Mounting：已插入真实 DOM</li>
+<li>更新过程 Updating：正在被重新渲染</li>
+<li>卸载过程 Unmounting：已移出真实 DOM</li>
+</ul>
+</li>
+<li>React 为每个状态都提供了两种处理函数，<ul>
+<li>will 函数在进入状态之前调用;</li>
+<li>did 函数在进入状态之后调用，三种状态共计五种处理函数。<ul>
+<li>componentWillMount()</li>
+<li>componentDidMount()</li>
+<li>componentWillUpdate(object nextProps, object nextState)</li>
+<li>componentDidUpdate(object prevProps, object prevState)</li>
+<li>componentWillUnmount() // mount 小写 (哈哈找过一次bug找了好久。)</li>
+</ul>
+</li>
+<li>此外，React 还提供两种特殊状态的处理函数。<ul>
+<li>componentWillReceiveProps(object nextProps)：已加载组件收到新的参数时调用</li>
+<li>shouldComponentUpdate(object nextProps, object nextState)：组件判断是否重新渲染时调用</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="react生命周期执行顺序"><a href="#react生命周期执行顺序" class="headerlink" title="react生命周期执行顺序"></a>react生命周期执行顺序</h3><pre><code>1. getDefaultProps()，调用1次
+2. getInitialState()，调用1次
+3. componentWillMount()，调用1次
+4. render()，调用&gt;=1次
+5. componentDidMount()：仅客户端，调用1次
+6. componentWillReceiveProps(object nextProps)，调用&gt;=0次
+7. ShouldComponentUpdate(object nextProps, object nextState)，调用&gt;=0次
+8. componentWillUpdate(object nextProps, object nextState)，调用&gt;=0次
+9. render()，调用&gt;=1次
+10. componentDidUpdate(object prevProps, object prevState)，调用&gt;=0次
+11. componentWillUnmount()，调用1次
+</code></pre><h3 id="事件与数据的双向绑定"><a href="#事件与数据的双向绑定" class="headerlink" title="事件与数据的双向绑定"></a>事件与数据的双向绑定</h3><p>栗子: react-music-player中progress组件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">progress组建中:</div><div class="line">   changeProgress(e)&#123;</div><div class="line">    <span class="built_in">let</span> progressBar = this.refs.progressBar;</div><div class="line">    <span class="built_in">let</span> progress = (e.clientX - progressBar.getBoundingClientRect().left) /progressBar.clientWidth;</div><div class="line">    this.props.onProgressChange &amp;&amp; this.props.onProgressChange(progress);</div><div class="line">   &#125;</div><div class="line">   &lt;div className=<span class="string">"components-progress"</span> ref=<span class="string">"progressBar"</span> onClick=&#123;this.changeProgress.bind(this)&#125;&gt;</div><div class="line">player组件中:</div><div class="line">  progressChangeHandler(progress) &#123;</div><div class="line">    $(<span class="string">'#player'</span>).jPlayer(this.state.isPlay?<span class="string">'play'</span>:<span class="string">'pause'</span>, duration*progress);</div><div class="line">  &#125;</div><div class="line">  &lt;Progress progress=&#123;this.state.progress&#125; onProgressChange=&#123;this.progressChangeHandler.bind(this)&#125; /&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>点击进度条触发progress中changeProgress事件，执行this.props.onProgressChange(progress),于是在父组件中执行<br>progressChangeHandler(progress)来改变progress(父组件中state属性)</p>
+</li>
+<li><p><progress progress="{this.state.progress}">父组件向子组件传递参数</progress></p>
+</li>
+<li><p>{…this.props},{…this.state} 向子孙组件传递所有参数 …为es6用法。</p>
+</li>
+<li><p>bind(this)为es6写法，不然会报错</p>
+</li>
+</ul>
+<h3 id="react-input的onChange-与onBulr"><a href="#react-input的onChange-与onBulr" class="headerlink" title="react input的onChange()与onBulr()"></a>react input的onChange()与onBulr()</h3><h3 id="react-mixin"><a href="#react-mixin" class="headerlink" title="react-mixin"></a>react-mixin</h3><ul>
+<li><p>react-mixin(<a href="https://github.com/brigand/react-mixin" target="_blank" rel="external">https://github.com/brigand/react-mixin</a>)</p>
+</li>
+<li><p>不同组件间公用代码</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var reactMixin = require(<span class="string">'react-mixin'</span>);</div><div class="line">var someMixin = require(<span class="string">'some-mixin'</span>);</div><div class="line">class Foo extends React.Component &#123;</div><div class="line">    render: <span class="function"><span class="title">function</span></span>()&#123; <span class="built_in">return</span> &lt;div /&gt; &#125;    </div><div class="line">&#125;</div><div class="line">reactMixin(Foo.prototype, someMixin);</div><div class="line">reactMixin(Foo.prototype, someOtherMixin);</div></pre></td></tr></table></figure>
+<h3 id="class兼容插件"><a href="#class兼容插件" class="headerlink" title="class兼容插件"></a>class兼容插件</h3><p>babel-plugin-react-html-attrs,要有css-loader和style-loader<br>webpack 配置 react-html-attrs</p>
+<h3 id="css模块化"><a href="#css模块化" class="headerlink" title="css模块化"></a>css模块化</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">webpack:</div><div class="line">   &#123; <span class="built_in">test</span>: /\.css$/, loader: <span class="string">'style-loader!css-loader?modules&amp;importLoaders=1&amp;localIdentName=[name]__[local]__[hash:base64:5]'</span> &#125;</div><div class="line">js:</div><div class="line">   var footer= require(<span class="string">'./footer.css'</span>) </div><div class="line">   &lt;Col span=&#123;20&#125; className=&#123;footer.footer&#125; /&gt;</div></pre></td></tr></table></figure>
+<p>:local(.normal){color:green;}<br>:global(.btn){color:red;}</p>
+<ul>
+<li>全局污染=&gt;所有样式都是local的，解决了命名冲突和全局污染问题</li>
+<li>命名混乱=&gt;class名生成规则配置灵活，可以此来压缩class名</li>
+<li><p>只需引用组件的JS就可以搞定所有的JS和CSS</p>
+</li>
+<li><p>缺点：所有文件都要使用</p>
+</li>
+</ul>
+<h3 id="css-to-react"><a href="#css-to-react" class="headerlink" title="css to react"></a>css to react</h3><p>将css站换成react格式<br>网址：<a href="https://staxmanade.com/CssToReact/" target="_blank" rel="external">https://staxmanade.com/CssToReact/</a></p>
+<h3 id="react-css框架网站"><a href="#react-css框架网站" class="headerlink" title="react css框架网站"></a>react css框架网站</h3><p>网址：<a href="https://ant.design/index-cn" target="_blank" rel="external">https://ant.design/index-cn</a></p>
+<h3 id="redux"><a href="#redux" class="headerlink" title="redux"></a>redux</h3><p><img src="/images/redux.jpg" alt="原理图"></p>
+<h3 id="一些react插件"><a href="#一些react插件" class="headerlink" title="一些react插件"></a>一些react插件</h3><ul>
+<li>react-touch-loader<ol>
+<li>下拉加载<br>github(<a href="https://github.com/Broltes/react-touch-loader" target="_blank" rel="external">https://github.com/Broltes/react-touch-loader</a>)<br>部署(<a href="https://github.com/Broltes/react-touch-loader/blob/master/example/app.jsx" target="_blank" rel="external">https://github.com/Broltes/react-touch-loader/blob/master/example/app.jsx</a>)</li>
+<li>上拉刷新<br>npm(<a href="https://www.npmjs.com/package/react-pull-to-refresh" target="_blank" rel="external">https://www.npmjs.com/package/react-pull-to-refresh</a>)<br>这个插件要用less编译style</li>
+<li>react-pullload<br>部署(<a href="https://www.npmjs.com/package/react-pullload" target="_blank" rel="external">https://www.npmjs.com/package/react-pullload</a>)</li>
+</ol>
+</li>
+</ul>
+<p>下拉刷新 上拉加载更多 只支持 移动端 </p>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/react/" rel="tag"># react</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/23/My-Collection/" rel="next" title="My Collection">
+                <i class="fa fa-chevron-left"></i> My Collection
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/30/webpack/" rel="prev" title="webpack">
+                webpack <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/avatar.jpg"
+              alt="JEFT-hai" />
+          
+            <p class="site-author-name" itemprop="name">JEFT-hai</p>
+            <p class="site-description motion-element" itemprop="description">生当做人雄，死一做鬼杰。</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives">
+            
+                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/JEFT-hai" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="3433891733@qq.com" target="_blank" title="QQ">
+                  
+                    <i class="fa fa-fw fa-qq"></i>QQ</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#生成项目"><span class="nav-number">1.</span> <span class="nav-text">生成项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#webpack-react"><span class="nav-number">1.1.</span> <span class="nav-text">webpack-react</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自己写框架"><span class="nav-number">1.2.</span> <span class="nav-text">自己写框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#webpack"><span class="nav-number">1.3.</span> <span class="nav-text">webpack</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#react"><span class="nav-number">2.</span> <span class="nav-text">react</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ReactDOM-render"><span class="nav-number">2.1.</span> <span class="nav-text">ReactDOM.render()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSX-的基本语法规则："><span class="nav-number">2.2.</span> <span class="nav-text">JSX 的基本语法规则：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件"><span class="nav-number">2.3.</span> <span class="nav-text">组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#this-props-children"><span class="nav-number">2.4.</span> <span class="nav-text">this.props.children</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PropTypes"><span class="nav-number">2.5.</span> <span class="nav-text">PropTypes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取真实的DOM节点"><span class="nav-number">2.6.</span> <span class="nav-text">获取真实的DOM节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#state与props"><span class="nav-number">2.7.</span> <span class="nav-text">state与props</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#setState"><span class="nav-number">2.8.</span> <span class="nav-text">setState</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#setState不会立即改变React组件中state的值。"><span class="nav-number">2.8.1.</span> <span class="nav-text">setState不会立即改变React组件中state的值。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setState通过引发一次组件的更新过程来引发重新绘制"><span class="nav-number">2.8.2.</span> <span class="nav-text">setState通过引发一次组件的更新过程来引发重新绘制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多次setState函数调用产生的效果会合并"><span class="nav-number">2.8.3.</span> <span class="nav-text">多次setState函数调用产生的效果会合并</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#react生命周期"><span class="nav-number">2.9.</span> <span class="nav-text">react生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#react生命周期执行顺序"><span class="nav-number">2.10.</span> <span class="nav-text">react生命周期执行顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件与数据的双向绑定"><span class="nav-number">2.11.</span> <span class="nav-text">事件与数据的双向绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#react-input的onChange-与onBulr"><span class="nav-number">2.12.</span> <span class="nav-text">react input的onChange()与onBulr()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#react-mixin"><span class="nav-number">2.13.</span> <span class="nav-text">react-mixin</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#class兼容插件"><span class="nav-number">2.14.</span> <span class="nav-text">class兼容插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#css模块化"><span class="nav-number">2.15.</span> <span class="nav-text">css模块化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#css-to-react"><span class="nav-number">2.16.</span> <span class="nav-text">css to react</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#react-css框架网站"><span class="nav-number">2.17.</span> <span class="nav-text">react css框架网站</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#redux"><span class="nav-number">2.18.</span> <span class="nav-text">redux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一些react插件"><span class="nav-number">2.19.</span> <span class="nav-text">一些react插件</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JEFT-hai</span>
+
+  
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i>
+<span id="busuanzi_container_site_uv">
+    访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+<span> &nbsp;| &nbsp;</span>
+<div class="powered-by">
+<i class="fa fa-eye"></i>
+<span id="busuanzi_container_site_pv">
+    访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="mvvm," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="JEFT" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon-hai.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="mvvm 框架1.了解Vue React Angular MVC Model View ControllerMVVM Model View ViewModel mvvm定位 Model &amp;lt;=&amp;gt; ViewModel &amp;lt;=&amp;gt; View Model 与 View 是分离的 MVC 与 MVVM 区别  在MVC里，View是可以直接访问Model的。Model不依赖View,而V">
+<meta name="keywords" content="mvvm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mvvm">
+<meta property="og:url" content="http://yoursite.com/2018/03/07/mvvm/index.html">
+<meta property="og:site_name" content="JEFT">
+<meta property="og:description" content="mvvm 框架1.了解Vue React Angular MVC Model View ControllerMVVM Model View ViewModel mvvm定位 Model &amp;lt;=&amp;gt; ViewModel &amp;lt;=&amp;gt; View Model 与 View 是分离的 MVC 与 MVVM 区别  在MVC里，View是可以直接访问Model的。Model不依赖View,而V">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-21T10:47:22.540Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mvvm">
+<meta name="twitter:description" content="mvvm 框架1.了解Vue React Angular MVC Model View ControllerMVVM Model View ViewModel mvvm定位 Model &amp;lt;=&amp;gt; ViewModel &amp;lt;=&amp;gt; View Model 与 View 是分离的 MVC 与 MVVM 区别  在MVC里，View是可以直接访问Model的。Model不依赖View,而V">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/03/07/mvvm/"/>
+
+
+
+
+
+  <title>mvvm | JEFT</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/JEFT-hai"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">JEFT</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">学习是苦根上长出来的甜果</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-主页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            主页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/07/mvvm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JEFT-hai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JEFT">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">mvvm</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-07T18:11:10+08:00">
+                2018-03-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="mvvm-框架"><a href="#mvvm-框架" class="headerlink" title="mvvm 框架"></a>mvvm 框架</h3><h4 id="1-了解"><a href="#1-了解" class="headerlink" title="1.了解"></a>1.了解</h4><p>Vue React Angular</p>
+<p>MVC Model View Controller<br>MVVM Model View ViewModel</p>
+<p>mvvm定位 Model &lt;=&gt; ViewModel &lt;=&gt; View Model 与 View 是分离的</p>
+<h5 id="MVC-与-MVVM-区别"><a href="#MVC-与-MVVM-区别" class="headerlink" title="MVC 与 MVVM 区别"></a>MVC 与 MVVM 区别</h5><p>  在MVC里，View是可以直接访问Model的。Model不依赖View,而View依赖于Model。更改view更难。<br>  在MVVM里， View(页面)与Model(数据)是分离的。</p>
+<h4 id="2-双向绑定的原理"><a href="#2-双向绑定的原理" class="headerlink" title="2.双向绑定的原理"></a>2.双向绑定的原理</h4><ol>
+<li>data=&gt;view data改变会使view变化<br>view=&gt;data view变化也会改变data<br>绑定 =&gt; 自动化处理，不需要人为关心。</li>
+<li><p>原理<br> data =&gt; view Object.defineProperty get/set操作 依靠它 监听data的变化<br> view =&gt; data input事件，只不过框架执行了我们看不到。</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var obj = &#123; &#125;;</div><div class="line">      // 为obj定义一个名为 hello 的访问器属性</div><div class="line">      Object.defineProperty(obj, <span class="string">"hello"</span>, &#123;</div><div class="line">        get: <span class="function"><span class="title">function</span></span> () &#123;<span class="built_in">return</span> sth&#125;,</div><div class="line">        <span class="built_in">set</span>: <span class="keyword">function</span> (val) &#123;/* <span class="keyword">do</span> sth */&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p> object.defineProperty 与 reflect.defineProperty 区别</p>
+<pre><code>object.defineProperty 返回的是一个对象
+reflect.defineProperty 返回Boolean值作为成功的状态
+</code></pre><p> object.defineProperty 还可以用来 深度复制<br> let desc = Object.getOwnPropertyDescriptor(source,key);<br> Object.defineProperty(target,key,desc);</p>
+</li>
+</ol>
+<h4 id="3-设计模式"><a href="#3-设计模式" class="headerlink" title="3.设计模式"></a>3.设计模式</h4><pre><code>观察者模式 data =&gt; Observer Dep Watcher =&gt; View
+</code></pre><h4 id="4-生命周期"><a href="#4-生命周期" class="headerlink" title="4.生命周期"></a>4.生命周期</h4><h5 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h5><pre><code>beforeCreate  =&gt; el与data并未初始化        =&gt; 可以在这加loading事件。
+created          =&gt; 完成了data数据的初始化。  =&gt; 做一些初始化，实现函数自执行。
+beforeMount   =&gt; 完成了el和data初始化
+mounted          =&gt; 完成挂载                   =&gt; 向后端发起请求，那回数据，配合路由钩子做事
+beforeDestory
+destoryed                                   =&gt; 当前组件已被删除，清空相关内容。
+
+beforeUpdate
+updated
+</code></pre><h5 id="React"><a href="#React" class="headerlink" title="React"></a>React</h5><pre><code>static defaultProps
+constructor            =&gt; 接收父组件的props，context
+
+componentWillMount        =&gt; 组件刚经历constructor,初始完数据 组件还未render，dom未渲染
+render
+componentDidMount      =&gt; 组件第一次渲染完成，此时dom节点已经生成，可以调用ajax,返回数据setState后组件会重新渲染
+componentWillUnmount   =&gt; clear 组件中的定时器 setTimeout，setInterval，移除组件监听。
+
+componentWillReceiveProps
+shouldCompoentUpdate
+componentWillUpdate
+render
+componentDidUpdate
+</code></pre><h4 id="5-路由"><a href="#5-路由" class="headerlink" title="5. 路由"></a>5. 路由</h4><h5 id="vue-router"><a href="#vue-router" class="headerlink" title="vue-router"></a>vue-router</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">import VRouter from <span class="string">'vue-router'</span>;</div><div class="line">app.use(VRouter);</div><div class="line"><span class="built_in">let</span> router = new VueRouter(&#123;</div><div class="line">	mode: <span class="string">'history'</span>,</div><div class="line">	routes: [</div><div class="line">	  &#123;path:<span class="string">'/'</span>,component: IndexPage&#125;,</div><div class="line">	  &#123;path:<span class="string">'/detail'</span>,component: DetailPage,redirect:<span class="string">'/detail/analysis'</span>,</div><div class="line">	    children: [</div><div class="line">	      &#123;path:<span class="string">'forecast'</span>,component: ForPage&#125;,</div><div class="line">	      &#123;path:<span class="string">'analysis'</span>,component: AnaPage&#125;,</div><div class="line">	      &#123;path:<span class="string">'count'</span>,component: CouPage&#125;,</div><div class="line">	      &#123;path:<span class="string">'publish'</span>,component: PubPage&#125;</div><div class="line">	    ]</div><div class="line">	  &#125;</div><div class="line">	]</div><div class="line">&#125;)</div><div class="line"></div><div class="line">new vue(&#123;router&#125;)</div></pre></td></tr></table></figure>
+<pre><code>vue 比 react 多了一个 router-view
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;keep-alive&gt;</div><div class="line">  &lt;router-view :seller=<span class="string">"seller"</span>&gt;&lt;/router-view&gt;</div><div class="line">&lt;/keep-alive&gt;</div></pre></td></tr></table></figure>
+
+keep-alive 作用
+把切换出去的组件保存到内存中，保留它的状态或避免重复渲染。
+</code></pre><h6 id="链接-重定向"><a href="#链接-重定向" class="headerlink" title="链接(重定向)"></a>链接(重定向)</h6><p>router-link</p>
+<ol>
+<li><router-link to="/good"></router-link></li>
+<li><router-link :to="{name:'banana',params:{color:'yellow'}}"></router-link></li>
+<li><router-link to="/good" tag="li"></router-link> 就变成li标签了</li>
+</ol>
+<h5 id="react-router-dom"><a href="#react-router-dom" class="headerlink" title="react-router-dom"></a>react-router-dom</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">import &#123;Route,BrowserRouter,Switch,HashRouter&#125; from <span class="string">'react-router-dom'</span>;</div><div class="line"></div><div class="line">&lt;HashRouter&gt;</div><div class="line">	&lt;Switch&gt;</div><div class="line">	  &lt;Route exact path=<span class="string">"/"</span> component=&#123;PCIndex&#125;&gt;&lt;/Route&gt;</div><div class="line">	  &lt;Route path=<span class="string">"/details/:uniquekey"</span> component=&#123;PCNewsDetails&#125;&gt;&lt;/Route&gt;</div><div class="line">	  &lt;Route path=<span class="string">"/usercenter"</span> component=&#123;PCUserCenter&#125;&gt;&lt;/Route&gt;</div><div class="line">	&lt;/Switch&gt;</div><div class="line">&lt;/HashRouter&gt;</div></pre></td></tr></table></figure>
+<h6 id="链接-重定向-1"><a href="#链接-重定向-1" class="headerlink" title="链接(重定向)"></a>链接(重定向)</h6><p>import {Link} from ‘react-router-dom’;</p>
+<link to="/list">我的私人音乐坊 &qt;
+
+<h4 id="6-params"><a href="#6-params" class="headerlink" title="6. params"></a>6. params</h4><h5 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h5><pre><code>获取params =&gt; this.$route.params
+</code></pre><h5 id="react"><a href="#react" class="headerlink" title="react"></a>react</h5><pre><code>获取params =&gt; this.props.params
+</code></pre><h4 id="7-获取DOM"><a href="#7-获取DOM" class="headerlink" title="7. 获取DOM"></a>7. 获取DOM</h4><p>1.vue=&gt; this.$ref.name<br>2.react =&gt; this.ref.name</p>
+<h4 id="8-数据请求"><a href="#8-数据请求" class="headerlink" title="8. 数据请求"></a>8. 数据请求</h4><h5 id="vue-1"><a href="#vue-1" class="headerlink" title="vue"></a>vue</h5><h6 id="vue-resource"><a href="#vue-resource" class="headerlink" title="vue-resource"></a>vue-resource</h6><pre><code>import VueResource from &apos;vue-resource&apos;;
+
+app.use(VueResource);
+
+this.$http.get(&apos;/goods/list&apos;)
+    .then((response) =&gt; {
+        response = response.body;
+            if (response.status === &apos;0&apos;) {
+                 this.goods = response.result.list;
+                       this.$nextTick(() =&gt; {
+                     this._initScroll();
+                     this._calculateHeight();
+                });
+            }
+    });    
+
+跨域：代理 proxyTable
+</code></pre><h6 id="axios-gt-vue2-0以后用axios"><a href="#axios-gt-vue2-0以后用axios" class="headerlink" title="axios =&gt; vue2.0以后用axios"></a>axios =&gt; vue2.0以后用axios</h6><pre><code>import axios from &apos;axios&apos;;
+
+axios.get(&apos;/users/addressList&apos;).then((response)=&gt;{
+        var res = response.data;
+        this.addressList = res.result;
+        this.addressList.forEach((item,index)=&gt;{
+           if(item.isDefault){
+             this.currentIndex = index;
+             this.selectedAddressId = item.addressId;
+           }
+        })
+      })
+
+跨域
+跨域post实例，用到了qs组件来避开ajax信使请求，并兼容Android。
+import axios from &apos;axios&apos;;
+import qs from &apos;qs&apos;;
+
+axios.post(&apos;http://www.xyz.com/request&apos;, qs.stringify(params))
+.then(response =&gt; {
+  console.log(response);
+})
+.catch(err =&gt; {
+  console.log(err);
+});
+</code></pre><h5 id="react-gt-fetch"><a href="#react-gt-fetch" class="headerlink" title="react =&gt; fetch"></a>react =&gt; fetch</h5><pre><code>var myFetchOptions = {
+    method: &apos;GET&apos;
+};
+fetch(&quot;http://newsapi.gugujiankong.com/Handler.ashx?action=uc&amp;userid=&quot; + localStorage.React_userid + &quot;&amp;uniquekey=&quot; + this.props.uniquekey, myFetchOptions)
+.then(response=&gt;response.json())
+.then(json=&gt;{
+    //收藏成功以后进行一下全局的提醒
+    notification[&apos;success&apos;]({message:&apos;ReactNews提醒&apos;,description:&apos;收藏此文章成功&apos;});
+})
+
+fetch 跨域 =&gt; 数据模拟我选择代理方式proxy || fetch-jsonp 插件实现jsonp
+&quot;proxy&quot;: {
+  &quot;/api&quot;: {
+    &quot;target&quot;: &quot;http://localhost:4000&quot;,
+    &quot;secure&quot;: false
+  },
+  &quot;/tuan&quot;: {
+    &quot;target&quot;: &quot;http://m.dianping.com&quot;,
+    &quot;secure&quot;: false
+  }
+}
+</code></pre><h4 id="9-组件间数据传递"><a href="#9-组件间数据传递" class="headerlink" title="9. 组件间数据传递"></a>9. 组件间数据传递</h4><h5 id="vue-2"><a href="#vue-2" class="headerlink" title="vue"></a>vue</h5><h6 id="父子组件"><a href="#父子组件" class="headerlink" title="父子组件"></a>父子组件</h6><p>父 =&gt; 子</p>
+<pre><code>父组件中&lt;food :food=&quot;selectedFood&quot;&gt;&lt;/food&gt;
+子组件接收
+    props:{
+        food:{
+            type:Object
+        }
+    }
+子组件使用数据方式 this.food (即与data中数据使用方式相同)
+</code></pre><p>子 =&gt; 父</p>
+<pre><code>this.$emit(&apos;add&apos;,target/msg) =&gt; 触发父组件中add事件，执行add绑定的函数。
+</code></pre><h6 id="子组件之间数据传递-eventBus-or-vuex全局"><a href="#子组件之间数据传递-eventBus-or-vuex全局" class="headerlink" title="子组件之间数据传递  eventBus or vuex全局"></a>子组件之间数据传递  eventBus or vuex全局</h6><pre><code> evetnBus
+
+功能:实现组件间通信，点击外部关闭select=&gt;同一时间最多有一个select处于下拉状态
+建立eventBus.js
+  import Vue from &apos;vue&apos;
+  const eventBus = new Vue()
+  export { eventBus }
+全局组件中定义click事件 
+  resetComponent() { eventBus.$emit(&apos;reset-component&apos;) }
+具有select的组件中触发eventBus 
+  mounted () {
+       eventBus.$on(&apos;reset-component&apos;, () =&gt; {
+         this.isDrop = false
+       })
+       // 每一个select组件 只要触发reset-component 就会使this.isDrop重置
+  }
+  toggleDrop(e) {
+    e.stopPropagation()  //注意要阻止冒泡
+    eventBus.$emit(&apos;reset-component&apos;)  //多个select 点击别的select也触发事件
+    this.isDrop = !this.isDrop 
+  }
+
+vuex
+</code></pre><p>核心 State Getter Mutation Action Module</p>
+<p>actions(commit) =&gt; mutations(同步函数) =&gt; state(改变state) =&gt; components(自动更新componets)</p>
+<pre><code>1.import Vuex from &apos;vuex&apos;;
+2. Vue.use(Vuex);
+3. const store = new Vuex.Store({
+    state:{
+        userName:&apos;&apos;,
+        cartCount:0
+    },
+    mutations:{
+        updateUserInfo(state,userName){
+            state.userName = userName;
+        },
+        updateCartCount(state,cartCount){
+            state.cartCount += cartCount;
+        },
+        initCartCount(state,cartCount){
+            state.cartCount = cartCount;
+        }
+    }
+})
+4.new Vue({store});
+
+const store = new Vuex.Store({
+    state:{
+        userName:&apos;&apos;,
+        cartCount:0
+    },
+    mutations:{
+        updateUserInfo(state,userName){
+            state.userName = userName;
+        },
+        updateCartCount(state,cartCount){
+            state.cartCount += cartCount;
+        },
+        initCartCount(state,cartCount){
+            state.cartCount = cartCount;
+        }
+    }
+})
+&lt;!-- 在各个组件中都可以使用 this.$store.commit(mutations中的方法) 来更新components --&gt;
+this.$store.commit(&quot;updateCartCount&quot;,-1);
+
+Vuex 并不限制你的代码结构。但是，它规定了一些需要遵守的规则：
+       应用层级的状态应该集中到单个 store 对象中。
+       提交 mutation 是更改状态的唯一方法，并且这个过程是同步的。
+       异步逻辑都应该封装到 action 里面。
+State  作为一个“唯一数据源 (SSOT)”而存在
+       从 store 实例中读取状态最简单的方法就是在计算属性中返回某个状态：
+       computed: {
+           count () {
+             return store.state.count
+           }
+       } 
+       mapState: mapGetters...同理
+         import { mapState } from &apos;vuex&apos;
+         ...mapState(...)  
+Getter  有时候我们需要从 store 中的 state 中派生出一些状态，例如对列表进行过滤并计数：
+        const store = new Vuex.Store({
+          state: {
+            todos: [
+              { id: 1, text: &apos;...&apos;, done: true },
+              { id: 2, text: &apos;...&apos;, done: false }
+            ]
+          },
+          getters: {
+            doneTodos: state =&gt; {
+              return state.todos.filter(todo =&gt; todo.done)
+            }
+          }
+        })
+Mutation 更改 Vuex 的 store 中的状态的唯一方法是提交 mutation。
+         触发 store.commit(&apos;increment&apos;)
+         注意事项
+           最好提前在你的 store 中初始化好所有所需属性。
+           当需要在对象上添加新属性时，你应该
+           使用 Vue.set(obj, &apos;newProp&apos;, 123), 或者
+           以新对象替换老对象。例如，利用 stage-3 的对象展开运算符我们可以这样写：
+           state.obj = { ...state.obj, newProp: 123 }
+
+           一条重要的原则就是要记住 mutation 必须是同步函数
+Action    Action 类似于 mutation，不同在于：
+            Action 提交的是 mutation，而不是直接变更状态。
+            Action 可以包含任意异步操作。
+          Action 通过 store.commit 方法触发：
+            store.commit(&apos;increment&apos;)
+</code></pre><h5 id="react-1"><a href="#react-1" class="headerlink" title="react"></a>react</h5><h6 id="父子组件数据传递"><a href="#父子组件数据传递" class="headerlink" title="父子组件数据传递"></a>父子组件数据传递</h6><ol>
+<li>父 =&gt; 子 通过props传递</li>
+</ol>
+<p>父组件 <food food="this.state.selectedFood"></food><br>子组件接收 this.props.food </p>
+<p><em>vue 与 react 数据使用格式区别</em><br>vue<br>1.html中=&gt;直接使用 data/porps中数据名称。<br>2.js中=&gt; this.数据名称<br>react<br>1.html/js中 =&gt; this.props.数据名称/this.state.数据名称</p>
+<ol>
+<li>子 =&gt; 父 通过函数 父组件中函数传递给子组件，子组件中返回数据给父组件</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">子组件 progress组件中:</div><div class="line">   changeProgress(e)&#123;</div><div class="line">    <span class="built_in">let</span> progressBar = this.refs.progressBar;</div><div class="line">    <span class="built_in">let</span> progress = (e.clientX - progressBar.getBoundingClientRect().left) /progressBar.clientWidth;</div><div class="line">    this.props.onProgressChange &amp;&amp; this.props.onProgressChange(progress);</div><div class="line">   &#125;</div><div class="line">   &lt;div className=<span class="string">"components-progress"</span> ref=<span class="string">"progressBar"</span> onClick=&#123;this.changeProgress.bind(this)&#125;&gt;</div><div class="line">父组件 player组件中:</div><div class="line">  progressChangeHandler(progress) &#123;</div><div class="line">    $(<span class="string">'#player'</span>).jPlayer(this.state.isPlay?<span class="string">'play'</span>:<span class="string">'pause'</span>, duration*progress);</div><div class="line">  &#125;</div><div class="line">  &lt;Progress progress=&#123;this.state.progress&#125; onProgressChange=&#123;this.progressChangeHandler.bind(this)&#125; /&gt;</div></pre></td></tr></table></figure>
+<ol>
+<li>子组件间通信</li>
+</ol>
+<p>1.子 =&gt; 父 =&gt; 子</p>
+<p>子组件传给父组件 父组件根据子组件数据改变state, state改变重新render下面的子组件<br>由于 Parent 的 state 发生变化，会触发 Parent 及从属于 Parent 的子组件的生命周期，所以我们在控制台中可以看到，在各个组件中的 componentDidUpdate 方法均被触发。所以有别的就用别的。</p>
+<p>2.eventProxy</p>
+<p>eventProxy 中，总共有 on、one、off、trigger 这 4 个函数：</p>
+<p>on、one：on 与 one 函数用于订阅者监听相应的事件，并将事件响应时的函数作为参数，on 与 one 的唯一区别就是，使用 one 进行订阅的函数，只会触发一次，而 使用 on 进行订阅的函数，每次事件发生相应时都会被触发。<br>trigger：trigger 用于发布者发布事件，将除第一参数（事件名）的其他参数，作为新的参数，触发使用 one 与 on 进行订阅的函数。<br>off：用于解除所有订阅了某个事件的所有函数。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="string">'use strict'</span>;</div><div class="line">const eventProxy = &#123;</div><div class="line">  onObj: &#123;&#125;,</div><div class="line">  oneObj: &#123;&#125;,</div><div class="line">  on: <span class="keyword">function</span>(key, fn) &#123;</div><div class="line">    <span class="keyword">if</span>(this.onObj[key] === undefined) &#123;</div><div class="line">      this.onObj[key] = [];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    this.onObj[key].push(fn);</div><div class="line">  &#125;,</div><div class="line">  one: <span class="keyword">function</span>(key, fn) &#123;</div><div class="line">    <span class="keyword">if</span>(this.oneObj[key] === undefined) &#123;</div><div class="line">      this.oneObj[key] = [];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    this.oneObj[key].push(fn);</div><div class="line">  &#125;,</div><div class="line">  off: <span class="keyword">function</span>(key) &#123;</div><div class="line">    this.onObj[key] = [];</div><div class="line">    this.oneObj[key] = [];</div><div class="line">  &#125;,</div><div class="line">  trigger: <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">    <span class="built_in">let</span> key, args;</div><div class="line">    <span class="keyword">if</span>(arguments.length == 0) &#123;</div><div class="line">      <span class="built_in">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line">    key = arguments[0];</div><div class="line">    args = [].concat(Array.prototype.slice.call(arguments, 1));</div><div class="line"></div><div class="line">    <span class="keyword">if</span>(this.onObj[key] !== undefined</div><div class="line">      &amp;&amp; this.onObj[key].length &gt; 0) &#123;</div><div class="line">      <span class="keyword">for</span>(<span class="built_in">let</span> i <span class="keyword">in</span> this.onObj[key]) &#123;</div><div class="line">        this.onObj[key][i].apply(null, args);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(this.oneObj[key] !== undefined</div><div class="line">      &amp;&amp; this.oneObj[key].length &gt; 0) &#123;</div><div class="line">      <span class="keyword">for</span>(<span class="built_in">let</span> i <span class="keyword">in</span> this.oneObj[key]) &#123;</div><div class="line">        this.oneObj[key][i].apply(null, args);</div><div class="line">        this.oneObj[key][i] = undefined;</div><div class="line">      &#125;</div><div class="line">      this.oneObj[key] = [];</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="built_in">export</span> default eventProxy;</div></pre></td></tr></table></figure>
+<p>栗子 =&gt; usercenter页面改变数据 更新header 登录状态;trigger =&gt;触发 on事件</p>
+<p>header =&gt; 注册on事件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">import eventProxy from <span class="string">'../eventProxy'</span></div><div class="line">eventProxy.on(<span class="string">'hasLogined'</span>, (hasLogined) =&gt; &#123;</div><div class="line">    this.setState(&#123;</div><div class="line">      hasLogined</div><div class="line">    &#125;);</div><div class="line">  &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>usercenter =&gt; 触发 trigger<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">import eventProxy from <span class="string">'../eventProxy'</span></div><div class="line"><span class="function"><span class="title">logout</span></span>()&#123;</div><div class="line">  localStorage.React_userid = <span class="string">''</span>;</div><div class="line">  localStorage.userNickName = <span class="string">''</span>;</div><div class="line">  eventProxy.trigger(<span class="string">'hasLogined'</span>, <span class="literal">false</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<ol>
+<li>redux</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">import &#123; createStore &#125; from <span class="string">'redux'</span>;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 这是一个 reducer，形式为 (state, action) =&gt; state 的纯函数。</div><div class="line"> * 描述了 action 如何把 state 转变成下一个 state。</div><div class="line"> *</div><div class="line"> * state 的形式取决于你，可以是基本类型、数组、对象、</div><div class="line"> * 甚至是 Immutable.js 生成的数据结构。惟一的要点是</div><div class="line"> * 当 state 变化时需要返回全新的对象，而不是修改传入的参数。</div><div class="line"> *</div><div class="line"> * 下面例子使用 `switch` 语句和字符串来做判断，但你可以写帮助类(helper)</div><div class="line"> * 根据不同的约定（如方法映射）来判断，只要适用你的项目即可。</div><div class="line"> */</div><div class="line"><span class="keyword">function</span> counter(state = 0, action) &#123;</div><div class="line">  switch (action.type) &#123;</div><div class="line">  <span class="keyword">case</span> <span class="string">'INCREMENT'</span>:</div><div class="line">    <span class="built_in">return</span> state + 1;</div><div class="line">  <span class="keyword">case</span> <span class="string">'DECREMENT'</span>:</div><div class="line">    <span class="built_in">return</span> state - 1;</div><div class="line">  default:</div><div class="line">    <span class="built_in">return</span> state;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 创建 Redux store 来存放应用的状态。</div><div class="line">// API 是 &#123; subscribe, dispatch, getState &#125;。</div><div class="line"><span class="built_in">let</span> store = createStore(counter);</div><div class="line"></div><div class="line">// 可以手动订阅更新，也可以事件绑定到视图层。</div><div class="line">store.subscribe(() =&gt;</div><div class="line">  console.log(store.getState())</div><div class="line">);</div><div class="line"></div><div class="line">// 改变内部 state 惟一方法是 dispatch 一个 action。</div><div class="line">// action 可以被序列化，用日记记录和储存下来，后期还可以以回放的方式执行</div><div class="line">store.dispatch(&#123; <span class="built_in">type</span>: <span class="string">'INCREMENT'</span> &#125;);</div><div class="line">// 1</div><div class="line">store.dispatch(&#123; <span class="built_in">type</span>: <span class="string">'INCREMENT'</span> &#125;);</div><div class="line">// 2</div><div class="line">store.dispatch(&#123; <span class="built_in">type</span>: <span class="string">'DECREMENT'</span> &#125;);</div><div class="line">// 1</div></pre></td></tr></table></figure>
+<p>Provider connect</p>
+<p>Provider 内的组件要必须被 connect 过的</p>
+<p>connect =&gt; mapStateToProps(state,ownProps)/mapDispatchToProps(dispatch,ownProps)</p>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/mvvm/" rel="tag"># mvvm</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/01/react-props/" rel="next" title="react_props">
+                <i class="fa fa-chevron-left"></i> react_props
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/08/xss/" rel="prev" title="xss">
+                xss <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/avatar.jpg"
+              alt="JEFT-hai" />
+          
+            <p class="site-author-name" itemprop="name">JEFT-hai</p>
+            <p class="site-description motion-element" itemprop="description">生当做人雄，死一做鬼杰。</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives">
+            
+                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/JEFT-hai" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="3433891733@qq.com" target="_blank" title="QQ">
+                  
+                    <i class="fa fa-fw fa-qq"></i>QQ</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#mvvm-框架"><span class="nav-number">1.</span> <span class="nav-text">mvvm 框架</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-了解"><span class="nav-number">1.1.</span> <span class="nav-text">1.了解</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#MVC-与-MVVM-区别"><span class="nav-number">1.1.1.</span> <span class="nav-text">MVC 与 MVVM 区别</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-双向绑定的原理"><span class="nav-number">1.2.</span> <span class="nav-text">2.双向绑定的原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-设计模式"><span class="nav-number">1.3.</span> <span class="nav-text">3.设计模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-生命周期"><span class="nav-number">1.4.</span> <span class="nav-text">4.生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Vue"><span class="nav-number">1.4.1.</span> <span class="nav-text">Vue</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#React"><span class="nav-number">1.4.2.</span> <span class="nav-text">React</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-路由"><span class="nav-number">1.5.</span> <span class="nav-text">5. 路由</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#vue-router"><span class="nav-number">1.5.1.</span> <span class="nav-text">vue-router</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#链接-重定向"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">链接(重定向)</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#react-router-dom"><span class="nav-number">1.5.2.</span> <span class="nav-text">react-router-dom</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#链接-重定向-1"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">链接(重定向)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-params"><span class="nav-number">1.6.</span> <span class="nav-text">6. params</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#vue"><span class="nav-number">1.6.1.</span> <span class="nav-text">vue</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#react"><span class="nav-number">1.6.2.</span> <span class="nav-text">react</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-获取DOM"><span class="nav-number">1.7.</span> <span class="nav-text">7. 获取DOM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-数据请求"><span class="nav-number">1.8.</span> <span class="nav-text">8. 数据请求</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#vue-1"><span class="nav-number">1.8.1.</span> <span class="nav-text">vue</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#vue-resource"><span class="nav-number">1.8.1.1.</span> <span class="nav-text">vue-resource</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#axios-gt-vue2-0以后用axios"><span class="nav-number">1.8.1.2.</span> <span class="nav-text">axios => vue2.0以后用axios</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#react-gt-fetch"><span class="nav-number">1.8.2.</span> <span class="nav-text">react => fetch</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-组件间数据传递"><span class="nav-number">1.9.</span> <span class="nav-text">9. 组件间数据传递</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#vue-2"><span class="nav-number">1.9.1.</span> <span class="nav-text">vue</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#父子组件"><span class="nav-number">1.9.1.1.</span> <span class="nav-text">父子组件</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#子组件之间数据传递-eventBus-or-vuex全局"><span class="nav-number">1.9.1.2.</span> <span class="nav-text">子组件之间数据传递  eventBus or vuex全局</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#react-1"><span class="nav-number">1.9.2.</span> <span class="nav-text">react</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#父子组件数据传递"><span class="nav-number">1.9.2.1.</span> <span class="nav-text">父子组件数据传递</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JEFT-hai</span>
+
+  
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i>
+<span id="busuanzi_container_site_uv">
+    访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+<span> &nbsp;| &nbsp;</span>
+<div class="powered-by">
+<i class="fa fa-eye"></i>
+<span id="busuanzi_container_site_pv">
+    访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

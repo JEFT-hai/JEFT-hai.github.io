@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="css," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="JEFT" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon-hai.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="FlexFlex 容器：首先，实现 flex 布局需要先指定一个容器，任何一个容器都可以被置顶为 flex 布局，这样容器内部的元素就可以使用 flex 来进行布局。123.container &amp;#123;    display: flex | inline-flex;       //可以有两种取值&amp;#125; 分别生成一个块状或行内的 flex 容器盒子。简单说来，如果你使用块元素如 div，">
+<meta name="keywords" content="css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="flex">
+<meta property="og:url" content="http://yoursite.com/2017/11/17/flex/index.html">
+<meta property="og:site_name" content="JEFT">
+<meta property="og:description" content="FlexFlex 容器：首先，实现 flex 布局需要先指定一个容器，任何一个容器都可以被置顶为 flex 布局，这样容器内部的元素就可以使用 flex 来进行布局。123.container &amp;#123;    display: flex | inline-flex;       //可以有两种取值&amp;#125; 分别生成一个块状或行内的 flex 容器盒子。简单说来，如果你使用块元素如 div，">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-17T18:13:14.732Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="flex">
+<meta name="twitter:description" content="FlexFlex 容器：首先，实现 flex 布局需要先指定一个容器，任何一个容器都可以被置顶为 flex 布局，这样容器内部的元素就可以使用 flex 来进行布局。123.container &amp;#123;    display: flex | inline-flex;       //可以有两种取值&amp;#125; 分别生成一个块状或行内的 flex 容器盒子。简单说来，如果你使用块元素如 div，">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/11/17/flex/"/>
+
+
+
+
+
+  <title>flex | JEFT</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/JEFT-hai"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">JEFT</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">学习是苦根上长出来的甜果</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-主页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            主页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/17/flex/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JEFT-hai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JEFT">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">flex</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-17T12:31:14+08:00">
+                2017-11-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/css/" itemprop="url" rel="index">
+                    <span itemprop="name">css</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Flex"><a href="#Flex" class="headerlink" title="Flex"></a>Flex</h3><h4 id="Flex-容器："><a href="#Flex-容器：" class="headerlink" title="Flex 容器："></a>Flex 容器：</h4><p>首先，实现 flex 布局需要先指定一个容器，任何一个容器都可以被置顶为 flex 布局，这样容器内部的元素就可以使用 flex 来进行布局。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">    display: flex | inline-flex;       //可以有两种取值</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>分别生成一个块状或行内的 flex 容器盒子。简单说来，如果你使用块元素如 div，你就可以使用 flex，而如果你使用行内元素，你可以使用 inline-flex。</p>
+<p>需要注意的是：当时设置 flex 布局之后，子元素的 float、clear、vertical-align 的属性将会失效。</p>
+<a id="more"></a>
+<p>有下面六种属性可以设置在容器上，它们分别是：</p>
+<h5 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flex-direction: row(默认) | row-reverse | column | column-reverse;</div></pre></td></tr></table></figure>
+<h5 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flex-wrap: nowrap(默认) | wrap | wrap-reverse;;</div></pre></td></tr></table></figure>
+<h5 id="flex-flow"><a href="#flex-flow" class="headerlink" title="flex-flow"></a>flex-flow</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flex-flow: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;</div></pre></td></tr></table></figure>
+<h5 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">justify-content: flex-start | flex-end | center(默认) | space-between | space-around;</div></pre></td></tr></table></figure>
+<h5 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">align-items: flex-start | flex-end | center(默认) | baseline | stretch;</div></pre></td></tr></table></figure>
+<h5 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">align-content: flex-start | flex-end | center(默认) | space-between | space-around | stretch;</div></pre></td></tr></table></figure>
+<h4 id="Flex-项目属性："><a href="#Flex-项目属性：" class="headerlink" title="Flex 项目属性："></a>Flex 项目属性：</h4><p>有六种属性可运用在 item 项目上：</p>
+<h5 id="order"><a href="#order" class="headerlink" title="order"></a>order</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">order: &lt;<span class="built_in">integer</span>&gt;;</div></pre></td></tr></table></figure>
+<h5 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flex-grow: &lt;number&gt;;(默认 0)</div></pre></td></tr></table></figure>
+<h5 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flex-shrink: &lt;number&gt;;(默认 1)</div></pre></td></tr></table></figure>
+<h5 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flex-basis: &lt;length&gt; | auto;(默认 auto)</div></pre></td></tr></table></figure>
+<h5 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flex: none | [ &lt;<span class="string">'flex-grow'</span>&gt; &lt;<span class="string">'flex-shrink'</span>&gt;? || &lt;<span class="string">'flex-basis'</span>&gt; ] (默认 0 1 auto)</div></pre></td></tr></table></figure>
+<pre><code>左边固定右边自适应时： flex：0 0 80px;即不伸缩，固定宽度80px;
+flex:1 =&gt; 1 1 0%; flex:0 =&gt; 0 1 0%; flex: 0% =&gt; 1 1 0%;
+</code></pre><h5 id="align-self"><a href="#align-self" class="headerlink" title="align-self"></a>align-self</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">align-self: auto | flex-start | flex-end | center | baseline | stretch;</div></pre></td></tr></table></figure>
+<h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><h5 id="当-flex-wrap-为-wrap-wrap-reverse，且子项宽度和不及父容器宽度时，flex-grow-会起作用，子项会根据-flex-grow-设定的值放大（为0的项不放大）"><a href="#当-flex-wrap-为-wrap-wrap-reverse，且子项宽度和不及父容器宽度时，flex-grow-会起作用，子项会根据-flex-grow-设定的值放大（为0的项不放大）" class="headerlink" title="当 flex-wrap 为 wrap | wrap-reverse，且子项宽度和不及父容器宽度时，flex-grow 会起作用，子项会根据 flex-grow 设定的值放大（为0的项不放大）"></a>当 flex-wrap 为 wrap | wrap-reverse，且子项宽度和不及父容器宽度时，flex-grow 会起作用，子项会根据 flex-grow 设定的值放大（为0的项不放大）</h5><h5 id="当-flex-wrap-为-wrap-wrap-reverse，且子项宽度和超过父容器宽度时，首先一定会换行，换行后，每一行的右端都可能会有剩余空间（最后一行包含的子项可能比前几行少，所以剩余空间可能会更大），这时-flex-grow-会起作用，若当前行所有子项的-flex-grow-都为0，则剩余空间保留，若当前行存在一个子项的-flex-grow-不为0，则剩余空间会被-flex-grow-不为0的子项占据"><a href="#当-flex-wrap-为-wrap-wrap-reverse，且子项宽度和超过父容器宽度时，首先一定会换行，换行后，每一行的右端都可能会有剩余空间（最后一行包含的子项可能比前几行少，所以剩余空间可能会更大），这时-flex-grow-会起作用，若当前行所有子项的-flex-grow-都为0，则剩余空间保留，若当前行存在一个子项的-flex-grow-不为0，则剩余空间会被-flex-grow-不为0的子项占据" class="headerlink" title="当 flex-wrap 为 wrap | wrap-reverse，且子项宽度和超过父容器宽度时，首先一定会换行，换行后，每一行的右端都可能会有剩余空间（最后一行包含的子项可能比前几行少，所以剩余空间可能会更大），这时 flex-grow 会起作用，若当前行所有子项的 flex-grow 都为0，则剩余空间保留，若当前行存在一个子项的 flex-grow 不为0，则剩余空间会被 flex-grow 不为0的子项占据"></a>当 flex-wrap 为 wrap | wrap-reverse，且子项宽度和超过父容器宽度时，首先一定会换行，换行后，每一行的右端都可能会有剩余空间（最后一行包含的子项可能比前几行少，所以剩余空间可能会更大），这时 flex-grow 会起作用，若当前行所有子项的 flex-grow 都为0，则剩余空间保留，若当前行存在一个子项的 flex-grow 不为0，则剩余空间会被 flex-grow 不为0的子项占据</h5><h5 id="当-flex-wrap-为-nowrap，且子项宽度和不及父容器宽度时，flex-grow-会起作用，子项会根据-flex-grow-设定的值放大（为0的项不放大）"><a href="#当-flex-wrap-为-nowrap，且子项宽度和不及父容器宽度时，flex-grow-会起作用，子项会根据-flex-grow-设定的值放大（为0的项不放大）" class="headerlink" title="当 flex-wrap 为 nowrap，且子项宽度和不及父容器宽度时，flex-grow 会起作用，子项会根据 flex-grow 设定的值放大（为0的项不放大）"></a>当 flex-wrap 为 nowrap，且子项宽度和不及父容器宽度时，flex-grow 会起作用，子项会根据 flex-grow 设定的值放大（为0的项不放大）</h5><h5 id="当-flex-wrap-为-nowrap，且子项宽度和超过父容器宽度时，flex-shrink-会起作用，子项会根据-flex-shrink-设定的值进行缩小（为0的项不缩小）。但这里有一个较为特殊情况，就是当这一行所有子项-flex-shrink-都为0时，也就是说所有的子项都不能缩小，就会出现讨厌的横向滚动条"><a href="#当-flex-wrap-为-nowrap，且子项宽度和超过父容器宽度时，flex-shrink-会起作用，子项会根据-flex-shrink-设定的值进行缩小（为0的项不缩小）。但这里有一个较为特殊情况，就是当这一行所有子项-flex-shrink-都为0时，也就是说所有的子项都不能缩小，就会出现讨厌的横向滚动条" class="headerlink" title="当 flex-wrap 为 nowrap，且子项宽度和超过父容器宽度时，flex-shrink 会起作用，子项会根据 flex-shrink 设定的值进行缩小（为0的项不缩小）。但这里有一个较为特殊情况，就是当这一行所有子项 flex-shrink 都为0时，也就是说所有的子项都不能缩小，就会出现讨厌的横向滚动条"></a>当 flex-wrap 为 nowrap，且子项宽度和超过父容器宽度时，flex-shrink 会起作用，子项会根据 flex-shrink 设定的值进行缩小（为0的项不缩小）。但这里有一个较为特殊情况，就是当这一行所有子项 flex-shrink 都为0时，也就是说所有的子项都不能缩小，就会出现讨厌的横向滚动条</h5><h5 id="总结上面四点，可以看出不管在什么情况下，在同一时间，flex-shrink-和-flex-grow-只有一个能起作用，这其中的道理细想起来也很浅显：空间足够时，flex-grow-就有发挥的余地，而空间不足时，flex-shrink-就能起作用。当然，flex-wrap-的值为-wrap-wrap-reverse-时，表明可以换行，既然可以换行，一般情况下空间就总是足够的，flex-shrink-当然就不会起作用"><a href="#总结上面四点，可以看出不管在什么情况下，在同一时间，flex-shrink-和-flex-grow-只有一个能起作用，这其中的道理细想起来也很浅显：空间足够时，flex-grow-就有发挥的余地，而空间不足时，flex-shrink-就能起作用。当然，flex-wrap-的值为-wrap-wrap-reverse-时，表明可以换行，既然可以换行，一般情况下空间就总是足够的，flex-shrink-当然就不会起作用" class="headerlink" title="总结上面四点，可以看出不管在什么情况下，在同一时间，flex-shrink 和 flex-grow 只有一个能起作用，这其中的道理细想起来也很浅显：空间足够时，flex-grow 就有发挥的余地，而空间不足时，flex-shrink 就能起作用。当然，flex-wrap 的值为 wrap | wrap-reverse 时，表明可以换行，既然可以换行，一般情况下空间就总是足够的，flex-shrink 当然就不会起作用"></a>总结上面四点，可以看出不管在什么情况下，在同一时间，flex-shrink 和 flex-grow 只有一个能起作用，这其中的道理细想起来也很浅显：空间足够时，flex-grow 就有发挥的余地，而空间不足时，flex-shrink 就能起作用。当然，flex-wrap 的值为 wrap | wrap-reverse 时，表明可以换行，既然可以换行，一般情况下空间就总是足够的，flex-shrink 当然就不会起作用</h5>
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/css/" rel="tag"># css</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/16/bfc/" rel="next" title="bfc">
+                <i class="fa fa-chevron-left"></i> bfc
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/17/event/" rel="prev" title="event">
+                event <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/avatar.jpg"
+              alt="JEFT-hai" />
+          
+            <p class="site-author-name" itemprop="name">JEFT-hai</p>
+            <p class="site-description motion-element" itemprop="description">生当做人雄，死一做鬼杰。</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives">
+            
+                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/JEFT-hai" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="3433891733@qq.com" target="_blank" title="QQ">
+                  
+                    <i class="fa fa-fw fa-qq"></i>QQ</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Flex"><span class="nav-number">1.</span> <span class="nav-text">Flex</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Flex-容器："><span class="nav-number">1.1.</span> <span class="nav-text">Flex 容器：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#flex-direction"><span class="nav-number">1.1.1.</span> <span class="nav-text">flex-direction</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#flex-wrap"><span class="nav-number">1.1.2.</span> <span class="nav-text">flex-wrap</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#flex-flow"><span class="nav-number">1.1.3.</span> <span class="nav-text">flex-flow</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#justify-content"><span class="nav-number">1.1.4.</span> <span class="nav-text">justify-content</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#align-items"><span class="nav-number">1.1.5.</span> <span class="nav-text">align-items</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#align-content"><span class="nav-number">1.1.6.</span> <span class="nav-text">align-content</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Flex-项目属性："><span class="nav-number">1.2.</span> <span class="nav-text">Flex 项目属性：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#order"><span class="nav-number">1.2.1.</span> <span class="nav-text">order</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#flex-grow"><span class="nav-number">1.2.2.</span> <span class="nav-text">flex-grow</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#flex-shrink"><span class="nav-number">1.2.3.</span> <span class="nav-text">flex-shrink</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#flex-basis"><span class="nav-number">1.2.4.</span> <span class="nav-text">flex-basis</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#flex"><span class="nav-number">1.2.5.</span> <span class="nav-text">flex</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#align-self"><span class="nav-number">1.2.6.</span> <span class="nav-text">align-self</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#补充"><span class="nav-number">1.3.</span> <span class="nav-text">补充</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#当-flex-wrap-为-wrap-wrap-reverse，且子项宽度和不及父容器宽度时，flex-grow-会起作用，子项会根据-flex-grow-设定的值放大（为0的项不放大）"><span class="nav-number">1.3.1.</span> <span class="nav-text">当 flex-wrap 为 wrap | wrap-reverse，且子项宽度和不及父容器宽度时，flex-grow 会起作用，子项会根据 flex-grow 设定的值放大（为0的项不放大）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#当-flex-wrap-为-wrap-wrap-reverse，且子项宽度和超过父容器宽度时，首先一定会换行，换行后，每一行的右端都可能会有剩余空间（最后一行包含的子项可能比前几行少，所以剩余空间可能会更大），这时-flex-grow-会起作用，若当前行所有子项的-flex-grow-都为0，则剩余空间保留，若当前行存在一个子项的-flex-grow-不为0，则剩余空间会被-flex-grow-不为0的子项占据"><span class="nav-number">1.3.2.</span> <span class="nav-text">当 flex-wrap 为 wrap | wrap-reverse，且子项宽度和超过父容器宽度时，首先一定会换行，换行后，每一行的右端都可能会有剩余空间（最后一行包含的子项可能比前几行少，所以剩余空间可能会更大），这时 flex-grow 会起作用，若当前行所有子项的 flex-grow 都为0，则剩余空间保留，若当前行存在一个子项的 flex-grow 不为0，则剩余空间会被 flex-grow 不为0的子项占据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#当-flex-wrap-为-nowrap，且子项宽度和不及父容器宽度时，flex-grow-会起作用，子项会根据-flex-grow-设定的值放大（为0的项不放大）"><span class="nav-number">1.3.3.</span> <span class="nav-text">当 flex-wrap 为 nowrap，且子项宽度和不及父容器宽度时，flex-grow 会起作用，子项会根据 flex-grow 设定的值放大（为0的项不放大）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#当-flex-wrap-为-nowrap，且子项宽度和超过父容器宽度时，flex-shrink-会起作用，子项会根据-flex-shrink-设定的值进行缩小（为0的项不缩小）。但这里有一个较为特殊情况，就是当这一行所有子项-flex-shrink-都为0时，也就是说所有的子项都不能缩小，就会出现讨厌的横向滚动条"><span class="nav-number">1.3.4.</span> <span class="nav-text">当 flex-wrap 为 nowrap，且子项宽度和超过父容器宽度时，flex-shrink 会起作用，子项会根据 flex-shrink 设定的值进行缩小（为0的项不缩小）。但这里有一个较为特殊情况，就是当这一行所有子项 flex-shrink 都为0时，也就是说所有的子项都不能缩小，就会出现讨厌的横向滚动条</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#总结上面四点，可以看出不管在什么情况下，在同一时间，flex-shrink-和-flex-grow-只有一个能起作用，这其中的道理细想起来也很浅显：空间足够时，flex-grow-就有发挥的余地，而空间不足时，flex-shrink-就能起作用。当然，flex-wrap-的值为-wrap-wrap-reverse-时，表明可以换行，既然可以换行，一般情况下空间就总是足够的，flex-shrink-当然就不会起作用"><span class="nav-number">1.3.5.</span> <span class="nav-text">总结上面四点，可以看出不管在什么情况下，在同一时间，flex-shrink 和 flex-grow 只有一个能起作用，这其中的道理细想起来也很浅显：空间足够时，flex-grow 就有发挥的余地，而空间不足时，flex-shrink 就能起作用。当然，flex-wrap 的值为 wrap | wrap-reverse 时，表明可以换行，既然可以换行，一般情况下空间就总是足够的，flex-shrink 当然就不会起作用</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JEFT-hai</span>
+
+  
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i>
+<span id="busuanzi_container_site_uv">
+    访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+<span> &nbsp;| &nbsp;</span>
+<div class="powered-by">
+<i class="fa fa-eye"></i>
+<span id="busuanzi_container_site_pv">
+    访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
